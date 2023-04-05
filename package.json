@@ -96,7 +96,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "jest-preset-angular": "~13.0.1",
     "ng-mocks": "^14.8.0",
-    "ng-packagr": "15.2.2",
+    "ng-packagr": "~15.2.2",
     "nx": "15.9.2",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",

@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@fafni/components": ["libs/components/src/index.ts"],
+      "@fafni/core": ["libs/core/src/index.ts"],
+      "@fafni/testing": ["libs/testing/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
