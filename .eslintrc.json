@@ -66,7 +66,7 @@
         "simple-import-sort/imports": [
           "error",
           {
-            "groups": [["^\\u0000"], ["^@?(?!loaney)\\w"], ["^@loaney?\\w"], ["^\\w"], ["^[^.]"], ["^\\."]]
+            "groups": [["^\\u0000"], ["^@?(?!fafni)\\w"], ["^@fafni?\\w"], ["^\\w"], ["^[^.]"], ["^\\."]]
           }
         ],
         "sort-imports": "off",
