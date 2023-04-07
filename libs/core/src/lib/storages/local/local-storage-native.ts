@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import { MemoryStorage } from '../memory/memory.storage';
-import { getStorage, SyncStorage } from '../storage';
+import { getStorage, StorageNative } from '../storage';
 
 /**
- * LocalSyncStorage is proxy service for localStorage
+ * LocalStorageSync is proxy service for localStorage
  * @publicApi
  *
  * ### Example
@@ -13,11 +13,11 @@ import { getStorage, SyncStorage } from '../storage';
  * ```
  * import { Component } from '@angular/core';
  *
- * import { LocalSyncStorage } from '@fafn/core';
+ * import { LocalStorageSync } from '@fafn/core';
  *
  * @Component({})
  * export class YourComponent {
- *   constructor(private readonly localSyncStorage: LocalSyncStorage) {
+ *   constructor(private readonly localSyncStorage: LocalStorageSync) {
  *     const name = this.localSyncStorage.getItem('name');
  *   }
  * }
@@ -26,7 +26,7 @@ import { getStorage, SyncStorage } from '../storage';
 @Injectable({
   providedIn: 'root',
 })
-export class LocalSyncStorage extends SyncStorage {
+export class LocalStorageNative extends StorageNative {
   constructor() {
     super(getStorage('localStorage') ?? new MemoryStorage());
   }

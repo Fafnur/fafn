@@ -1,17 +1,17 @@
-import { LocalSyncStorage } from './local-sync.storage';
+import { LocalStorageNative } from './local-storage-native';
 
 jest.mock('../storage', () => ({
   ...jest.requireActual('../storage'),
   getStorage: jest.fn().mockReturnValue(null),
 }));
 
-describe('LocalSyncStorage', () => {
-  let service: LocalSyncStorage;
+describe('LocalStorageNative', () => {
+  let service: LocalStorageNative;
   const key = 'ver1';
   const value = 'New Value';
 
   beforeEach(() => {
-    service = new LocalSyncStorage();
+    service = new LocalStorageNative();
   });
 
   it('should create', () => {

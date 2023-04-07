@@ -1,17 +1,17 @@
-import { SessionSyncStorage } from './session-sync.storage';
+import { SessionStorageNative } from './session-storage-native';
 
 jest.mock('../storage', () => ({
   ...jest.requireActual('../storage'),
   getStorage: jest.fn().mockReturnValue(null),
 }));
 
-describe('SessionSyncStorage', () => {
-  let service: SessionSyncStorage;
+describe('SessionStorageNative', () => {
+  let service: SessionStorageNative;
   const key = 'ver1';
   const value = 'New Value';
 
   beforeEach(() => {
-    service = new SessionSyncStorage();
+    service = new SessionStorageNative();
   });
 
   it('should create', () => {

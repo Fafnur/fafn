@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 
 import { MemoryStorage } from '../memory/memory.storage';
-import { getStorage, SyncStorage } from '../storage';
+import { getStorage, StorageNative } from '../storage';
 
 /**
- * SessionSyncStorage is proxy service for sessionStorage
+ * SessionStorageNative is proxy service for sessionStorage
  * @publicApi
  *
- * @usageNotes
  * ### Example
  * Simple use:
  *
  * ```
  * import { Component } from '@angular/core';
  *
- * import { SessionSyncStorage } from '@fafn/core';
+ * import { LocalStorageSync } from '@fafn/core';
  *
  * @Component({})
  * export class YourComponent {
- *   constructor(private readonly sessionSyncStorage: SessionSyncStorage) {
- *     const name = this.sessionSyncStorage.getItem('name');
+ *   constructor(private readonly sessionStorageNative: SessionStorageNative) {
+ *     const name = this.sessionStorageNative.getItem('name');
  *   }
  * }
  * ```
@@ -27,7 +26,7 @@ import { getStorage, SyncStorage } from '../storage';
 @Injectable({
   providedIn: 'root',
 })
-export class SessionSyncStorage extends SyncStorage {
+export class SessionStorageNative extends StorageNative {
   constructor() {
     super(getStorage('sessionStorage') ?? new MemoryStorage());
   }
