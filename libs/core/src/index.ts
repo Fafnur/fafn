@@ -3,6 +3,7 @@ export * from './lib/api/api.util';
 export * from './lib/environments/environment.service';
 export * from './lib/hammer/hammer.config';
 export * from './lib/hammer/hammer.module';
+export * from './lib/localdb/localdb.service';
 export * from './lib/meta/meta';
 export * from './lib/meta/meta.service';
 export * from './lib/metrics/google-analytics.service';
