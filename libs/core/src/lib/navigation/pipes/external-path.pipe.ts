@@ -4,6 +4,7 @@ import { ApiService } from '../../api/api.service';
 import { NavigationService } from '../navigation.service';
 
 @Pipe({
+  standalone: true,
   name: 'externalPath',
 })
 export class ExternalPathPipe implements PipeTransform {
