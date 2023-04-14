@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+
+import { ContainerComponent, GRID } from '@fafn/components';
 
 @Component({
-  standalone: true,
-  imports: [RouterModule],
   selector: 'fafn-root',
-  template: '<router-outlet></router-outlet>',
+  template: `<router-outlet></router-outlet>`,
+  standalone: true,
+  imports: [RouterOutlet, ContainerComponent, GRID],
 })
 export class AppComponent {}

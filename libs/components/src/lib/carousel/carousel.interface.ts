@@ -1,8 +1,7 @@
 export interface CarouselSlide {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
+  [key: string]: unknown;
 
   uuid: string | number;
-  image: string | null;
+  image?: string;
   title: string;
 }

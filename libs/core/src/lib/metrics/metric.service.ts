@@ -35,6 +35,13 @@ export interface MetricNavigation {
   readonly ga: GoogleAnalyticsNavigation;
 }
 
+function isMetricOptions(options?: Record<string, unknown> | Partial<MetricOptions>): options is Partial<MetricOptions> {
+  return (options as Partial<MetricOptions>).ym !== undefined || (options as Partial<MetricOptions>).ga !== undefined;
+}
+function isMetricNavigation(options?: Record<string, unknown> | Partial<MetricNavigation>): options is Partial<MetricNavigation> {
+  return (options as Partial<MetricNavigation>).ym !== undefined || (options as Partial<MetricNavigation>).ga !== undefined;
+}
+
 /**
  * Service for send all metrics.
  * @publicApi
@@ -69,9 +76,9 @@ export class MetricService {
    * @param url A new url
    * @param options Additional options
    */
-  navigation(url: string, options?: Partial<MetricNavigation>): void {
-    this.ym.hit(url, options?.ym);
-    this.ga.sendNavigation(url, options?.ga);
+  navigation(url: string, options?: Record<string, unknown> | Partial<MetricNavigation>): void {
+    this.ym.hit(url, isMetricNavigation(options) ? options.ym : options);
+    this.ga.sendNavigation(url, isMetricNavigation(options) ? options.ga : options);
   }
 
   /**
@@ -80,8 +87,8 @@ export class MetricService {
    * @param action Action name
    * @param options Action options
    */
-  send(action: string, options?: Partial<MetricOptions>): void {
-    this.ym.reachGoal(action, options?.ym);
-    this.ga.sendEvent(action, options?.ga);
+  send(action: string, options?: Record<string, unknown> | Partial<MetricOptions>): void {
+    this.ym.reachGoal(action, isMetricOptions(options) ? options.ym : options);
+    this.ga.sendEvent(action, isMetricOptions(options) ? options.ga : options);
   }
 }

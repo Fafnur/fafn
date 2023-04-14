@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HammerGestureConfig } from '@angular/platform-browser';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 
 /**
  * Hammer config for application
@@ -13,3 +13,8 @@ export class HammerConfig extends HammerGestureConfig {
     rotate: { enable: false },
   };
 }
+
+export const HAMMER_GESTURE_CONFIG_PROVIDER = {
+  provide: HAMMER_GESTURE_CONFIG,
+  useClass: HammerConfig,
+};

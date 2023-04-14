@@ -49,7 +49,7 @@ export interface LocalDBConfig {
  * @publicApi
  */
 export const LOCAL_DB_CONFIG_DEFAULT: LocalDBConfig = {
-  dbname: 'loaney',
+  dbname: 'fafn',
   version: 1,
   keyPath: 'id',
   onupgradeneeded: null,
@@ -69,7 +69,7 @@ export const LOCAL_DB_CONFIG = new InjectionToken<Partial<LocalDBConfig>>('LOCAL
 @Injectable({
   providedIn: 'root',
 })
-export class LocalDBService implements OnDestroy {
+export class LocalDBService<K extends keyof S = any, S extends Record<string, string> = Record<string, string>> implements OnDestroy {
   /**
    * Config for LocalDB
    * @private
@@ -133,7 +133,7 @@ export class LocalDBService implements OnDestroy {
    *
    * @param storeName Store name
    */
-  getAll<T = LocalDBRecord>(storeName: string): Observable<T[]> {
+  getAll<T = LocalDBRecord>(storeName: K): Observable<T[]> {
     return new Observable((observer) => {
       const onError = (error: unknown) => {
         console.error(error, { storeName, operation: 'getAll' });
@@ -141,8 +141,8 @@ export class LocalDBService implements OnDestroy {
       };
       this.getDatabase().subscribe((database) => {
         try {
-          const transaction = database.transaction([storeName], 'readonly');
-          const store = transaction.objectStore(storeName);
+          const transaction = database.transaction([storeName.toString()], 'readonly');
+          const store = transaction.objectStore(storeName.toString());
           const getRequest: IDBRequest<T[]> = store.getAll();
 
           getRequest.onerror = () => onError(getRequest.error);
@@ -150,8 +150,8 @@ export class LocalDBService implements OnDestroy {
             observer.next(getRequest.result ?? []);
             observer.complete();
           };
-        } catch (err) {
-          onError(err);
+        } catch (error) {
+          onError(error);
         }
       });
     });
@@ -163,7 +163,7 @@ export class LocalDBService implements OnDestroy {
    * @param storeName Store name
    * @param key Record id
    */
-  get<T = LocalDBRecord>(storeName: string, key: string | number): Observable<T | null> {
+  get<T = LocalDBRecord>(storeName: K, key: string | number): Observable<T | null> {
     return new Observable((observer) => {
       const onError = (error: unknown) => {
         console.error(error, { storeName, operation: 'get' });
@@ -171,8 +171,8 @@ export class LocalDBService implements OnDestroy {
       };
       this.getDatabase().subscribe((database) => {
         try {
-          const transaction = database.transaction([storeName], 'readonly');
-          const store = transaction.objectStore(storeName);
+          const transaction = database.transaction([storeName.toString()], 'readonly');
+          const store = transaction.objectStore(storeName.toString());
           const getRequest: IDBRequest<T> = store.get(key);
 
           getRequest.onerror = () => onError(getRequest.error);
@@ -180,8 +180,8 @@ export class LocalDBService implements OnDestroy {
             observer.next(getRequest.result ?? null);
             observer.complete();
           };
-        } catch (err) {
-          onError(err);
+        } catch (error) {
+          onError(error);
         }
       });
     });
@@ -193,24 +193,23 @@ export class LocalDBService implements OnDestroy {
    * @param storeName Store name
    * @param record Record
    */
-  put<T = LocalDBRecord>(storeName: string, record: T): Observable<void> {
-    return new Observable((observer) => {
+  put<T = LocalDBRecord>(storeName: K, record: T): Promise<void> {
+    return new Promise((resolve, reject) => {
       const onError = (error: unknown) => {
         console.error(error, { storeName, operation: 'put' });
-        observer.complete();
+        reject(error);
       };
       this.getDatabase().subscribe((database) => {
         try {
-          const transaction = database.transaction([storeName], 'readwrite');
-          const store = transaction.objectStore(storeName);
+          const transaction = database.transaction([storeName.toString()], 'readwrite');
+          const store = transaction.objectStore(storeName.toString());
           const putRequest = store.put(record);
           putRequest.onerror = () => onError(putRequest.error);
           putRequest.onsuccess = () => {
-            observer.next();
-            observer.complete();
+            resolve();
           };
-        } catch (err) {
-          onError(err);
+        } catch (error) {
+          onError(error);
         }
       });
     });
@@ -222,27 +221,26 @@ export class LocalDBService implements OnDestroy {
    * @param storeName Store name
    * @param records Records
    */
-  putAll<T = LocalDBRecord>(storeName: string, records: T[]): Observable<void> {
-    return new Observable((observer) => {
+  putAll<T = LocalDBRecord>(storeName: K, records: T[]): Promise<void> {
+    return new Promise((resolve, reject) => {
       const onError = (error: unknown) => {
         console.error(error, { storeName, operation: 'putAll' });
-        observer.complete();
+        reject(error);
       };
       this.getDatabase().subscribe((database) => {
         try {
-          const transaction = database.transaction([storeName], 'readwrite');
-          const store = transaction.objectStore(storeName);
+          const transaction = database.transaction([storeName.toString()], 'readwrite');
+          const store = transaction.objectStore(storeName.toString());
           for (const record of records) {
             store.put(record);
           }
 
           transaction.onerror = (error) => onError(error);
           transaction.oncomplete = () => {
-            observer.next();
-            observer.complete();
+            resolve();
           };
-        } catch (err) {
-          onError(err);
+        } catch (error) {
+          onError(error);
         }
       });
     });
@@ -254,24 +252,23 @@ export class LocalDBService implements OnDestroy {
    * @param storeName Store name
    * @param key Record id
    */
-  remove(storeName: string, key: string | number): Observable<void> {
-    return new Observable((observer) => {
+  remove(storeName: K, key: string | number): Promise<void> {
+    return new Promise((resolve, reject) => {
       const onError = (error: unknown) => {
         console.error(error, { storeName, operation: 'remove' });
-        observer.complete();
+        reject(error);
       };
       this.getDatabase().subscribe((database) => {
         try {
-          const transaction = database.transaction([storeName], 'readwrite');
-          const store = transaction.objectStore(storeName);
+          const transaction = database.transaction([storeName.toString()], 'readwrite');
+          const store = transaction.objectStore(storeName.toString());
           const putRequest = store.delete(key);
           putRequest.onerror = () => onError(putRequest.error);
           putRequest.onsuccess = () => {
-            observer.next();
-            observer.complete();
+            resolve();
           };
-        } catch (err) {
-          onError(err);
+        } catch (error) {
+          onError(error);
         }
       });
     });
@@ -281,16 +278,22 @@ export class LocalDBService implements OnDestroy {
    * Remove all records from store
    * @param storeName Store name
    */
-  clear(storeName: string): Observable<void> {
-    return new Observable((observer) => {
+  clear(storeName: K): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const onError = (error: unknown) => {
+        console.error(error, { storeName, operation: 'remove' });
+        reject(error);
+      };
       this.getDatabase().subscribe((database) => {
         try {
-          database.transaction([storeName], 'readwrite').objectStore(storeName).clear();
+          const clearRequest = database.transaction([storeName.toString()], 'readwrite').objectStore(storeName.toString()).clear();
+          clearRequest.onerror = () => onError(clearRequest.error);
+          clearRequest.onsuccess = () => {
+            resolve();
+          };
         } catch (error) {
-          console.error(error, { storeName, operation: 'clear' });
+          onError(error);
         }
-        observer.next();
-        observer.complete();
       });
     });
   }

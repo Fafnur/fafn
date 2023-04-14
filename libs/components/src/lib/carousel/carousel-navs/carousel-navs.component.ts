@@ -5,6 +5,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
   templateUrl: './carousel-navs.component.html',
   styleUrls: ['./carousel-navs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class CarouselNavsComponent {
   @Output() prev = new EventEmitter<void>();

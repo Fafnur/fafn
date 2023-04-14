@@ -1,3 +1,4 @@
+import { NgStyle } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { CarouselSlide } from '../carousel.interface';
@@ -7,6 +8,8 @@ import { CarouselSlide } from '../carousel.interface';
   templateUrl: './carousel-slide.component.html',
   styleUrls: ['./carousel-slide.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgStyle],
 })
 export class CarouselSlideComponent {
   @Input() slide!: CarouselSlide;
@@ -17,7 +20,11 @@ export class CarouselSlideComponent {
     this.clicked.emit(this.slide);
   }
 
-  get ngStyle(): { backgroundImage: string } | null {
-    return this.slide.image?.length ? { backgroundImage: `url(${this.slide.image})` } : null;
+  get ngStyle(): { backgroundImage: string } | undefined {
+    if (!this.slide.image?.length) {
+      return;
+    }
+
+    return { backgroundImage: `url(${this.slide.image})` };
   }
 }

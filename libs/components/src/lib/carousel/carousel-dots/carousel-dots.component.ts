@@ -1,3 +1,4 @@
+import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -5,6 +6,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
   templateUrl: './carousel-dots.component.html',
   styleUrls: ['./carousel-dots.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgForOf],
 })
 export class CarouselDotsComponent implements OnInit {
   @Input() counts!: number;
