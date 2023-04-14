@@ -2,7 +2,11 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
-import { GridMode } from './grid.util';
+export enum GridMode {
+  Handset = 'handset',
+  Tablet = 'tablet',
+  Web = 'web',
+}
 
 export const LAYOUT_SHORT_TYPES_MAP = {
   [Breakpoints.Handset]: Breakpoints.Handset,

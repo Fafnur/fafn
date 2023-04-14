@@ -2,16 +2,13 @@ import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[web]',
+  selector: 'fafn-column[web],fafn-row[web]',
+  standalone: true,
 })
 export class WebDirective {
-  private size!: string | number | undefined;
-
-  @Input() set web(size: string | number | undefined) {
-    this.size = size;
-  }
+  @Input() web?: string | number | undefined;
 
   @HostBinding('class.web') get isWeb(): boolean {
-    return typeof this.size === 'number' || typeof this.size === 'string';
+    return typeof this.web === 'number' || typeof this.web === 'string';
   }
 }

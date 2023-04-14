@@ -2,16 +2,13 @@ import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[tablet]',
+  selector: 'fafn-column[tablet],fafn-row[tablet]',
+  standalone: true,
 })
 export class TabletDirective {
-  private size!: string | number | undefined;
-
-  @Input() set tablet(size: string | number | undefined) {
-    this.size = size;
-  }
+  @Input() tablet?: string | number | undefined;
 
   @HostBinding('class.tablet') get isTablet(): boolean {
-    return typeof this.size === 'number' || typeof this.size === 'string';
+    return typeof this.tablet === 'number' || typeof this.tablet === 'string';
   }
 }
