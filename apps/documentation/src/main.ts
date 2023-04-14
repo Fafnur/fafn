@@ -1,5 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/router';
+
 import { LOCAL_DB_CONFIG, LocalDBConfig } from '@fafn/core';
 
 import { AppComponent } from './app/app.component';

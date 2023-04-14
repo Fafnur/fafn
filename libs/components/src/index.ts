@@ -12,4 +12,3 @@ export * from './lib/grid/directives/web/web.directive';
 export * from './lib/grid/grid';
 export * from './lib/grid/grid.service';
 export * from './lib/layout/layout.component';
-export * from './lib/layout/layout.module';

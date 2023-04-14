@@ -1,3 +1,11 @@
 import { Route } from '@angular/router';
 
-export const appRoutes: Route[] = [];
+import { LayoutComponent } from '@fafn/components';
+
+export const appRoutes: Route[] = [
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [],
+  },
+];
