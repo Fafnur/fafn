@@ -1,24 +1,32 @@
+import { NgForOf, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { CarouselSlide } from './carousel.interface';
+import { CarouselDotsComponent } from './carousel-dots/carousel-dots.component';
+import { CarouselNavsComponent } from './carousel-navs/carousel-navs.component';
+import { CarouselSlideComponent } from './carousel-slide/carousel-slide.component';
 
 @Component({
   selector: 'fafn-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CarouselSlideComponent, CarouselDotsComponent, CarouselNavsComponent, NgIf, NgForOf],
 })
 export class CarouselComponent {
   @Input() set data(slides: CarouselSlide[] | null) {
-    this.slides = slides ?? [];
-    this.active = 0;
+    if (slides) {
+      this.slides = slides;
+      this.active = 0;
+    }
   }
 
   @Output() selected = new EventEmitter<number>();
   @Output() clicked = new EventEmitter<CarouselSlide>();
 
   active = 0;
-  slides!: CarouselSlide[];
+  slides: CarouselSlide[] = [];
 
   onClicked(slide: CarouselSlide): void {
     this.clicked.emit(slide);
