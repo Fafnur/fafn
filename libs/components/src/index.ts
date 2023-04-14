@@ -4,7 +4,6 @@ export * from './lib/carousel/carousel-dots/carousel-dots.component';
 export * from './lib/carousel/carousel-navs/carousel-navs.component';
 export * from './lib/carousel/carousel-slide/carousel-slide.component';
 export * from './lib/container/container.component';
-export * from './lib/container/container.module';
 export * from './lib/grid/components/column/column.component';
 export * from './lib/grid/components/column/column.module';
 export * from './lib/grid/components/row/row.component';
