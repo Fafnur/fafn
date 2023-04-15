@@ -1,4 +1,4 @@
-import { writeFileSync, readFileSync } from 'fs';
+import { writeFileSync, readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 import { output } from '@nrwl/workspace';
 import { execSync } from 'child_process';
@@ -92,9 +92,11 @@ function publishNpm(libs: string[]): void {
   }
 }
 
-function release(libs: string[]): void {
+function release(): void {
   try {
     output.log({ title: 'Starting a new release.' });
+
+    const libs = readdirSync('./libs');
 
     const version = getVersion();
     updateVersion(version, libs);
@@ -112,4 +114,4 @@ function release(libs: string[]): void {
   }
 }
 
-release(['core', 'components', 'testing']);
+release();
