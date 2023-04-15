@@ -3,8 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { NavigationService } from '../navigation.service';
 
 @Pipe({
-  standalone: true,
   name: 'path',
+  standalone: true,
 })
 export class PathPipe implements PipeTransform {
   constructor(private readonly navigationService: NavigationService) {}

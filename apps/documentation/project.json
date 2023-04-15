@@ -15,12 +15,10 @@
         "main": "apps/documentation/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/documentation/tsconfig.app.json",
-        "assets": [
-          "apps/documentation/src/favicon.ico",
-          "apps/documentation/src/assets"
-        ],
+        "assets": ["apps/documentation/src/favicon.ico", "apps/documentation/src/assets"],
         "styles": ["apps/documentation/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "allowedCommonJsDependencies": ["realistic-structured-clone"]
       },
       "configurations": {
         "production": {
@@ -71,10 +69,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/documentation/**/*.ts",
-          "apps/documentation/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/documentation/**/*.ts", "apps/documentation/**/*.html"]
       }
     },
     "test": {

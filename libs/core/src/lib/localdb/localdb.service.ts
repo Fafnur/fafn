@@ -69,7 +69,7 @@ export const LOCAL_DB_CONFIG = new InjectionToken<Partial<LocalDBConfig>>('LOCAL
 @Injectable({
   providedIn: 'root',
 })
-export class LocalDBService<K extends keyof S = any, S extends Record<string, string> = Record<string, string>> implements OnDestroy {
+export class LocalDBService<K extends keyof S = never, S extends Record<string, string> = Record<string, string>> implements OnDestroy {
   /**
    * Config for LocalDB
    * @private

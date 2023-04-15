@@ -43,7 +43,7 @@ export class EnvironmentService<T extends Record<string, unknown> = Record<strin
 
   constructor(@Optional() @Inject(ENVIRONMENTS) environments: T | null) {
     if (environments === null) {
-      console.warn('ENVIRONMENTS not provided. Provide ENVIRONMENTS in your AppModule.');
+      console.warn('ENVIRONMENTS not provided. Provide ENVIRONMENTS in your app.');
       this.environments = {} as T;
     } else {
       this.environments = environments;
