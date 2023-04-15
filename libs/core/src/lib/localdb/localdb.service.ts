@@ -74,16 +74,16 @@ export class LocalDBService<K extends keyof S = never, S extends Record<string, 
    * Config for LocalDB
    * @private
    */
-  private readonly config: LocalDBConfig;
+  protected readonly config: LocalDBConfig;
 
   /**
    * Subject with instance IDBDatabase
    * @private
    */
-  private readonly database$ = new ReplaySubject<IDBDatabase>(1);
+  protected readonly database$ = new ReplaySubject<IDBDatabase>(1);
 
   constructor(
-    @Inject(DOCUMENT) private readonly document: Document,
+    @Inject(DOCUMENT) protected readonly document: Document,
     @Optional() @Inject(LOCAL_DB_CONFIG) config: Partial<LocalDBConfig> | null
   ) {
     if (config === null) {
@@ -193,7 +193,7 @@ export class LocalDBService<K extends keyof S = never, S extends Record<string, 
    * @param storeName Store name
    * @param record Record
    */
-  put<T = LocalDBRecord>(storeName: K, record: T): Promise<void> {
+  put<T extends LocalDBRecord = LocalDBRecord>(storeName: K, record: T): Promise<void> {
     return new Promise((resolve, reject) => {
       const onError = (error: unknown) => {
         console.error(error, { storeName, operation: 'put' });
@@ -221,7 +221,7 @@ export class LocalDBService<K extends keyof S = never, S extends Record<string, 
    * @param storeName Store name
    * @param records Records
    */
-  putAll<T = LocalDBRecord>(storeName: K, records: T[]): Promise<void> {
+  putAll<T extends LocalDBRecord = LocalDBRecord>(storeName: K, records: T[]): Promise<void> {
     return new Promise((resolve, reject) => {
       const onError = (error: unknown) => {
         console.error(error, { storeName, operation: 'putAll' });

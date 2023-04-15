@@ -1,1 +1,1 @@
-export * from './lib/nativescript.module';
+export * from './lib/localdb/localdb.service';
