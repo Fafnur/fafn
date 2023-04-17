@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { ContainerComponent, GRID } from '@fafn/components';
+import { ContainerComponent } from '@fafn/components/container';
+import { GRID } from '@fafn/components/grid';
 
 @Component({
   selector: 'fafn-root',

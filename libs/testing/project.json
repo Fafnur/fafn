@@ -2,7 +2,7 @@
   "name": "testing",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/testing/src",
-  "prefix": "fafni",
+  "prefix": "fafn",
   "tags": [],
   "projectType": "library",
   "targets": {

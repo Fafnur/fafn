@@ -16,6 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@fafn/components": ["libs/components/src/index.ts"],
+      "@fafn/components/buttons": ["libs/components/buttons/src/index.ts"],
+      "@fafn/components/carousel": ["libs/components/carousel/src/index.ts"],
+      "@fafn/components/container": ["libs/components/container/src/index.ts"],
+      "@fafn/components/grid": ["libs/components/grid/src/index.ts"],
+      "@fafn/components/layout": ["libs/components/layout/src/index.ts"],
       "@fafn/core": ["libs/core/src/index.ts"],
       "@fafn/nativescript": ["libs/nativescript/src/index.ts"],
       "@fafn/testing": ["libs/testing/src/index.ts"]
