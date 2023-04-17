@@ -1,2 +1,4 @@
 // Need for build
-export {};
+export * from './lib/common-behaviors/constructor';
+export * from './lib/common-behaviors/disabled';
+export * from './lib/common-behaviors/color';
