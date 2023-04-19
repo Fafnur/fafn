@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'fafn-row',
@@ -7,10 +7,4 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class RowComponent {
-  @Input() noPadding = false;
-
-  @HostBinding('class.no-padding') get isNoPadding(): boolean {
-    return this.noPadding;
-  }
-}
+export class RowComponent {}
