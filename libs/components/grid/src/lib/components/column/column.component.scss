@@ -4,14 +4,14 @@
 @mixin make-columns($mode) {
   &[#{$mode}] {
     flex: 1 0 0;
-    padding: 0 1rem;
+    padding: 0 var(--fafn-gutter, 1rem);
   }
 
   &[#{$mode}]:not([#{$mode}='']) {
     flex: 0 0 auto;
   }
 
-  :host-context(bunch-row.no-padding) &[#{$mode}] {
+  :host-context(fafn-row[no-gutter]) &[#{$mode}] {
     padding: 0;
   }
 

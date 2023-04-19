@@ -1,4 +1,4 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -7,8 +7,4 @@ import { Directive, HostBinding, Input } from '@angular/core';
 })
 export class WebDirective {
   @Input() web?: string | number | undefined;
-
-  @HostBinding('class.web') get isWeb(): boolean {
-    return typeof this.web === 'number' || typeof this.web === 'string';
-  }
 }

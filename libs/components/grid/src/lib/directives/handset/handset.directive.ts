@@ -1,4 +1,4 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -7,8 +7,4 @@ import { Directive, HostBinding, Input } from '@angular/core';
 })
 export class HandsetDirective {
   @Input() handset?: string | number | undefined;
-
-  @HostBinding('class.handset') get isHandset(): boolean {
-    return typeof this.handset === 'number' || typeof this.handset === 'string';
-  }
 }
