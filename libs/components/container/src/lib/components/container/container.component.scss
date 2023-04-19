@@ -1,31 +1,21 @@
-@use '../../../src/styles/mixins' as mixins;
+@use '../../../../../src/styles/mixins' as mixins;
 
 :host {
-  display: block;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--fafn-gutter, 1rem);
+  padding-right: var(--fafn-gutter, 1rem);
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
 
-  &.is-flex {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-
-  &.is-fluid {
+  &[fluid] {
     max-width: 100%;
-  }
-
-  &.is-max-height {
-    height: 100%;
   }
 
   @include mixins.media-tablet-portrait() {
     max-width: 540px;
 
-    &.is-fluid {
+    &[fluid] {
       max-width: 100%;
     }
   }
@@ -33,7 +23,7 @@
   @include mixins.media-tablet-landscape() {
     max-width: 900px;
 
-    &.is-fluid {
+    &[fluid] {
       max-width: 100%;
     }
   }
@@ -41,7 +31,7 @@
   @include mixins.media-web-portrait() {
     max-width: 790px;
 
-    &.is-fluid {
+    &[fluid] {
       max-width: 100%;
     }
   }
@@ -49,7 +39,7 @@
   @include mixins.media-web-landscape() {
     max-width: 1200px;
 
-    &.is-fluid {
+    &[fluid] {
       max-width: 100%;
     }
   }
