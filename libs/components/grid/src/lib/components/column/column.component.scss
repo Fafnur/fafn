@@ -19,6 +19,10 @@
     &[#{$mode}='#{$column}'] {
       width: math.percentage(math.div($column, 12));
     }
+
+    &[#{$mode}-offset='#{$column}'] {
+      margin-left: math.percentage(math.div($column, 12));
+    }
   }
 }
 
