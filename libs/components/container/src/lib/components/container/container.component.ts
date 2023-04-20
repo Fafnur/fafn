@@ -1,20 +1,10 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'fafn-container',
-  templateUrl: './container.component.html',
+  template: '<ng-content></ng-content>',
   styleUrls: ['./container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class ContainerComponent {
-  @Input() mode?: 'flex' | 'fluid';
-
-  @HostBinding('class.is-flex') get isFlex(): boolean {
-    return this.mode === 'flex';
-  }
-
-  @HostBinding('class.is-fluid') get isFluid(): boolean {
-    return this.mode === 'fluid';
-  }
-}
+export class ContainerComponent {}

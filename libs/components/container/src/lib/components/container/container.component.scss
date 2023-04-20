@@ -3,8 +3,8 @@
 :host {
   display: flex;
   flex-direction: column;
-  padding-left: var(--fafn-gutter, 1rem);
-  padding-right: var(--fafn-gutter, 1rem);
+  padding-left: 1rem;
+  padding-right: 1rem;
   margin-left: auto;
   margin-right: auto;
 
@@ -12,35 +12,34 @@
     max-width: 100%;
   }
 
-  @include mixins.media-tablet-portrait() {
-    max-width: 540px;
+  @include mixins.media-handset() {
+    &[mobile-no-gutter] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 
-    &[fluid] {
-      max-width: 100%;
+  @include mixins.media-tablet-portrait() {
+    &:not([fluid]) {
+      max-width: 788px;
     }
   }
 
   @include mixins.media-tablet-landscape() {
-    max-width: 900px;
-
-    &[fluid] {
-      max-width: 100%;
+    &:not([fluid]) {
+      max-width: 928px;
     }
   }
 
   @include mixins.media-web-portrait() {
-    max-width: 790px;
-
-    &[fluid] {
-      max-width: 100%;
+    &:not([fluid]) {
+      max-width: 808px;
     }
   }
 
   @include mixins.media-web-landscape() {
-    max-width: 1200px;
-
-    &[fluid] {
-      max-width: 100%;
+    &:not([fluid]) {
+      max-width: 1200px;
     }
   }
 }
