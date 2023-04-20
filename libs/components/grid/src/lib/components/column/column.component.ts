@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'fafn-column',
@@ -7,4 +7,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class ColumnComponent {}
+export class ColumnComponent {
+  @Input() handset?: string | number;
+  @Input() tablet?: string | number;
+  @Input() web?: string | number;
+
+  /* eslint-disable @angular-eslint/no-input-rename */
+  @Input('handset-offset') handsetOffset?: string | number;
+  @Input('tablet-offset') tabletOffset?: string | number;
+  @Input('web-offset') webOffset?: string | number;
+  @Input('no-gutter') noGutter?: never;
+  /* eslint-enable @angular-eslint/no-input-rename */
+}
