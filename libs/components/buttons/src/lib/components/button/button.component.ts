@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
 import { ButtonBase } from '../button-base/button-base';
 
@@ -11,7 +11,7 @@ import { ButtonBase } from '../button-base/button-base';
   standalone: true,
 })
 export class ButtonComponent extends ButtonBase {
-  constructor(elementRef: ElementRef, ngZone: NgZone) {
-    super(elementRef, ngZone);
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 }

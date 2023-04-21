@@ -1,5 +1,5 @@
 import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
-import { AfterViewInit, Directive, ElementRef, inject, Input, NgZone, OnDestroy } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, inject, Input, OnDestroy } from '@angular/core';
 
 import { CanColor, CanDisable, CanSize, ThemePalette, ThemeSize } from '@fafn/components';
 
@@ -11,7 +11,7 @@ export class ButtonBase implements CanDisable, CanColor, CanSize, AfterViewInit,
 
   private readonly focusMonitor = inject(FocusMonitor);
 
-  constructor(protected readonly elementRef: ElementRef, protected readonly ngZone: NgZone) {}
+  constructor(protected readonly elementRef: ElementRef) {}
 
   ngAfterViewInit() {
     this.focusMonitor.monitor(this.elementRef, true);
