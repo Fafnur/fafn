@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'fafn-row',
@@ -7,8 +7,4 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class RowComponent {
-  @Input() handset?: string | number;
-  @Input() tablet?: string | number;
-  @Input() web?: string | number;
-}
+export class RowComponent {}

@@ -1,32 +1,24 @@
-@use '../../../../../src/styles/mixins' as mixins;
 @use 'sass:math' as math;
 
-@mixin make-row($breakpoint) {
+:host {
   $gutter: calc(-1 * var(--fafn-gutter, 1rem));
 
-  &[#{$breakpoint}] {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: $gutter;
-    margin-right: $gutter;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: $gutter;
+  margin-right: $gutter;
+
+  & ::ng-deep > * {
+    padding: 0 var(--fafn-gutter, 1rem);
   }
-  &[#{$breakpoint}][no-gutter] {
+
+  &[no-gutter] {
     margin-left: 0;
     margin-right: 0;
   }
-}
 
-:host {
-  @include mixins.media-handset-up() {
-    @include make-row(handset);
-  }
-
-  @include mixins.media-tablet-up() {
-    @include make-row(tablet);
-  }
-
-  @include mixins.media-web-up() {
-    @include make-row(web);
+  &[no-gutter] ::ng-deep > * {
+    padding: 0;
   }
 }
