@@ -5,7 +5,7 @@ import { ButtonBase } from '../button-base/button-base';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'a[fafn-button],a[fafn-raised-button],a[fafn-flat-button],a[fafn-stroked-button]',
-  templateUrl: './anchor.component.html',
+  templateUrl: '../button-base/button-base.html',
   styleUrls: ['./anchor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
