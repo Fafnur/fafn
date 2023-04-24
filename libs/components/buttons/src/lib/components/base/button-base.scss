@@ -1,0 +1,61 @@
+:host {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+  border: none;
+  z-index: 0;
+
+  font-family: var(--md-sys-typescale-label-large-font-family-name);
+  font-style: var(--md-sys-typescale-label-large-font-family-style);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
+
+  &[disabled] {
+    // TODO: --md-sys-color-on-surface from hex to RGBa
+    background-color: rgba(25, 28, 26, 0.12);
+    color: var(--md-sys-color-on-surface);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &[disabled] {
+      // TODO: --md-sys-color-on-surface from hex to RGBa for dark theme
+      background-color: rgba(225, 227, 223, 0.12);
+    }
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  &[size='xsmall'] {
+    font-size: 70%;
+  }
+
+  &[size='small'] {
+    font-size: 85%;
+  }
+
+  &[size='medium'] {
+    font-size: 110%;
+  }
+
+  &[size='large'] {
+    font-size: 125%;
+  }
+
+  &[size='xlarge'] {
+    font-size: 150%;
+  }
+}
