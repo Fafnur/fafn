@@ -26,7 +26,6 @@
             "input": "apps/documentation/src/index.prod.html",
             "output": "index.html"
           },
-          "styles": [],
           "budgets": [
             {
               "type": "initial",
