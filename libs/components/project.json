@@ -52,7 +52,9 @@
           "libs/components/grid/**/*.ts",
           "libs/components/grid/**/*.html",
           "libs/components/layout/**/*.ts",
-          "libs/components/layout/**/*.html"
+          "libs/components/layout/**/*.html",
+          "libs/components/icon/**/*.ts",
+          "libs/components/icon/**/*.html"
         ]
       }
     }
