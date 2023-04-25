@@ -1,16 +1,22 @@
+@use 'sass:meta';
+
 // Material
 @import './md3/tokens';
 
 @media (prefers-color-scheme: light) {
   @import './md3/theme.light';
 
-  --md-sys-color-primary-rgb: 0 107 85;
+  :root {
+    --md-sys-color-primary-rgb: 0 107 85;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   @import './md3/theme.dark';
 
-  --md-sys-color-primary-rgb: 96 219 184;
+  :root {
+    --md-sys-color-primary-rgb: 96 219 184;
+  }
 }
 
 // Custom

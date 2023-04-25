@@ -8,6 +8,7 @@ import { CanColor, CanDisable, CanSize, ThemePalette, ThemeSize } from '@fafn/co
 export class ButtonBase implements CanDisable, CanColor, CanSize, AfterViewInit, OnDestroy {
   @Input() color: ThemePalette;
   @Input() size: ThemeSize;
+  @Input() mode: ThemeSize;
 
   private isDisabled = false;
 
