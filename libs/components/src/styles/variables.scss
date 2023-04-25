@@ -3,10 +3,14 @@
 
 @media (prefers-color-scheme: light) {
   @import './md3/theme.light';
+
+  --md-sys-color-primary-rgb: 0 107 85;
 }
 
 @media (prefers-color-scheme: dark) {
   @import './md3/theme.dark';
+
+  --md-sys-color-primary-rgb: 96 219 184;
 }
 
 // Custom
@@ -24,4 +28,116 @@
   --fafn-grid-tablet-landscape: 960px;
   --fafn-grid-web-portrait: 840px;
   --fafn-grid-web-landscape: 1280px;
+
+  // RGB for --md-ref-palette-neutral0
+  --md-sys-color-shadow-rgb: 0 0 0;
+
+  // Missed
+  --md-sys-elevation-0: 0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14), 0px 0px 0px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-1: 0px 3px 1px -2px rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 2px 2px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14), 0px 1px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-2: 0px 2px 4px -1px rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 4px 5px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.14), 0px 1px 10px 0px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-3: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14), 0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-4: 0px 5px 5px -3px rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 8px 10px 1px rgb(var(--md-sys-color-shadow-rgb) / 0.14), 0px 3px 14px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+  --md-sys-elevation-5: 0px 8px 10px -6px rgb(var(--md-sys-color-shadow-rgb) / 0.2),
+    0px 16px 24px 2px rgb(var(--md-sys-color-shadow-rgb) / 0.14), 0px 6px 30px 5px rgb(var(--md-sys-color-shadow-rgb) / 0.12);
+
+  --md-sys-color-surface-1: rgb(var(--md-sys-color-primary-rgb) / 0.05);
+  --md-sys-color-surface-2: rgb(var(--md-sys-color-primary-rgb) / 0.08);
+  --md-sys-color-surface-3: rgb(var(--md-sys-color-primary-rgb) / 0.11);
+  --md-sys-color-surface-4: rgb(var(--md-sys-color-primary-rgb) / 0.12);
+  --md-sys-color-surface-5: rgb(var(--md-sys-color-primary-rgb) / 0.14);
+
+  --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
+  --md-sys-shape-corner-extra-small: 4px 4px 4px 4px;
+  --md-sys-shape-corner-large: 16px 16px 16px 16px;
+  --md-sys-shape-corner-none: 0px 0px 0px 0px;
+  --md-sys-shape-corner-large-start: 16px 0px 0px 16px;
+  --md-sys-shape-corner-medium: 12px 12px 12px 12px;
+  --md-sys-shape-corner-small: 8px 8px 8px 8px;
+  --md-sys-shape-corner-large-end: 0px 16px 16px 0px;
+  --md-sys-shape-corner-large-top: 16px 16px 0px 0px;
+  --md-sys-shape-corner-extra-large: 28px 28px 28px 28px;
+  --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
+  --md-sys-shape-corner-full: 50%; /* Linear */
+  --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1); /* Standard */
+  --md-sys-motion-easing-standard: cubic-bezier(0.20000000298023224, 0, 0, 1);
+  --md-sys-motion-duration-short1: 50;
+  --md-sys-motion-duration-short2: 100;
+  --md-sys-motion-duration-short3: 150;
+  --md-sys-motion-duration-short4: 200;
+  --md-sys-motion-duration-medium1: 250;
+  --md-sys-motion-duration-medium2: 300;
+  --md-sys-motion-duration-medium3: 350;
+  --md-sys-motion-duration-medium4: 400;
+  --md-sys-motion-duration-long1: 450;
+  --md-sys-motion-duration-long2: 500;
+  --md-sys-motion-duration-long3: 550;
+  --md-sys-motion-duration-long4: 600;
+  --md-sys-motion-duration-extra-long1: 700;
+  --md-sys-motion-duration-extra-long2: 800;
+  --md-sys-motion-duration-extra-long3: 900;
+  --md-sys-motion-duration-extra-long4: 1000;
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.30000001192092896, 0, 1, 1); /* Standard decelerate */
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1); /* Emphasized accelerate */
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.30000001192092896, 0, 0.800000011920929, 0.15000000596046448);
+
+  --md-sys-state-hover-state-layer-opacity: 0.08; /* Focus state layer opacity */
+  --md-sys-state-focus-state-layer-opacity: 0.12; /* Pressed state layer opacity */
+  --md-sys-state-pressed-state-layer-opacity: 0.12; /* Dragged state layer opacity */
+  --md-sys-state-dragged-state-layer-opacity: 0.16; /* 0 */
+  --md-sys-elevation-level0: 0px;
+  --md-sys-elevation-level1: 1px;
+  --md-sys-elevation-level2: 3px;
+  --md-sys-elevation-level3: 6px;
+  --md-sys-elevation-level4: 8px;
+  --md-sys-elevation-level5: 12px;
+  --md-sys-state-hover-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-hover-state-layer-opacity));
+  --md-sys-state-active-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-pressed-state-layer-opacity));
+  --md-sys-state-focus-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-focus-state-layer-opacity));
 }
+
+///
+
+//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option),
+//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr),
+//:where(.tabs) :where(labal, .tab) {
+//  --tint-color: transparent;
+//  position: relative;
+//}
+//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option)::after,
+//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr)::after,
+//:where(.tabs) :where(labal, .tab)::after {
+//  content: '';
+//  border-radius: inherit;
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  right: 0;
+//  bottom: 0;
+//  background-color: var(--tint-color);
+//}
+//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:hover, .hover),
+//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:hover, .hover),
+//:where(.tabs) :where(labal, .tab):where(:hover, .hover) {
+//  --tint-color: var(--md-sys-state-hover-color);
+//}
+//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:active, .active),
+//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:active, .active),
+//:where(.tabs) :where(labal, .tab):where(:active, .active) {
+//  --tint-color: var(--md-sys-state-active-color);
+//}
+//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:focus, .focus),
+//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:focus, .focus),
+//:where(.tabs) :where(labal, .tab):where(:focus, .focus) {
+//  --tint-color: var(--md-sys-state-focus-color);
+//}
+//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option)[disabled],
+//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr)[disabled],
+//:where(.tabs) :where(labal, .tab)[disabled] {
+//  --tint-color: transparent;
+//}

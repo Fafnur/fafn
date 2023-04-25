@@ -1,0 +1,284 @@
+.elevation-0 {
+  box-shadow: var(--md-sys-elevation-0);
+}
+.elevation-1 {
+  box-shadow: var(--md-sys-elevation-1);
+}
+.elevation-2 {
+  box-shadow: var(--md-sys-elevation-2);
+}
+.elevation-3 {
+  box-shadow: var(--md-sys-elevation-3);
+}
+.elevation-4 {
+  box-shadow: var(--md-sys-elevation-4);
+}
+.elevation-5 {
+  box-shadow: var(--md-sys-elevation-5);
+}
+.surface-1 {
+  background-color: var(--md-sys-color-surface-1);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-2 {
+  background-color: var(--md-sys-color-surface-2);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-3 {
+  background-color: var(--md-sys-color-surface-3);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-4 {
+  background-color: var(--md-sys-color-surface-4);
+  color: var(--md-sys-color-on-surface);
+}
+.surface-5 {
+  background-color: var(--md-sys-color-surface-5);
+  color: var(--md-sys-color-on-surface);
+}
+
+.hover-state-layer {
+  opacity: var(--md-sys-state-hover-state-layer-opacity);
+}
+.pressed-state-layer {
+  opacity: var(--md-sys-state-pressed-state-layer-opacity);
+}
+.dragged-state-layer {
+  opacity: var(--md-sys-state-dragged-state-layer-opacity);
+}
+.focus-state-layer {
+  opacity: var(--md-sys-state-focus-state-layer-opacity);
+}
+
+.easing-standard {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-x0),
+    var(--md-sys-motion-easing-standard-y0),
+    var(--md-sys-motion-easing-standard-x1),
+    var(--md-sys-motion-easing-standard-y1)
+  );
+}
+.easing-linear {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-linear-x0),
+    var(--md-sys-motion-easing-linear-y0),
+    var(--md-sys-motion-easing-linear-x1),
+    var(--md-sys-motion-easing-linear-y1)
+  );
+}
+.easing-standard-accelerate {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-accelerate-x0),
+    var(--md-sys-motion-easing-standard-accelerate-y0),
+    var(--md-sys-motion-easing-standard-accelerate-x1),
+    var(--md-sys-motion-easing-standard-accelerate-y1)
+  );
+}
+.easing-standard-decelerate {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-standard-decelerate-x0),
+    var(--md-sys-motion-easing-standard-decelerate-y0),
+    var(--md-sys-motion-easing-standard-decelerate-x1),
+    var(--md-sys-motion-easing-standard-decelerate-y1)
+  );
+}
+.easing-emphasized {
+  transition-timing-function: cubic-bezier(
+    var(--md-sys-motion-easing-emphasized-x0),
+    var(--md-sys-motion-easing-emphasized-y0),
+    var(--md-sys-motion-easing-emphasized-x1),
+    var(--md-sys-motion-easing-emphasized-y1)
+  );
+}
+
+.duration-50 {
+  transition-duration: var(--md-sys-motion-duration-short1);
+}
+.duration-100 {
+  transition-duration: var(--md-sys-motion-duration-short2);
+}
+.duration-150 {
+  transition-duration: var(--md-sys-motion-duration-short3);
+}
+.duration-200 {
+  transition-duration: var(--md-sys-motion-duration-short4);
+}
+.duration-250 {
+  transition-duration: var(--md-sys-motion-duration-medium1);
+}
+.duration-300 {
+  transition-duration: var(--md-sys-motion-duration-medium2);
+}
+.duration-350 {
+  transition-duration: var(--md-sys-motion-duration-medium3);
+}
+.duration-400 {
+  transition-duration: var(--md-sys-motion-duration-medium4);
+}
+.duration-450 {
+  transition-duration: var(--md-sys-motion-duration-long1);
+}
+.duration-500 {
+  transition-duration: var(--md-sys-motion-duration-long2);
+}
+.duration-550 {
+  transition-duration: var(--md-sys-motion-duration-long3);
+}
+.duration-600 {
+  transition-duration: var(--md-sys-motion-duration-long4);
+}
+.duration-700 {
+  transition-duration: var(--md-sys-motion-duration-extra-long1);
+}
+.duration-800 {
+  transition-duration: var(--md-sys-motion-duration-extra-long2);
+}
+.duration-900 {
+  transition-duration: var(--md-sys-motion-duration-extra-long3);
+}
+.duration-1000 {
+  transition-duration: var(--md-sys-motion-duration-extra-long4);
+}
+
+.shape-none {
+  border-radius: var(--md-sys-shape-corner-none);
+}
+.shape-extra-small {
+  border-radius: var(--md-sys-shape-corner-extra-small);
+}
+.shape-small {
+  border-radius: var(--md-sys-shape-corner-small);
+}
+.shape-medium {
+  border-radius: var(--md-sys-shape-corner-medium);
+}
+.shape-large {
+  border-radius: var(--md-sys-shape-corner-large);
+}
+.shape-extra-large {
+  border-radius: var(--md-sys-shape-corner-extra-large);
+}
+.shape-extra-small-top {
+  border-radius: var(--md-sys-shape-corner-extra-small-top);
+}
+.shape-large-end {
+  border-radius: var(--md-sys-shape-corner-large-end);
+}
+.shape-large-top {
+  border-radius: var(--md-sys-shape-corner-large-top);
+}
+.shape-extra-large-top {
+  border-radius: var(--md-sys-shape-corner-extra-large-top);
+}
+.shape-full {
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.palette-primary {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-primary0),
+    var(--md-ref-palette-primary10),
+    var(--md-ref-palette-primary20),
+    var(--md-ref-palette-primary30),
+    var(--md-ref-palette-primary40),
+    var(--md-ref-palette-primary50),
+    var(--md-ref-palette-primary60),
+    var(--md-ref-palette-primary70),
+    var(--md-ref-palette-primary80),
+    var(--md-ref-palette-primary90),
+    var(--md-ref-palette-primary98),
+    var(--md-ref-palette-primary99),
+    var(--md-ref-palette-primary100)
+  );
+}
+.palette-secondary {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-secondary0),
+    var(--md-ref-palette-secondary10),
+    var(--md-ref-palette-secondary20),
+    var(--md-ref-palette-secondary30),
+    var(--md-ref-palette-secondary40),
+    var(--md-ref-palette-secondary50),
+    var(--md-ref-palette-secondary60),
+    var(--md-ref-palette-secondary70),
+    var(--md-ref-palette-secondary80),
+    var(--md-ref-palette-secondary90),
+    var(--md-ref-palette-secondary98),
+    var(--md-ref-palette-secondary99),
+    var(--md-ref-palette-secondary100)
+  );
+}
+.palette-tertiary {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-tertiary0),
+    var(--md-ref-palette-tertiary10),
+    var(--md-ref-palette-tertiary20),
+    var(--md-ref-palette-tertiary30),
+    var(--md-ref-palette-tertiary40),
+    var(--md-ref-palette-tertiary50),
+    var(--md-ref-palette-tertiary60),
+    var(--md-ref-palette-tertiary70),
+    var(--md-ref-palette-tertiary80),
+    var(--md-ref-palette-tertiary90),
+    var(--md-ref-palette-tertiary98),
+    var(--md-ref-palette-tertiary99),
+    var(--md-ref-palette-tertiary100)
+  );
+}
+.palette-error {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-error0),
+    var(--md-ref-palette-error10),
+    var(--md-ref-palette-error20),
+    var(--md-ref-palette-error30),
+    var(--md-ref-palette-error40),
+    var(--md-ref-palette-error50),
+    var(--md-ref-palette-error60),
+    var(--md-ref-palette-error70),
+    var(--md-ref-palette-error80),
+    var(--md-ref-palette-error90),
+    var(--md-ref-palette-error98),
+    var(--md-ref-palette-error99),
+    var(--md-ref-palette-error100)
+  );
+}
+.palette-neutral {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-neutral0),
+    var(--md-ref-palette-neutral10),
+    var(--md-ref-palette-neutral20),
+    var(--md-ref-palette-neutral30),
+    var(--md-ref-palette-neutral40),
+    var(--md-ref-palette-neutral50),
+    var(--md-ref-palette-neutral60),
+    var(--md-ref-palette-neutral70),
+    var(--md-ref-palette-neutral80),
+    var(--md-ref-palette-neutral90),
+    var(--md-ref-palette-neutral98),
+    var(--md-ref-palette-neutral99),
+    var(--md-ref-palette-neutral100)
+  );
+}
+.palette-neutral-variant {
+  background: linear-gradient(
+    45deg,
+    var(--md-ref-palette-neutral-variant0),
+    var(--md-ref-palette-neutral-variant10),
+    var(--md-ref-palette-neutral-variant20),
+    var(--md-ref-palette-neutral-variant30),
+    var(--md-ref-palette-neutral-variant40),
+    var(--md-ref-palette-neutral-variant50),
+    var(--md-ref-palette-neutral-variant60),
+    var(--md-ref-palette-neutral-variant70),
+    var(--md-ref-palette-neutral-variant80),
+    var(--md-ref-palette-neutral-variant90),
+    var(--md-ref-palette-neutral-variant98),
+    var(--md-ref-palette-neutral-variant99),
+    var(--md-ref-palette-neutral-variant100)
+  );
+}
