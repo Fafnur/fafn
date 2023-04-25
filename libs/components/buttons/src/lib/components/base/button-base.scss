@@ -13,6 +13,7 @@
   border: none;
   z-index: 0;
   gap: 8px;
+  white-space: nowrap;
 
   font-family: var(--md-sys-typescale-label-large-font-family-name);
   font-style: var(--md-sys-typescale-label-large-font-family-style);
@@ -20,21 +21,30 @@
   font-size: var(--md-sys-typescale-label-large-font-size);
   line-height: var(--md-sys-typescale-label-large-line-height);
   letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
 
   &[disabled] {
-    // TODO: --md-sys-color-on-surface from hex to RGBa
-    background-color: rgba(25, 28, 26, 0.12);
-    color: var(--md-sys-color-on-surface);
     cursor: not-allowed;
     pointer-events: none;
+
+    background-color: rgb(var(--md-sys-color-primary-rgb) / 0.12);
+    color: rgb(var(--md-sys-color-on-surface-rgb) / 0.38);
+    box-shadow: var(--md-sys-elevation-1);
   }
 
-  @media (prefers-color-scheme: dark) {
-    &[disabled] {
-      // TODO: --md-sys-color-on-surface from hex to RGBa for dark theme
-      background-color: rgba(225, 227, 223, 0.12);
-    }
-  }
+  //&:where([hovered], &:hover) {
+  //  opacity: var(--md-sys-state-hover-state-layer-opacity);
+  //}
+
+  //.pressed-state-layer {
+  //  opacity: var(--md-sys-state-pressed-state-layer-opacity);
+  //}
+  //.dragged-state-layer {
+  //  opacity: var(--md-sys-state-dragged-state-layer-opacity);
+  //}
+  //.focus-state-layer {
+  //  opacity: var(--md-sys-state-focus-state-layer-opacity);
+  //}
 
   &[hidden] {
     display: none;

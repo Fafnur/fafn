@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, NgZone } from '@angular
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
 @Component({
-  selector: 'button[fafn-button],button[fafn-filled-button],button[fafn-filled-tonal-button]',
+  selector: 'button[fafn-button]',
   templateUrl: '../base/button-base.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,7 +16,7 @@ export class ButtonComponent extends ButtonBase {
 }
 
 @Component({
-  selector: 'a[fafn-common],a[fafn-filled-common],a[fafn-filled-tonal-common]',
+  selector: 'a[fafn-button]',
   templateUrl: '../base/button-base.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

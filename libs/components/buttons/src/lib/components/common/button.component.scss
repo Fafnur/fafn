@@ -1,45 +1,37 @@
 @import '../base/button-base';
 
 :host {
-  // Elevated
-  &[fafn-elevated-button] {
-    background-color: var(--md-sys-color-surface);
-    color: var(--md-sys-color-on-secondary);
+  &[mode='elevated'] {
+    background-color: var(--md-sys-color-surface-container-low);
+    color: var(--md-sys-color-primary);
+    box-shadow: var(--md-sys-elevation-1);
+
+    &:where([hovered], &:hover) {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-secondary-container);
+      box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
   }
 
-  &[fafn-elevated-button][hovered],
-  &[fafn-elevated-button]:hover {
-    background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-    box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  // Filled
-  &[fafn-filled-button] {
+  &[mode='filled'] {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
+
+    &:where([hovered], &:hover) {
+      box-shadow: var(--md-sys-elevation-1);
+    }
   }
 
-  &[fafn-filled-button][hovered],
-  &[fafn-filled-button]:hover {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-
-  // Filled tonal
-  &[fafn-filled-tonal-button] {
+  &[mode='filled-tonal'] {
     background-color: var(--md-sys-color-secondary);
     color: var(--md-sys-color-on-secondary);
-  }
 
-  &[fafn-filled-tonal-button][hovered],
-  &[fafn-filled-tonal-button]:hover {
-    background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-    box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    &:where([hovered], &:hover) {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      box-shadow: 0 3px 3px -1px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
   }
 }

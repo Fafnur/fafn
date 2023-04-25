@@ -8,6 +8,7 @@
 
   :root {
     --md-sys-color-primary-rgb: 0 107 85;
+    --md-sys-color-on-surface-rgb: 25 28 27;
   }
 }
 
@@ -16,6 +17,7 @@
 
   :root {
     --md-sys-color-primary-rgb: 96 219 184;
+    --md-sys-color-on-surface-rgb: 17 20 19;
   }
 }
 
@@ -71,7 +73,7 @@
   --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
   --md-sys-shape-corner-full: 50%; /* Linear */
   --md-sys-motion-easing-linear: cubic-bezier(0, 0, 1, 1); /* Standard */
-  --md-sys-motion-easing-standard: cubic-bezier(0.20000000298023224, 0, 0, 1);
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-duration-short1: 50;
   --md-sys-motion-duration-short2: 100;
   --md-sys-motion-duration-short3: 150;
@@ -88,9 +90,9 @@
   --md-sys-motion-duration-extra-long2: 800;
   --md-sys-motion-duration-extra-long3: 900;
   --md-sys-motion-duration-extra-long4: 1000;
-  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.30000001192092896, 0, 1, 1); /* Standard decelerate */
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1); /* Standard decelerate */
   --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1); /* Emphasized accelerate */
-  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.30000001192092896, 0, 0.800000011920929, 0.15000000596046448);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
 
   --md-sys-state-hover-state-layer-opacity: 0.08; /* Focus state layer opacity */
   --md-sys-state-focus-state-layer-opacity: 0.12; /* Pressed state layer opacity */
