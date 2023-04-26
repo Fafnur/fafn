@@ -2,7 +2,7 @@
   "name": "components",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/components/src",
-  "prefix": "fafni",
+  "prefix": "fafn",
   "tags": [],
   "projectType": "library",
   "targets": {
@@ -40,7 +40,22 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/components/**/*.ts", "libs/components/**/*.html"]
+        "lintFilePatterns": [
+          "libs/components/**/*.ts",
+          "libs/components/**/*.html",
+          "libs/components/buttons/**/*.ts",
+          "libs/components/buttons/**/*.html",
+          "libs/components/carousel/**/*.ts",
+          "libs/components/carousel/**/*.html",
+          "libs/components/container/**/*.ts",
+          "libs/components/container/**/*.html",
+          "libs/components/grid/**/*.ts",
+          "libs/components/grid/**/*.html",
+          "libs/components/layout/**/*.ts",
+          "libs/components/layout/**/*.html",
+          "libs/components/icon/**/*.ts",
+          "libs/components/icon/**/*.html"
+        ]
       }
     }
   }

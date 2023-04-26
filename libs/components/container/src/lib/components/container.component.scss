@@ -1,0 +1,45 @@
+@use '../../../../src/styles/mixins' as mixins;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--fafn-gutter, 1rem);
+  padding-right: var(--fafn-gutter, 1rem);
+  margin-left: auto;
+  margin-right: auto;
+
+  &[fluid] {
+    max-width: 100%;
+  }
+
+  @include mixins.media-handset() {
+    &[mobile-no-gutter] {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @include mixins.media-tablet-portrait() {
+    &:not([fluid]) {
+      max-width: 788px;
+    }
+  }
+
+  @include mixins.media-tablet-landscape() {
+    &:not([fluid]) {
+      max-width: 928px;
+    }
+  }
+
+  @include mixins.media-web-portrait() {
+    &:not([fluid]) {
+      max-width: 808px;
+    }
+  }
+
+  @include mixins.media-web-landscape() {
+    &:not([fluid]) {
+      max-width: 1200px;
+    }
+  }
+}
