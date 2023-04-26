@@ -1,5 +1,5 @@
 export interface CanColor {
-  color: ThemePalette;
+  color: ThemeColor;
 }
 
-export type ThemePalette = 'primary' | 'secondary' | 'tertiary' | undefined;
+export type ThemeColor = 'default' | 'surface' | 'secondary' | 'tertiary' | undefined;

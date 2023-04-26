@@ -15,7 +15,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  :host-context(button) {
+  :host-context(button:not([fafn-fab])) {
     margin-left: -8px;
     position: relative;
     z-index: 2;
@@ -23,5 +23,13 @@
     &:not([icon]) {
       font-size: 18px;
     }
+  }
+
+  :host-context(button[fafn-fab][size='small']) {
+    font-size: 24px;
+  }
+
+  :host-context(button[fafn-fab][size='large']) {
+    font-size: 36px;
   }
 }

@@ -2,12 +2,10 @@ import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AfterViewInit, Directive, ElementRef, inject, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
 
-import { CanColor, CanDisable, CanMode, CanSize, ThemeMode, ThemePalette, ThemeSize } from '@fafn/components';
+import { CanDisable, CanMode, ThemeMode } from '@fafn/components';
 
 @Directive()
-export class ButtonBase implements CanDisable, CanColor, CanSize, CanMode, AfterViewInit, OnDestroy {
-  @Input() color: ThemePalette;
-  @Input() size: ThemeSize;
+export class ButtonBase implements CanDisable, CanMode, AfterViewInit, OnDestroy {
   @Input() mode: ThemeMode;
 
   private isDisabled = false;

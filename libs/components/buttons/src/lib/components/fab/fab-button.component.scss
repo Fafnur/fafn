@@ -1,0 +1,68 @@
+@import '../base/button-base';
+
+:host {
+  height: 56px;
+  width: 56px;
+  border-radius: var(--md-sys-shape-corner-large);
+  box-shadow: var(--md-sys-elevation-1);
+  padding: 16px;
+
+  &[size='small'] {
+    border-radius: var(--md-sys-shape-corner-medium);
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  &[size='large'] {
+    border-radius: var(--md-sys-shape-corner-extra-large);
+    width: 96px;
+    height: 96px;
+  }
+
+  &:where([hovered], &:hover) {
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  &[disabled] {
+    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+  }
+
+  &[color='default'],
+  &:not([color]) {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+
+    [state-layer] {
+      background-color: var(--md-sys-color-on-primary-container);
+    }
+  }
+
+  &[color='surface'] {
+    background-color: var(--md-sys-color-surface-container-low);
+    color: var(--md-sys-color-primary);
+
+    [state-layer] {
+      background-color: var(--md-sys-color-primary);
+    }
+  }
+
+  &[color='secondary'] {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+
+    [state-layer] {
+      background-color: var(--md-sys-color-on-secondary-container);
+    }
+  }
+
+  &[color='tertiary'] {
+    background-color: var(--md-sys-color-tertiary-container);
+    color: var(--md-sys-color-on-tertiary-container);
+
+    [state-layer] {
+      background-color: var(--md-sys-color-on-tertiary-container);
+    }
+  }
+}

@@ -14,14 +14,7 @@
   z-index: 0;
   gap: 8px;
   white-space: nowrap;
-
-  font-family: var(--md-sys-typescale-label-large-font-family-name);
-  font-style: var(--md-sys-typescale-label-large-font-family-style);
-  font-weight: var(--md-sys-typescale-label-large-font-weight);
-  font-size: var(--md-sys-typescale-label-large-font-size);
-  line-height: var(--md-sys-typescale-label-large-line-height);
-  letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
-  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+  user-select: none;
 
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
@@ -64,29 +57,5 @@
 
   &:where([dragged]) [state-layer] {
     opacity: var(--md-sys-state-dragged-state-layer-opacity);
-  }
-
-  &[hidden] {
-    display: none;
-  }
-
-  &[size='xsmall'] {
-    font-size: 70%;
-  }
-
-  &[size='small'] {
-    font-size: 85%;
-  }
-
-  &[size='medium'] {
-    font-size: 110%;
-  }
-
-  &[size='large'] {
-    font-size: 125%;
-  }
-
-  &[size='xlarge'] {
-    font-size: 150%;
   }
 }
