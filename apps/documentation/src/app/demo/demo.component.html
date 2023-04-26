@@ -1,26 +1,56 @@
 <fafn-container>
   <div>
     <button fafn-button mode="filled"><fafn-icon>add</fafn-icon>Filled</button>
-    <button fafn-button mode="filled" disabled>Filled</button>
-    <button fafn-button mode="filled" hovered>Filled</button>
-    <button fafn-button mode="filled" focused>Filled</button>
-    <button fafn-button mode="filled" pressed>Filled</button>
+    <button fafn-button mode="filled" [disabled]="true">Disabled</button>
+    <button fafn-button mode="filled" hovered>Hovered</button>
+    <button fafn-button mode="filled" focused>Focused</button>
+    <button fafn-button mode="filled" pressed>Pressed</button>
+    <button fafn-button mode="filled" dragged>Dragged</button>
   </div>
 
   <div>
-    <button fafn-button mode="filled-tonal"><fafn-icon>add</fafn-icon>Filled</button>
-    <button fafn-button mode="filled-tonal" disabled>Filled</button>
-    <button fafn-button mode="filled-tonal" hovered>Filled</button>
-    <button fafn-button mode="filled-tonal" focused>Filled</button>
-    <button fafn-button mode="filled-tonal" pressed>Filled</button>
+    <button fafn-button mode="filled-tonal"><fafn-icon>add</fafn-icon>Filled tonal</button>
+    <button fafn-button mode="filled-tonal" [disabled]="true">Disabled</button>
+    <button fafn-button mode="filled-tonal" hovered>Hovered</button>
+    <button fafn-button mode="filled-tonal" focused>Focused</button>
+    <button fafn-button mode="filled-tonal" pressed>Pressed</button>
+    <button fafn-button mode="filled-tonal" dragged>Filled tonal</button>
   </div>
 
   <div>
-    <button fafn-button mode="elevated"><fafn-icon>add</fafn-icon>Filled</button>
-    <button fafn-button mode="elevated" disabled>Filled</button>
-    <button fafn-button mode="elevated" hovered>Filled</button>
-    <button fafn-button mode="elevated" focused>Filled</button>
-    <button fafn-button mode="elevated" pressed>Filled</button>
+    <button fafn-button mode="elevated"><fafn-icon>add</fafn-icon>Elevated</button>
+    <button fafn-button mode="elevated" [disabled]="true">Disabled</button>
+    <button fafn-button mode="elevated" hovered>Hovered</button>
+    <button fafn-button mode="elevated" focused>Focused</button>
+    <button fafn-button mode="elevated" pressed>Pressed</button>
+    <button fafn-button mode="elevated" dragged>Dragged</button>
+  </div>
+
+  <div>
+    <button fafn-button mode="outlined"><fafn-icon>add</fafn-icon>Outlined</button>
+    <button fafn-button mode="outlined" [disabled]="true">Disabled</button>
+    <button fafn-button mode="outlined" hovered>Hovered</button>
+    <button fafn-button mode="outlined" focused>Focused</button>
+    <button fafn-button mode="outlined" pressed>Pressed</button>
+    <button fafn-button mode="outlined" dragged>Dragged</button>
+  </div>
+
+  <div>
+    <button fafn-button mode="text"><fafn-icon>add</fafn-icon>Text</button>
+    <button fafn-button mode="text" [disabled]="true">Disabled</button>
+    <button fafn-button mode="text" hovered>Hovered</button>
+    <button fafn-button mode="text" focused>Focused</button>
+    <button fafn-button mode="text" pressed>Pressed</button>
+    <button fafn-button mode="text" dragged>Dragged</button>
+  </div>
+
+  <div>
+    <button fafn-button><fafn-icon>add</fafn-icon>Default</button>
+    <button fafn-button mode="text" [disabled]="true">Disabled</button>
+    <button fafn-button hovered>Hovered</button>
+    <button fafn-button focused>Focused</button>
+    <button fafn-button pressed>Pressed</button>
+    <button fafn-button dragged>Dragged</button>
   </div>
 
   <fafn-row>

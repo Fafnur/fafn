@@ -8,7 +8,9 @@
 
   :root {
     --md-sys-color-primary-rgb: 0 107 85;
+    --md-sys-color-primary-rgba: 0, 107, 85;
     --md-sys-color-on-surface-rgb: 25 28 27;
+    --md-sys-color-on-surface-rgba: 25, 28, 27;
   }
 }
 
@@ -17,7 +19,9 @@
 
   :root {
     --md-sys-color-primary-rgb: 96 219 184;
+    --md-sys-color-primary-rgba: 96, 219, 184;
     --md-sys-color-on-surface-rgb: 17 20 19;
+    --md-sys-color-on-surface-rgba: 17, 20, 19;
   }
 }
 
@@ -90,62 +94,21 @@
   --md-sys-motion-duration-extra-long2: 800;
   --md-sys-motion-duration-extra-long3: 900;
   --md-sys-motion-duration-extra-long4: 1000;
-  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1); /* Standard decelerate */
-  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1); /* Emphasized accelerate */
+  --md-sys-motion-easing-standard-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
   --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
 
-  --md-sys-state-hover-state-layer-opacity: 0.08; /* Focus state layer opacity */
-  --md-sys-state-focus-state-layer-opacity: 0.12; /* Pressed state layer opacity */
-  --md-sys-state-pressed-state-layer-opacity: 0.12; /* Dragged state layer opacity */
-  --md-sys-state-dragged-state-layer-opacity: 0.16; /* 0 */
+  --md-sys-state-hover-state-layer-opacity: 0.08;
+  --md-sys-state-focus-state-layer-opacity: 0.12;
+  --md-sys-state-pressed-state-layer-opacity: 0.12;
+  --md-sys-state-dragged-state-layer-opacity: 0.16;
   --md-sys-elevation-level0: 0px;
   --md-sys-elevation-level1: 1px;
   --md-sys-elevation-level2: 3px;
   --md-sys-elevation-level3: 6px;
   --md-sys-elevation-level4: 8px;
   --md-sys-elevation-level5: 12px;
-  --md-sys-state-hover-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-hover-state-layer-opacity));
-  --md-sys-state-active-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-pressed-state-layer-opacity));
-  --md-sys-state-focus-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-focus-state-layer-opacity));
+  //--md-sys-state-hover-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-hover-state-layer-opacity));
+  //--md-sys-state-active-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-pressed-state-layer-opacity));
+  //--md-sys-state-focus-color: rgb(var(--md-sys-color-surface-tint-rgb) / var(--md-sys-state-focus-state-layer-opacity));
 }
-
-///
-
-//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option),
-//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr),
-//:where(.tabs) :where(labal, .tab) {
-//  --tint-color: transparent;
-//  position: relative;
-//}
-//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option)::after,
-//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr)::after,
-//:where(.tabs) :where(labal, .tab)::after {
-//  content: '';
-//  border-radius: inherit;
-//  position: absolute;
-//  top: 0;
-//  left: 0;
-//  right: 0;
-//  bottom: 0;
-//  background-color: var(--tint-color);
-//}
-//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:hover, .hover),
-//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:hover, .hover),
-//:where(.tabs) :where(labal, .tab):where(:hover, .hover) {
-//  --tint-color: var(--md-sys-state-hover-color);
-//}
-//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:active, .active),
-//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:active, .active),
-//:where(.tabs) :where(labal, .tab):where(:active, .active) {
-//  --tint-color: var(--md-sys-state-active-color);
-//}
-//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option):where(:focus, .focus),
-//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr):where(:focus, .focus),
-//:where(.tabs) :where(labal, .tab):where(:focus, .focus) {
-//  --tint-color: var(--md-sys-state-focus-color);
-//}
-//:where(.button, button, .icon-button, .chip, .navigation-icon, .segmented-option)[disabled],
-//:where(.activatable, .navigation-drawer) :where(.list-tile, .table-row, tr)[disabled],
-//:where(.tabs) :where(labal, .tab)[disabled] {
-//  --tint-color: transparent;
-//}

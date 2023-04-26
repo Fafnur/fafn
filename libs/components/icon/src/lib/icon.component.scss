@@ -17,6 +17,8 @@
 
   :host-context(button) {
     margin-left: -8px;
+    position: relative;
+    z-index: 2;
 
     &:not([icon]) {
       font-size: 18px;

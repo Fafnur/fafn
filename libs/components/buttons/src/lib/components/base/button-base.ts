@@ -20,8 +20,11 @@ export class ButtonBase implements CanDisable, CanColor, CanSize, CanMode, After
     return this.isDisabled;
   }
 
-  set disabled(value: string | boolean) {
-    this.isDisabled = coerceBooleanProperty(value);
+  set disabled(value: string | boolean | null | undefined) {
+    const disabled = coerceBooleanProperty(value);
+    if (disabled !== this.isDisabled) {
+      this.isDisabled = disabled;
+    }
   }
 
   ngAfterViewInit() {
