@@ -9,6 +9,10 @@
   letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
   text-decoration: var(--md-sys-typescale-label-large-text-decoration);
 
+  &:where([dragged]) [state-layer] {
+    opacity: var(--md-sys-state-dragged-state-layer-opacity);
+  }
+
   &[size='xsmall'] {
     font-size: 75%;
     height: 30px;

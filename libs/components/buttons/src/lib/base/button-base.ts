@@ -1,13 +1,11 @@
 import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { AfterViewInit, Directive, ElementRef, inject, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, inject, NgZone, OnDestroy, OnInit } from '@angular/core';
 
-import { CanDisable, CanMode, ThemeMode } from '@fafn/components';
+import { CanDisable } from '@fafn/components';
 
 @Directive()
-export class ButtonBase implements CanDisable, CanMode, AfterViewInit, OnDestroy {
-  @Input() mode: ThemeMode;
-
+export class ButtonBase implements CanDisable, AfterViewInit, OnDestroy {
   private isDisabled = false;
 
   private readonly focusMonitor = inject(FocusMonitor);

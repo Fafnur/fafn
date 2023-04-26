@@ -76,14 +76,44 @@
   </div>
 
   <div>
-    <button fafn-efab>Ок</button>
-    <button fafn-efab color="surface"><fafn-icon icon-end>remove</fafn-icon>Мусор</button>
-    <button fafn-efab color="secondary">Удаление</button>
-    <button fafn-efab color="tertiary"><fafn-icon>add</fafn-icon> Восстановить</button>
+    <button fafn-efab>Okey</button>
+    <button fafn-efab color="surface"><fafn-icon icon-end>remove</fafn-icon>Revert</button>
+    <button fafn-efab color="secondary">Remove</button>
+    <button fafn-efab color="tertiary"><fafn-icon>add</fafn-icon>Recovery</button>
   </div>
 
-  <fafn-row>
-    <fafn-column tablet-offset="3" tablet="3">1</fafn-column>
-    <fafn-column tablet="3">2</fafn-column>
-  </fafn-row>
+  <div>
+    <button fafn-icon-button>
+      <fafn-icon>add</fafn-icon>
+    </button>
+    <button fafn-icon-button mode="filled">
+      <fafn-icon>add</fafn-icon>
+    </button>
+    <button fafn-icon-button mode="filled" [disabled]="true">
+      <fafn-icon>add</fafn-icon>
+    </button>
+    <button fafn-icon-button mode="filled-tonal">
+      <fafn-icon>add</fafn-icon>
+    </button>
+    <button fafn-icon-button mode="outlined">
+      <fafn-icon>add</fafn-icon>
+    </button>
+  </div>
+
+  <div>
+    <button fafn-icon-button mode="filled" size="small">
+      <fafn-icon>remove</fafn-icon>
+    </button>
+    <button fafn-icon-button mode="filled">
+      <fafn-icon>remove</fafn-icon>
+    </button>
+    <button fafn-icon-button mode="filled" size="large">
+      <fafn-icon>remove</fafn-icon>
+    </button>
+  </div>
+
+  <!--  <fafn-row>-->
+  <!--    <fafn-column tablet-offset="3" tablet="3">1</fafn-column>-->
+  <!--    <fafn-column tablet="3">2</fafn-column>-->
+  <!--  </fafn-row>-->
 </fafn-container>

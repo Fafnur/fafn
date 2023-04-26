@@ -54,8 +54,4 @@
   &:where([pressed], &:active) [state-layer] {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
   }
-
-  &:where([dragged]) [state-layer] {
-    opacity: var(--md-sys-state-dragged-state-layer-opacity);
-  }
 }

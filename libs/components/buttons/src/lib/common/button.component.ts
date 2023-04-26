@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
 
-import { CanSize, ThemeSize } from '@fafn/components';
+import { CanMode, CanSize, ThemeMode, ThemeSize } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
@@ -11,8 +11,9 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class ButtonComponent extends ButtonBase implements CanSize {
+export class ButtonComponent extends ButtonBase implements CanSize, CanMode {
   @Input() size: ThemeSize;
+  @Input() mode: ThemeMode;
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
@@ -26,8 +27,9 @@ export class ButtonComponent extends ButtonBase implements CanSize {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class AnchorComponent extends AnchorBase implements CanSize {
+export class AnchorComponent extends AnchorBase implements CanSize, CanMode {
   @Input() size: ThemeSize;
+  @Input() mode: ThemeMode;
 
   constructor(elementRef: ElementRef, ngZone: NgZone) {
     super(elementRef, ngZone);
