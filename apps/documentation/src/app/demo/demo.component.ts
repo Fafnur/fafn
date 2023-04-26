@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ButtonComponent, FabButtonComponent } from '@fafn/components/buttons';
+import { ButtonComponent, EFabButtonComponent, FabButtonComponent } from '@fafn/components/buttons';
 import { ContainerComponent } from '@fafn/components/container';
 import { GRID } from '@fafn/components/grid';
 import { IconComponent } from '@fafn/components/icon';
@@ -10,6 +10,6 @@ import { IconComponent } from '@fafn/components/icon';
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss'],
   standalone: true,
-  imports: [ButtonComponent, ContainerComponent, GRID, IconComponent, FabButtonComponent],
+  imports: [ButtonComponent, ContainerComponent, GRID, IconComponent, FabButtonComponent, EFabButtonComponent],
 })
 export class DemoComponent {}

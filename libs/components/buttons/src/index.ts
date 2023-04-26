@@ -1,2 +1,3 @@
-export * from './lib/components/common/button.component';
-export * from './lib/components/fab/fab-button.component';
+export * from './lib/common/button.component';
+export * from './lib/efab/efab-button.component';
+export * from './lib/fab/fab-button.component';

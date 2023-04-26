@@ -15,7 +15,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  :host-context(button:not([fafn-fab])) {
+  :host-context(button:not([fafn-fab]):not([fafn-efab])) {
     margin-left: -8px;
     position: relative;
     z-index: 2;

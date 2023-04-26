@@ -22,7 +22,7 @@ export class FabButtonComponent extends ButtonBase implements CanColor, CanSizeS
 
 @Component({
   selector: 'a[fafn-fab]',
-  templateUrl: '../base/button-base.html',
+  templateUrl: './fab-button.component.html',
   styleUrls: ['./fab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
