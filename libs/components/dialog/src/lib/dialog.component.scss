@@ -1,2 +1,6 @@
-:host {
+@use '@angular/cdk' as cdk;
+
+// Hack for global CDK dialogs styles
+::ng-deep {
+  @include cdk.overlay();
 }
