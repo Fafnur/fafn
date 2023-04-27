@@ -1,0 +1,14 @@
+<nav>
+  <a
+    fafn-button
+    mode="outlined"
+    [routerLink]="link.route"
+    routerLinkActive=""
+    #rla="routerLinkActive"
+    [class.is-pressed]="rla.isActive"
+    [routerLinkActiveOptions]="{ exact: true }"
+    *ngFor="let link of links"
+  >
+    {{ link.label }}
+  </a>
+</nav>
