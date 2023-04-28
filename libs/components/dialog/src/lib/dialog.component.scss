@@ -4,3 +4,22 @@
 ::ng-deep {
   @include cdk.overlay();
 }
+
+:host {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background-color: white;
+  border-radius: var(--md-sys-shape-corner-extra-large);
+
+  &:not([fullscreen]) {
+    min-width: 280px;
+    max-width: 560px;
+  }
+
+  ::ng-deep {
+    fafn-dialog-title ~ fafn-dialog-body {
+      padding-top: 16px;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { DialogComponent } from '@fafn/components/dialog';
+import { ButtonComponent } from '@fafn/components/buttons';
+import { DialogActionsComponent, DialogBodyComponent, DialogComponent, DialogTitleComponent } from '@fafn/components/dialog';
 
 @Component({
   selector: 'fafn-modal',
@@ -8,6 +9,6 @@ import { DialogComponent } from '@fafn/components/dialog';
   styleUrls: ['./modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [DialogComponent],
+  imports: [DialogComponent, DialogTitleComponent, DialogBodyComponent, DialogActionsComponent, ButtonComponent],
 })
 export class ModalComponent {}
