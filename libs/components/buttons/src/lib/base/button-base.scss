@@ -43,15 +43,15 @@
     pointer-events: none;
   }
 
-  &:where([hovered], &:hover) [state-layer] {
+  &:where([hovered], &:hover, &.is-hovered) [state-layer] {
     opacity: var(--md-sys-state-hover-state-layer-opacity);
   }
 
-  &:where([focused], &:focus) [state-layer] {
+  &:where([focused], &:focus, &.is-focused) [state-layer] {
     opacity: var(--md-sys-state-focus-state-layer-opacity);
   }
 
-  &:where([pressed], &:active) [state-layer] {
+  &:where([pressed], &:active, &.is-pressed) [state-layer] {
     opacity: var(--md-sys-state-pressed-state-layer-opacity);
   }
 }

@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  &[align='center'] {
+    justify-content: center;
+  }
+
+  &[align='end'] {
+    justify-content: end;
+  }
+}

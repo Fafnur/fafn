@@ -2,7 +2,9 @@ import { Route } from '@angular/router';
 
 import { LayoutComponent } from '@fafn/components/layout';
 
-import { DemoComponent } from './demo/demo.component';
+import { ButtonsComponent } from './buttons/buttons.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { HeaderComponent } from './header/header.component';
 
 export const appRoutes: Route[] = [
   {
@@ -11,7 +13,16 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
-        component: DemoComponent,
+        component: HeaderComponent,
+        outlet: 'header',
+      },
+      {
+        path: 'buttons',
+        component: ButtonsComponent,
+      },
+      {
+        path: 'dialogs',
+        component: DialogComponent,
       },
     ],
   },
