@@ -1,1 +1,9 @@
-<ng-content></ng-content>
+<div content>
+  <button fafn-icon-button fafn-dialog-close>
+    <fafn-icon>close</fafn-icon>
+  </button>
+  <ng-content></ng-content>
+</div>
+<div actions>
+  <ng-content select="[fafn-button]"></ng-content>
+</div>

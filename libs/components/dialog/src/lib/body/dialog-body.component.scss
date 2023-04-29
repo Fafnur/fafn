@@ -1,2 +1,21 @@
 :host {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 0 -24px 24px -24px;
+  padding: 0 24px;
+
+  font-family: var(--md-sys-typescale-body-medium-font-family-name);
+  font-style: var(--md-sys-typescale-body-medium-font-family-style);
+  font-weight: var(--md-sys-typescale-body-medium-font-weight);
+  font-size: var(--md-sys-typescale-body-medium-font-size);
+  line-height: var(--md-sys-typescale-body-medium-line-height);
+  letter-spacing: var(--md-sys-typescale-body-medium-letter-spacing);
+
+  :host-context(fafn-dialog:not([fullscreen])) {
+    max-height: 600px;
+  }
+
+  ::ng-deep p {
+    margin-top: 0;
+  }
 }

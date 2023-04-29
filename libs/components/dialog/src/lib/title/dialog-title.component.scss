@@ -1,2 +1,43 @@
 :host {
+  margin-bottom: 16px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  [fafn-icon-button] {
+    display: none;
+  }
+
+  [content] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+
+    &:not([fafn-icon-button]) {
+      font-family: var(--md-sys-typescale-label-small-font-family-name);
+      font-style: var(--md-sys-typescale-label-small-font-family-style);
+      font-weight: var(--md-sys-typescale-label-small-font-weight);
+      font-size: var(--md-sys-typescale-headline-small-font-size);
+      line-height: var(--md-sys-typescale-label-small-line-height);
+      letter-spacing: var(--md-sys-typescale-label-small-letter-spacing);
+    }
+  }
+
+  [actions] {
+    display: flex;
+    gap: 8px;
+  }
+
+  :host-context(fafn-dialog[fullscreen]) {
+    margin-top: -24px;
+    height: 56px;
+
+    [fafn-icon-button] {
+      display: inline-flex;
+      margin-left: -16px;
+    }
+  }
 }

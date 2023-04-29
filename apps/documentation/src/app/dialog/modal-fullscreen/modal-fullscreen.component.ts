@@ -6,15 +6,16 @@ import {
   DialogBodyComponent,
   DialogCloseDirective,
   DialogComponent,
+  DialogFullscreenDirective,
   DialogIconComponent,
   DialogTitleComponent,
 } from '@fafn/components/dialog';
 import { IconComponent } from '@fafn/components/icon';
 
 @Component({
-  selector: 'fafn-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss'],
+  selector: 'fafn-modal-fullscreen',
+  templateUrl: './modal-fullscreen.component.html',
+  styleUrls: ['./modal-fullscreen.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
@@ -26,6 +27,7 @@ import { IconComponent } from '@fafn/components/icon';
     IconComponent,
     DialogIconComponent,
     DialogCloseDirective,
+    DialogFullscreenDirective,
   ],
 })
-export class ModalComponent {}
+export class ModalFullscreenComponent {}
