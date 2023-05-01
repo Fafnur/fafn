@@ -40,7 +40,7 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/core/**/*.ts", "libs/core/**/*.html"]
+        "lintFilePatterns": ["libs/core/**/*.ts", "libs/core/**/*.html", "libs/core/testing/**/*.ts", "libs/core/testing/**/*.html"]
       }
     }
   }
