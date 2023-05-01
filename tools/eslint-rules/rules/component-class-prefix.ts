@@ -1,5 +1,5 @@
-import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
 import { ASTUtils, Selectors, toHumanReadableText } from '@angular-eslint/utils';
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
 
 // NOTE: The rule will be available in ESLint configs as "@nx/workspace/component-class-prefix"
 export const RULE_NAME = 'component-class-prefix';
