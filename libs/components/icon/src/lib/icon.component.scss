@@ -1,4 +1,8 @@
 :host {
+  width: 24px;
+  height: 24px;
+  user-select: none;
+
   &:not([icon]) {
     font-family: 'Material Icons';
     font-weight: normal;

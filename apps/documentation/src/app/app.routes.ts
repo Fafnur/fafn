@@ -5,6 +5,7 @@ import { LayoutComponent } from '@fafn/components/layout';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { HeaderComponent } from './header/header.component';
+import { IconsComponent } from './icons/icons.component';
 
 export const appRoutes: Route[] = [
   {
@@ -23,6 +24,10 @@ export const appRoutes: Route[] = [
       {
         path: 'dialogs',
         component: DialogComponent,
+      },
+      {
+        path: 'icons',
+        component: IconsComponent,
       },
     ],
   },

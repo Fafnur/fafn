@@ -22,5 +22,9 @@ export class HeaderComponent {
       route: '/dialogs',
       label: 'Dialogs',
     },
+    {
+      route: '/icons',
+      label: 'Icons',
+    },
   ];
 }

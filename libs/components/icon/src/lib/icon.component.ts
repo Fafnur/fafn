@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input } from '@angular/core';
+
+import { IconService } from './icon.service';
 
 @Component({
   selector: 'fafn-icon',
@@ -8,5 +10,15 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   standalone: true,
 })
 export class IconComponent {
-  @Input() icon?: string;
+  @Input() set icon(icon: string) {
+    if (icon) {
+      const svg = this.iconService.get(icon);
+
+      if (svg) {
+        this.elementRef.nativeElement.appendChild(svg);
+      }
+    }
+  }
+
+  constructor(private readonly elementRef: ElementRef<HTMLElement>, private readonly iconService: IconService) {}
 }
