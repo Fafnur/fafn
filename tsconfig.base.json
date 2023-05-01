@@ -25,8 +25,7 @@
       "@fafn/components/layout": ["libs/components/layout/src/index.ts"],
       "@fafn/core": ["libs/core/src/index.ts"],
       "@fafn/core/testing": ["libs/core/testing/src/index.ts"],
-      "@fafn/nativescript": ["libs/nativescript/src/index.ts"],
-      "@fafn/testing": ["libs/testing/src/index.ts"]
+      "@fafn/nativescript": ["libs/nativescript/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
