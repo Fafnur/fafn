@@ -18,7 +18,8 @@
               }
             ]
           }
-        ]
+        ],
+        "@nx/workspace/component-class-prefix": "error"
       }
     },
     {
@@ -80,7 +81,8 @@
         "no-invalid-this": "off",
         "@typescript-eslint/no-invalid-this": ["warn"],
         "comma-dangle": "off",
-        "@typescript-eslint/comma-dangle": ["error", "only-multiline"]
+        "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
+        "@angular-eslint/component-class-suffix": "off"
       }
     },
     {
