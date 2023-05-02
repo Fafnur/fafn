@@ -17,6 +17,7 @@
     "paths": {
       "@fafn/components": ["libs/components/src/index.ts"],
       "@fafn/components/buttons": ["libs/components/buttons/src/index.ts"],
+      "@fafn/components/cards": ["libs/components/cards/src/index.ts"],
       "@fafn/components/carousel": ["libs/components/carousel/src/index.ts"],
       "@fafn/components/container": ["libs/components/container/src/index.ts"],
       "@fafn/components/dialog": ["libs/components/dialog/src/index.ts"],

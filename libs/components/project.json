@@ -60,7 +60,9 @@
           "libs/components/gallery/**/*.ts",
           "libs/components/gallery/**/*.html",
           "libs/components/divider/**/*.ts",
-          "libs/components/divider/**/*.html"
+          "libs/components/divider/**/*.html",
+          "libs/components/cards/**/*.ts",
+          "libs/components/cards/**/*.html"
         ]
       }
     }
