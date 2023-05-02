@@ -1,21 +1,25 @@
 @use '../../../../src/styles/mixins' as mixins;
 @use 'sass:math';
 
-@mixin make-columns($mode) {
-  &[#{$mode}] {
+@mixin make-columns($mode, $modeWithPrefix) {
+  &[#{$mode}],
+  &[#{$modeWithPrefix}] {
     flex: 1 0 0;
   }
 
-  &[#{$mode}]:not([#{$mode}='']) {
+  &[#{$mode}]:not([#{$mode}='']),
+  &[#{$modeWithPrefix}]:not([#{$modeWithPrefix}='']) {
     flex: 0 0 auto;
   }
 
   @for $column from 1 through 12 {
-    &[#{$mode}='#{$column}'] {
+    &[#{$mode}='#{$column}'],
+    &[#{$modeWithPrefix}='#{$column}'] {
       width: math.percentage(math.div($column, 12));
     }
 
-    &[#{$mode}-offset='#{$column}'] {
+    &[#{$mode}-offset='#{$column}'],
+    &[#{$modeWithPrefix}Offset='#{$column}'] {
       margin-left: math.percentage(math.div($column, 12));
     }
   }
@@ -27,14 +31,14 @@
   flex-wrap: wrap;
 
   @include mixins.media-handset-up() {
-    @include make-columns(handset);
+    @include make-columns(handset, fafnHandset);
   }
 
   @include mixins.media-tablet-up() {
-    @include make-columns(tablet);
+    @include make-columns(tablet, fafnTablet);
   }
 
   @include mixins.media-web-up() {
-    @include make-columns(web);
+    @include make-columns(web, fafnWeb);
   }
 }

@@ -1,8 +1,7 @@
-export * from './lib/column/column.component';
-export * from './lib/column/handset.directive';
-export * from './lib/column/tablet.directive';
-export * from './lib/column/web.directive';
-export * from './lib/grid';
+export { ColumnComponent as FafnColumn } from './lib/column/column.component';
+export { HandsetDirective as FafnHandset } from './lib/column/handset.directive';
+export { TabletDirective as FafnTablet } from './lib/column/tablet.directive';
+export { WebDirective as FafnWeb } from './lib/column/web.directive';
 export * from './lib/grid.service';
-export * from './lib/row/no-gutter.directive';
-export * from './lib/row/row.component';
+export { NoGutterDirective as FafnNoGutter } from './lib/row/no-gutter.directive';
+export { RowComponent as FafnRow } from './lib/row/row.component';

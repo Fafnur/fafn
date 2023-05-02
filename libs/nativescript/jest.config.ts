@@ -3,7 +3,7 @@ export default {
   displayName: 'nativescript',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/nativescript',
+  // coverageDirectory: '../../coverage/libs/nativescript',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

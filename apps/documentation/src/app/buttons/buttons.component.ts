@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
-import { ButtonComponent, EFabButtonComponent, FabButtonComponent, IconButtonComponent } from '@fafn/components/buttons';
-import { ContainerComponent } from '@fafn/components/container';
-import { IconComponent } from '@fafn/components/icon';
+import { FafnButton, FafnEFabButton, FafnFabButton, FafnIconButton } from '@fafn/components/buttons';
+import { FafnContainer } from '@fafn/components/container';
+import { FafnIcon } from '@fafn/components/icon';
 
 @Component({
   selector: 'fafn-page-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.scss'],
   standalone: true,
-  imports: [ButtonComponent, ContainerComponent, IconComponent, FabButtonComponent, EFabButtonComponent, IconButtonComponent],
+  imports: [FafnContainer, FafnIcon, FafnButton, FafnFabButton, FafnEFabButton, FafnIconButton],
 })
 export class ButtonsComponent {}

@@ -5,7 +5,7 @@ import { CanMode, CanSize, ThemeMode, ThemeSize } from '@fafn/components';
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
 @Component({
-  selector: 'button[fafn-button]',
+  selector: 'button[fafn-button],button[fafnButton]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +21,7 @@ export class ButtonComponent extends ButtonBase implements CanSize, CanMode {
 }
 
 @Component({
-  selector: 'a[fafn-button]',
+  selector: 'a[fafn-button],a[fafnButton]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

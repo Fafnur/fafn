@@ -2,7 +2,7 @@ import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
-import { AnchorComponent } from '@fafn/components/buttons';
+import { FafnAnchor } from '@fafn/components/buttons';
 
 @Component({
   selector: 'fafn-header',
@@ -10,7 +10,7 @@ import { AnchorComponent } from '@fafn/components/buttons';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, AnchorComponent, NgForOf],
+  imports: [RouterLink, RouterLinkActive, FafnAnchor, NgForOf],
 })
 export class HeaderComponent {
   readonly links = [

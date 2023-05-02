@@ -5,7 +5,7 @@ import { CanColor, ThemeColor } from '@fafn/components';
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
 @Component({
-  selector: 'button[fafn-efab]',
+  selector: 'button[fafn-efab],button[fafnEfab]',
   templateUrl: './efab-button.component.html',
   styleUrls: ['./efab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,7 +20,7 @@ export class EFabButtonComponent extends ButtonBase implements CanColor {
 }
 
 @Component({
-  selector: 'a[fafn-efab]',
+  selector: 'a[fafn-efab],a[fafnEfab]',
   templateUrl: './efab-button.component.html',
   styleUrls: ['./efab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
