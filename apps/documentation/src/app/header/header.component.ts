@@ -26,5 +26,9 @@ export class HeaderComponent {
       route: '/icons',
       label: 'Icons',
     },
+    {
+      route: '/dividers',
+      label: 'Dividers',
+    },
   ];
 }
