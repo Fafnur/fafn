@@ -5,7 +5,7 @@ import { CanColor, CanSizeShort, ThemeColor, ThemeSizeShort } from '@fafn/compon
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
 @Component({
-  selector: 'button[fafn-fab]',
+  selector: 'button[fafn-fab],button[fafnFab]',
   templateUrl: './fab-button.component.html',
   styleUrls: ['./fab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +21,7 @@ export class FabButtonComponent extends ButtonBase implements CanColor, CanSizeS
 }
 
 @Component({
-  selector: 'a[fafn-fab]',
+  selector: 'a[fafn-fab],a[fafnFab]',
   templateUrl: './fab-button.component.html',
   styleUrls: ['./fab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

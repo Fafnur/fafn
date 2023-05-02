@@ -13,12 +13,16 @@
     padding: 0 var(--fafn-gutter, 1rem);
   }
 
-  &[no-gutter] {
+  &[no-gutter],
+  &[fafnNoGutter] {
     margin-left: 0;
     margin-right: 0;
   }
 
-  &[no-gutter] ::ng-deep > * {
-    padding: 0;
+  &[no-gutter],
+  &[fafnNoGutter] {
+    ::ng-deep > * {
+      padding: 0;
+    }
   }
 }

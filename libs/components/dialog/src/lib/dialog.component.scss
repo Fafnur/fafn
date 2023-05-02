@@ -20,7 +20,8 @@
   padding: 24px;
   background-color: var(--md-sys-color-surface-container-high);
 
-  &:not([fullscreen]) {
+  &:not([fullscreen]),
+  &:not([fafnFullscreen]) {
     margin: 0 16px;
     min-width: 280px;
     max-width: 560px;
@@ -28,7 +29,8 @@
     box-shadow: var(--md-sys-elevation-3);
   }
 
-  &[fullscreen] {
+  &[fullscreen],
+  &[fafnFullscreen] {
     width: 100%;
     height: 100%;
     box-shadow: var(--md-sys-elevation-0);
@@ -37,7 +39,8 @@
   &[align='center'] {
     justify-content: center;
 
-    fafn-dialog-actions:not([align]) {
+    fafn-dialog-actions:not([align]),
+    [fafnDialogActions]:not([align]) {
       justify-content: center;
     }
   }

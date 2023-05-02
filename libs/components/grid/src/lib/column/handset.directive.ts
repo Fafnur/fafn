@@ -1,8 +1,14 @@
-import { Directive } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'fafn-column[handset]',
+  selector: 'fafn-column[handset],[fafnColumn][fafnHandset],fafn-column[handset-offset],[fafnColumn][fafnHandsetOffset]',
   standalone: true,
 })
-export class HandsetDirective {}
+export class HandsetDirective {
+  @Input() handset?: string | number;
+  @Input() fafnHandset?: string | number;
+
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  @Input('handset-offset') handsetOffset?: string | number;
+  @Input() fafnHandsetOffset?: string | number;
+}

@@ -1,15 +1,16 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { ButtonComponent } from '@fafn/components/buttons';
+import { FafnButton } from '@fafn/components/buttons';
 import {
-  DialogActionsComponent,
-  DialogBodyComponent,
-  DialogCloseDirective,
-  DialogComponent,
-  DialogIconComponent,
-  DialogTitleComponent,
+  FafnDialog,
+  FafnDialogActions,
+  FafnDialogBody,
+  FafnDialogClose,
+  FafnDialogFullscreen,
+  FafnDialogIcon,
+  FafnDialogTitle,
 } from '@fafn/components/dialog';
-import { IconComponent } from '@fafn/components/icon';
+import { FafnIcon } from '@fafn/components/icon';
 
 @Component({
   selector: 'fafn-modal',
@@ -18,14 +19,15 @@ import { IconComponent } from '@fafn/components/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    DialogComponent,
-    DialogTitleComponent,
-    DialogBodyComponent,
-    DialogActionsComponent,
-    ButtonComponent,
-    IconComponent,
-    DialogIconComponent,
-    DialogCloseDirective,
+    FafnButton,
+    FafnIcon,
+    FafnDialogActions,
+    FafnDialogBody,
+    FafnDialogClose,
+    FafnDialog,
+    FafnDialogFullscreen,
+    FafnDialogIcon,
+    FafnDialogTitle,
   ],
 })
 export class ModalComponent {}

@@ -1,8 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: 'fafn-container[mobile-no-gutter]',
+  selector: 'fafn-container[mobile-no-gutter],fafnContainer[fafnMobileNoGutter]',
   standalone: true,
 })
 export class MobileNoGutterDirective {}

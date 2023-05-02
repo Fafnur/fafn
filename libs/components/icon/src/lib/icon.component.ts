@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, Input } from '@angular/
 import { IconService } from './icon.service';
 
 @Component({
-  selector: 'fafn-icon',
+  selector: 'fafn-icon, [fafnIcon]',
   template: '<ng-content></ng-content>',
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

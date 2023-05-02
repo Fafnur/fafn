@@ -2,8 +2,8 @@ import { Dialog, DialogModule } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 import { tap } from 'rxjs';
 
-import { ButtonComponent } from '@fafn/components/buttons';
-import { ContainerComponent } from '@fafn/components/container';
+import { FafnButton } from '@fafn/components/buttons';
+import { FafnContainer } from '@fafn/components/container';
 
 import { ModalComponent } from './modal/modal.component';
 import { ModalFullscreenComponent } from './modal-fullscreen/modal-fullscreen.component';
@@ -13,7 +13,7 @@ import { ModalFullscreenComponent } from './modal-fullscreen/modal-fullscreen.co
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
   standalone: true,
-  imports: [ContainerComponent, ButtonComponent, DialogModule],
+  imports: [FafnContainer, FafnButton, DialogModule],
 })
 export class DialogComponent {
   constructor(private readonly dialog: Dialog) {}

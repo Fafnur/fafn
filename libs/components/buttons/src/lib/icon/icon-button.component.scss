@@ -41,7 +41,8 @@
     opacity: var(--md-sys-state-dragged-state-layer-opacity);
   }
 
-  &[no-content] {
+  &[no-content],
+  &[fafnNoContent] {
     height: 40px;
     width: 40px;
     padding: 0;

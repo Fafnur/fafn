@@ -3,16 +3,17 @@ import { Directive, HostListener, Input } from '@angular/core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[fafn-dialog-close]',
+  selector: '[fafn-dialog-close],[fafnDialogClose]',
   standalone: true,
 })
 export class DialogCloseDirective {
   @Input('fafn-dialog-close') close?: unknown;
+  @Input() fafnDialogClose?: unknown;
 
   constructor(private readonly dialogRef: DialogRef) {}
 
   @HostListener('click')
   onClick(): void {
-    this.dialogRef.close(this.close);
+    this.dialogRef.close(this.close ?? this.fafnDialogClose);
   }
 }

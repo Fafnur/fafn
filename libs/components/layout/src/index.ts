@@ -1,1 +1,1 @@
-export * from './lib/layout.component';
+export { LayoutComponent as FafnLayout } from './lib/layout.component';

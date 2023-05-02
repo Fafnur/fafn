@@ -1,8 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[fullscreen]',
+  selector: 'fafn-dialog[fullscreen],fafnDialog[fafnFullscreen]',
   standalone: true,
 })
 export class DialogFullscreenDirective {}
