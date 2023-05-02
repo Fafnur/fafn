@@ -1,13 +1,17 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
+import { FafnIconButton } from '@fafn/components/buttons';
+import { FafnIcon } from '@fafn/components/icon';
+
 @Component({
-  selector: 'fafn-carousel-navs',
-  templateUrl: './carousel-navs.component.html',
-  styleUrls: ['./carousel-navs.component.scss'],
+  selector: 'fafn-gallery-navs,[fafnGalleryNavs]',
+  templateUrl: './gallery-navs.component.html',
+  styleUrls: ['./gallery-navs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  imports: [FafnIcon, FafnIconButton],
 })
-export class CarouselNavsComponent {
+export class GalleryNavsComponent {
   @Output() prev = new EventEmitter<void>();
   @Output() next = new EventEmitter<void>();
 
