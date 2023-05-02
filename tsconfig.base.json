@@ -20,6 +20,7 @@
       "@fafn/components/carousel": ["libs/components/carousel/src/index.ts"],
       "@fafn/components/container": ["libs/components/container/src/index.ts"],
       "@fafn/components/dialog": ["libs/components/dialog/src/index.ts"],
+      "@fafn/components/gallery": ["libs/components/gallery/src/index.ts"],
       "@fafn/components/grid": ["libs/components/grid/src/index.ts"],
       "@fafn/components/icon": ["libs/components/icon/src/index.ts"],
       "@fafn/components/layout": ["libs/components/layout/src/index.ts"],

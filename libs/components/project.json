@@ -56,7 +56,9 @@
           "libs/components/icon/**/*.ts",
           "libs/components/icon/**/*.html",
           "libs/components/dialog/**/*.ts",
-          "libs/components/dialog/**/*.html"
+          "libs/components/dialog/**/*.html",
+          "libs/components/gallery/**/*.ts",
+          "libs/components/gallery/**/*.html"
         ]
       }
     }
