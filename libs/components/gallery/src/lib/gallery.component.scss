@@ -18,11 +18,13 @@
     height: 25rem;
   }
 
-  fafn-carousel-navs {
+  fafn-gallery-navs,
+  [fafnGalleryNavs] {
     opacity: 0;
   }
 
-  &:hover fafn-carousel-navs {
+  &:hover fafn-gallery-navs,
+  &:hover [fafnGalleryNavs] {
     opacity: 1;
   }
 
@@ -31,8 +33,11 @@
   }
 }
 
-fafn-carousel-slide,
-fafn-carousel-dots,
-fafn-carousel-navs {
+fafn-gallery-slide,
+fafn-gallery-dots,
+fafn-gallery-navs,
+[fafnGallerySlide],
+[fafnGalleryDots],
+[fafnGalleryNavs] {
   z-index: 1;
 }

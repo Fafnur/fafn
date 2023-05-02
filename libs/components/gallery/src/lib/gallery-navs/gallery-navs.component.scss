@@ -1,6 +1,6 @@
 @use '../../../../src/styles/mixins' as mixins;
 
-.carousel-nav {
+button[fafn-icon-button] {
   position: absolute;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.3);
@@ -38,6 +38,7 @@
   }
 }
 
-.carousel-nav-icon {
+fafn-icon,
+[fafnIcon] {
   color: white;
 }

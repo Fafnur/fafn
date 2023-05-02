@@ -1,4 +1,4 @@
-export interface CarouselSlide {
+export interface GallerySlide {
   [key: string]: unknown;
 
   uuid: string | number;
