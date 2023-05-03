@@ -1,1 +1,1 @@
-export * from './lib/cards.module';
+export { CardComponent as FafnCard } from './lib/card.component';

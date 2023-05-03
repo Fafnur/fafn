@@ -3,6 +3,7 @@ import { Route } from '@angular/router';
 import { FafnLayout } from '@fafn/components/layout';
 
 import { ButtonsComponent } from './buttons/buttons.component';
+import { CardsComponent } from './cards/cards.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DividersComponent } from './dividers/dividers.component';
 import { HeaderComponent } from './header/header.component';
@@ -33,6 +34,10 @@ export const appRoutes: Route[] = [
       {
         path: 'dividers',
         component: DividersComponent,
+      },
+      {
+        path: 'cards',
+        component: CardsComponent,
       },
     ],
   },

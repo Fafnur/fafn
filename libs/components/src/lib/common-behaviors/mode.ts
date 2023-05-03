@@ -1,6 +1,7 @@
-export interface CanMode {
-  mode: ThemeMode;
+export interface CanMode<T> {
+  mode: T;
 }
 
-/** Possible color palette values. */
-export type ThemeMode = 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text' | undefined;
+export type ButtonMode = 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text' | undefined;
+
+export type CardMode = 'elevated' | 'filled' | 'outlined' | undefined;

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
 
-import { CanColor, CanSizeShort, ThemeColor, ThemeSizeShort } from '@fafn/components';
+import { FabColor, IconSize } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
@@ -11,9 +11,9 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class FabButtonComponent extends ButtonBase implements CanColor, CanSizeShort {
-  @Input() color: ThemeColor;
-  @Input() size: ThemeSizeShort;
+export class FabButtonComponent extends ButtonBase {
+  @Input() color: FabColor;
+  @Input() size: IconSize;
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
@@ -27,9 +27,9 @@ export class FabButtonComponent extends ButtonBase implements CanColor, CanSizeS
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class FabAnchorComponent extends AnchorBase implements CanColor, CanSizeShort {
-  @Input() color: ThemeColor;
-  @Input() size: ThemeSizeShort;
+export class FabAnchorComponent extends AnchorBase {
+  @Input() color: FabColor;
+  @Input() size: IconSize;
 
   constructor(elementRef: ElementRef, ngZone: NgZone) {
     super(elementRef, ngZone);

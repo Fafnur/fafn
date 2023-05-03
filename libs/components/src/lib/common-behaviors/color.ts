@@ -1,5 +1,1 @@
-export interface CanColor {
-  color: ThemeColor;
-}
-
-export type ThemeColor = 'default' | 'surface' | 'secondary' | 'tertiary' | undefined;
+export type FabColor = 'default' | 'surface' | 'secondary' | 'tertiary' | undefined;

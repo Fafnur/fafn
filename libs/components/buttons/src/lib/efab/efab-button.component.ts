@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
 
-import { CanColor, ThemeColor } from '@fafn/components';
+import { FabColor } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
@@ -11,8 +11,8 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class EFabButtonComponent extends ButtonBase implements CanColor {
-  @Input() color: ThemeColor;
+export class EFabButtonComponent extends ButtonBase {
+  @Input() color: FabColor;
 
   constructor(elementRef: ElementRef) {
     super(elementRef);
@@ -26,8 +26,8 @@ export class EFabButtonComponent extends ButtonBase implements CanColor {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class EFabAnchorComponent extends AnchorBase implements CanColor {
-  @Input() color: ThemeColor;
+export class EFabAnchorComponent extends AnchorBase {
+  @Input() color: FabColor;
 
   constructor(elementRef: ElementRef, ngZone: NgZone) {
     super(elementRef, ngZone);
