@@ -1,3 +1,5 @@
+@use 'libs/components/src/styles/mixins/state-layer' as state-layer;
+
 :host {
   display: inline-flex;
   flex-direction: row;
@@ -9,7 +11,6 @@
   border-radius: 20px;
   padding-left: 24px;
   padding-right: 24px;
-  position: relative;
   border: none;
   z-index: 0;
   gap: 8px;
@@ -19,39 +20,11 @@
   cursor: pointer;
   background: rgba(0, 0, 0, 0);
 
-  [state-layer] {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    display: block;
-    z-index: 1;
-    opacity: 0;
-    border-radius: inherit;
-  }
-
   [label] {
     position: relative;
     z-index: 2;
   }
 
-  &[disabled] {
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
-  &:where([hovered], &:hover, &.is-hovered) [state-layer] {
-    opacity: var(--md-sys-state-hover-state-layer-opacity);
-  }
-
-  &:where([focused], &:focus, &.is-focused) [state-layer] {
-    opacity: var(--md-sys-state-focus-state-layer-opacity);
-  }
-
-  &:where([pressed], &:active, &.is-pressed) [state-layer] {
-    opacity: var(--md-sys-state-pressed-state-layer-opacity);
-  }
+  @include state-layer.add-state-layer();
+  @include state-layer.add-states();
 }

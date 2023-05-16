@@ -30,5 +30,9 @@ export class HeaderComponent {
       route: '/dividers',
       label: 'Dividers',
     },
+    {
+      route: '/cards',
+      label: 'Cards',
+    },
   ];
 }

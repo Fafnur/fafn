@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { FafnContainer } from '@fafn/components/container';
 import { FafnDivider, FafnInset, FafnMiddleInset } from '@fafn/components/divider';
@@ -7,6 +7,7 @@ import { FafnDivider, FafnInset, FafnMiddleInset } from '@fafn/components/divide
   selector: 'fafn-page-dividers',
   templateUrl: './dividers.component.html',
   styleUrls: ['./dividers.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [FafnDivider, FafnInset, FafnMiddleInset, FafnContainer],
 })

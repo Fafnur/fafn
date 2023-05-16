@@ -1,5 +1,5 @@
 import { Dialog, DialogModule } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { tap } from 'rxjs';
 
 import { FafnButton } from '@fafn/components/buttons';
@@ -12,6 +12,7 @@ import { ModalFullscreenComponent } from './modal-fullscreen/modal-fullscreen.co
   selector: 'fafn-page-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [FafnContainer, FafnButton, DialogModule],
 })

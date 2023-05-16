@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { FafnIconButton } from '@fafn/components/buttons';
 import { FafnContainer } from '@fafn/components/container';
@@ -13,6 +13,7 @@ export const gosuslugiIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0
   selector: 'fafn-page-icons',
   templateUrl: './icons.component.html',
   styleUrls: ['./icons.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [FafnIconButton, FafnContainer, FafnIcon],
 })

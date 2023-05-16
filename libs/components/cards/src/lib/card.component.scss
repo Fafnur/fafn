@@ -1,0 +1,92 @@
+@use 'libs/components/src/styles/mixins/state-layer' as state-layer;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--md-sys-typescale-label-large-font-family-name);
+  font-style: var(--md-sys-typescale-label-large-font-family-style);
+  font-weight: var(--md-sys-typescale-label-large-font-weight);
+  font-size: var(--md-sys-typescale-label-large-font-size);
+  line-height: var(--md-sys-typescale-label-large-line-height);
+  letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
+  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+
+  border-radius: 12px;
+  padding: 16px;
+
+  @include state-layer.add-state-layer();
+  @include state-layer.add-states();
+
+  [content] {
+    position: relative;
+    z-index: 2;
+  }
+
+  &[mode='elevated'],
+  &:not([mode]) {
+    background-color: var(--md-sys-color-surface-container-low);
+    box-shadow: var(--md-sys-elevation-1);
+
+    &:where([hovered], &:hover, &.is-hovered) {
+      box-shadow: var(--md-sys-elevation-2);
+    }
+
+    &:where([dragged], &.is-dragged) [state-layer] {
+      box-shadow: var(--md-sys-elevation-3);
+    }
+
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+    }
+
+    &[disabled] {
+      box-shadow: var(--md-sys-elevation-0);
+      background-color: rgba(var(--md-sys-color-surface-variant-rgba), 0.38);
+    }
+  }
+
+  &[mode='filled'] {
+    background-color: var(--md-sys-color-surface-container-high);
+    box-shadow: var(--md-sys-elevation-0);
+
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+    }
+
+    &:where([hovered], &:hover, &.is-hovered) {
+      box-shadow: var(--md-sys-elevation-1);
+    }
+
+    &:where([dragged], &.is-dragged) [state-layer] {
+      box-shadow: var(--md-sys-elevation-3);
+    }
+
+    &[disabled] {
+      box-shadow: var(--md-sys-elevation-1);
+      background-color: rgba(var(--md-sys-color-surface-rgba), 0.38);
+    }
+  }
+
+  &[mode='outlined'] {
+    background-color: var(--md-sys-color-surface); //???
+    box-shadow: var(--md-sys-elevation-0);
+    border: 1px solid var(--md-sys-color-outline);
+
+    &:where([hovered], &:hover, &.is-hovered) {
+      box-shadow: var(--md-sys-elevation-1);
+    }
+
+    &:where([dragged], &.is-dragged) [state-layer] {
+      box-shadow: var(--md-sys-elevation-3);
+    }
+
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+    }
+
+    &[disabled] {
+      box-shadow: var(--md-sys-elevation-0);
+      background-color: rgba(var(--md-sys-color-surface-variant-rgba), 0.38);
+    }
+  }
+}
