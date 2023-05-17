@@ -13,5 +13,10 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
+  "peerDependenciesMeta": {
+    "fake-indexeddb": {
+      "optional": true
+    }
+  },
   "sideEffects": false
 }
