@@ -17,7 +17,7 @@
     align-items: center;
     flex-grow: 1;
 
-    &:not([fafn-icon-button]) {
+    &:not([fafn-icon-button]):not([fafnIconButton]) {
       font-family: var(--md-sys-typescale-label-small-font-family-name);
       font-style: var(--md-sys-typescale-label-small-font-family-style);
       font-weight: var(--md-sys-typescale-label-small-font-weight);
@@ -32,7 +32,7 @@
     gap: 8px;
   }
 
-  :host-context(fafn-dialog[fullscreen]) {
+  :host-context(fafn-dialog[fullscreen], [fafnDialog][fafnFullscreen]) {
     margin-top: -24px;
     height: 56px;
 
