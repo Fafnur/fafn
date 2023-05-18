@@ -65,12 +65,18 @@
           "libs/components/cards/**/*.html",
           "libs/components/headline/**/*.ts",
           "libs/components/headline/**/*.html",
-          "libs/components/subhead/**/*.ts",
-          "libs/components/subhead/**/*.html",
+          "libs/components/title/**/*.ts",
+          "libs/components/title/**/*.html",
           "libs/components/image/**/*.ts",
           "libs/components/image/**/*.html",
           "libs/components/avatar/**/*.ts",
-          "libs/components/avatar/**/*.html"
+          "libs/components/avatar/**/*.html",
+          "libs/components/body/**/*.ts",
+          "libs/components/body/**/*.html",
+          "libs/components/label/**/*.ts",
+          "libs/components/label/**/*.html",
+          "libs/components/display/**/*.ts",
+          "libs/components/display/**/*.html"
         ]
       }
     }

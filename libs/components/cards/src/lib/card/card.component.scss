@@ -11,14 +11,16 @@
   letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
   text-decoration: var(--md-sys-typescale-label-large-text-decoration);
 
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: var(--md-sys-shape-corner-medium);
+
   max-width: 100%;
 
   @include state-layer.add-state-layer();
   @include state-layer.add-states();
 
   [content] {
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 2;
   }

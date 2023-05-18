@@ -1,10 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+/**
+ * Title/Subhead
+ */
 @Component({
-  selector: 'fafn-subhead,[fafnSubhead]',
+  selector: 'fafn-title,[fafnTitle]',
   template: '<ng-content></ng-content>',
-  styleUrls: ['./subhead.component.scss'],
+  styleUrls: ['./title.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class SubheadComponent {}
+export class TitleComponent {}

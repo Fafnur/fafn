@@ -1,8 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { FafnCard } from '@fafn/components/cards';
+import { FafnBody } from '@fafn/components/body';
+import { FafnCard, FafnCardContent } from '@fafn/components/cards';
 import { FafnContainer } from '@fafn/components/container';
+import { FafnColumn, FafnRow, FafnTablet } from '@fafn/components/grid';
+import { FafnHeadline } from '@fafn/components/headline';
 import { FafnImage } from '@fafn/components/image';
+import { FafnTitle } from '@fafn/components/title';
 
 @Component({
   selector: 'fafn-page-dividers',
@@ -10,6 +14,6 @@ import { FafnImage } from '@fafn/components/image';
   styleUrls: ['./cards.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [FafnCard, FafnContainer, FafnImage],
+  imports: [FafnCard, FafnContainer, FafnImage, FafnRow, FafnColumn, FafnTablet, FafnHeadline, FafnTitle, FafnCardContent, FafnBody],
 })
 export class CardsComponent {}

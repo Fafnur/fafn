@@ -6,10 +6,8 @@
     font-style: var(--md-sys-typescale-headline-small-font-family-style);
     font-weight: var(--md-sys-typescale-headline-small-font-weight);
     font-size: var(--md-sys-typescale-headline-small-font-size);
-    letter-spacing: var(--md-sys-typescale-headline-small-tracking);
-    line-height: var(--md-sys-typescale-headline-small-height);
-    text-transform: var(--md-sys-typescale-headline-small-text-transform);
-    text-decoration: var(--md-sys-typescale-headline-small-text-decoration);
+    letter-spacing: var(--md-sys-typescale-headline-small-letter-spacing);
+    line-height: var(--md-sys-typescale-headline-small-line-height);
   }
 
   @include mixins.media-tablet() {
@@ -17,10 +15,8 @@
     font-style: var(--md-sys-typescale-headline-medium-font-family-style);
     font-weight: var(--md-sys-typescale-headline-medium-font-weight);
     font-size: var(--md-sys-typescale-headline-medium-font-size);
-    letter-spacing: var(--md-sys-typescale-headline-medium-tracking);
-    line-height: var(--md-sys-typescale-headline-medium-height);
-    text-transform: var(--md-sys-typescale-headline-medium-text-transform);
-    text-decoration: var(--md-sys-typescale-headline-medium-text-decoration);
+    letter-spacing: var(--md-sys-typescale-headline-medium-letter-spacing);
+    line-height: var(--md-sys-typescale-headline-medium-line-height);
   }
 
   @include mixins.media-web() {
@@ -28,9 +24,7 @@
     font-style: var(--md-sys-typescale-headline-large-font-family-style);
     font-weight: var(--md-sys-typescale-headline-large-font-weight);
     font-size: var(--md-sys-typescale-headline-large-font-size);
-    letter-spacing: var(--md-sys-typescale-headline-large-tracking);
-    line-height: var(--md-sys-typescale-headline-large-height);
-    text-transform: var(--md-sys-typescale-headline-large-text-transform);
-    text-decoration: var(--md-sys-typescale-headline-large-text-decoration);
+    letter-spacing: var(--md-sys-typescale-headline-large-letter-spacing);
+    line-height: var(--md-sys-typescale-headline-large-line-height);
   }
 }
