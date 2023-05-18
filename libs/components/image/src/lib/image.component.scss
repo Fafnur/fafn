@@ -1,0 +1,7 @@
+:host {
+  max-width: 100%;
+
+  :host-context(fafn-card, [fafnCard]) {
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+}
