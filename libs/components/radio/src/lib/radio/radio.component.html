@@ -1,0 +1,21 @@
+<div class="mdc-form-field" [class.mdc-form-field--align-end]="labelPosition === 'before'">
+  <div class="mdc-radio" [class.mdc-radio--disabled]="disabled">
+    <div class="mat-mdc-radio-touch-target" (click)="onTouchTargetClick($event)"></div>
+    <input
+      #input
+      type="radio"
+      [id]="id"
+      [disabled]="disabled"
+      [attr.value]="value"
+      (change)="onInputInteraction($event)"
+      (focus)="onFocused()"
+    />
+    <div class="mdc-radio__background">
+      <div class="mdc-radio__outer-circle"></div>
+      <div class="mdc-radio__inner-circle"></div>
+    </div>
+  </div>
+  <label [for]="id">
+    <ng-content></ng-content>
+  </label>
+</div>
