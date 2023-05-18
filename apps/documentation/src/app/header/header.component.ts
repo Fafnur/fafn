@@ -34,5 +34,9 @@ export class HeaderComponent {
       route: '/cards',
       label: 'Cards',
     },
+    {
+      route: '/radios',
+      label: 'Radio buttons',
+    },
   ];
 }

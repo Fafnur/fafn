@@ -76,7 +76,9 @@
           "libs/components/label/**/*.ts",
           "libs/components/label/**/*.html",
           "libs/components/display/**/*.ts",
-          "libs/components/display/**/*.html"
+          "libs/components/display/**/*.html",
+          "libs/components/radio/**/*.ts",
+          "libs/components/radio/**/*.html"
         ]
       }
     }

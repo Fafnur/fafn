@@ -8,6 +8,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DividersComponent } from './dividers/dividers.component';
 import { HeaderComponent } from './header/header.component';
 import { IconsComponent } from './icons/icons.component';
+import { RadiosComponent } from './radios/radios.component';
 
 export const appRoutes: Route[] = [
   {
@@ -38,6 +39,10 @@ export const appRoutes: Route[] = [
       {
         path: 'cards',
         component: CardsComponent,
+      },
+      {
+        path: 'radios',
+        component: RadiosComponent,
       },
     ],
   },
