@@ -7,7 +7,7 @@ import { CardsComponent } from './cards/cards.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DividersComponent } from './dividers/dividers.component';
 import { HeaderComponent } from './header/header.component';
-import { IconsComponent } from './icons/icons.component';
+import { SwitchsComponent } from './icons/switchs.component';
 
 export const appRoutes: Route[] = [
   {
@@ -29,7 +29,7 @@ export const appRoutes: Route[] = [
       },
       {
         path: 'icons',
-        component: IconsComponent,
+        component: SwitchsComponent,
       },
       {
         path: 'dividers',
@@ -38,6 +38,10 @@ export const appRoutes: Route[] = [
       {
         path: 'cards',
         component: CardsComponent,
+      },
+      {
+        path: 'switchs',
+        component: SwitchsComponent,
       },
     ],
   },

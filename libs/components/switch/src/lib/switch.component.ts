@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, HostListener, Renderer2 } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -18,8 +19,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class SwitchComponent implements ControlValueAccessor {
+  @ViewChild('input', { static: true }) input!: ElementRef<HTMLInputElement>;
+
+  private isDisabled = false;
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onTouched: () => void = () => {};
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onChange: (value: boolean | null) => void = () => {};
 
   constructor(private readonly render: Renderer2, private readonly elementRef: ElementRef) {}
@@ -33,17 +40,30 @@ export class SwitchComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    if (isDisabled) {
-      this.render.setAttribute(this.elementRef.nativeElement, 'disabled', isDisabled.toString());
+    this.isDisabled = isDisabled;
+
+    if (this.isDisabled) {
+      this.render.setAttribute(this.input.nativeElement, 'disabled', this.isDisabled.toString());
     } else {
-      this.render.removeAttribute(this.elementRef.nativeElement, 'disabled');
+      this.render.removeAttribute(this.input.nativeElement, 'disabled');
     }
   }
 
-  writeValue(obj: boolean | null): void {}
+  writeValue(value: unknown): void {
+    if (coerceBooleanProperty(value)) {
+      this.render.setAttribute(this.input.nativeElement, 'checked', '');
+    }
+  }
 
   @HostListener('blur')
   onBlur(): void {
     this.onTouched();
+  }
+
+  onChanged(event: Event): void {
+    if (!this.isDisabled) {
+      const changed = (event.target as HTMLInputElement).checked;
+      this.onChange(changed);
+    }
   }
 }
