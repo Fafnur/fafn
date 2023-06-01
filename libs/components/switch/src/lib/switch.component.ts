@@ -1,6 +1,10 @@
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, HostListener, Input, Renderer2, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+import { FafnIcon } from '@fafn/components/icon';
 
 @Component({
   selector:
@@ -17,11 +21,54 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       multi: true,
     },
   ],
+  imports: [FafnIcon, NgIf],
+  animations: [
+    trigger('checked', [
+      state(
+        'on',
+        style({
+          transform: 'translateX(32px)',
+        })
+      ),
+      state(
+        'off',
+        style({
+          transform: 'translateX(0)',
+        })
+      ),
+      transition('off => on', [
+        animate(
+          '0.2s',
+          keyframes([
+            style({ height: '16px', width: '16px', offset: 0 }),
+            style({ transform: 'translateX(0)', height: '28px', width: '28px', offset: 0.1 }),
+            style({ height: '28px', width: '28px', offset: 0.9 }),
+            style({ transform: 'translateX(32px)', height: '16px', width: '16px', offset: 1 }),
+          ])
+        ),
+      ]),
+      transition('on => off', [
+        animate(
+          '0.2s',
+          keyframes([
+            style({ height: '16px', width: '16px', offset: 0 }),
+            style({ transform: 'translateX(32px)', height: '28px', width: '28px', offset: 0.1 }),
+            style({ height: '28px', width: '28px', offset: 0.9 }),
+            style({ transform: 'translateX(0)', height: '16px', width: '16px', offset: 1 }),
+          ])
+        ),
+      ]),
+    ]),
+  ],
 })
 export class SwitchComponent implements ControlValueAccessor {
+  @Input() icons = false;
+
   @ViewChild('input', { static: true }) input!: ElementRef<HTMLInputElement>;
 
   private isDisabled = false;
+
+  checked = false;
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onTouched: () => void = () => {};
@@ -50,7 +97,8 @@ export class SwitchComponent implements ControlValueAccessor {
   }
 
   writeValue(value: unknown): void {
-    if (coerceBooleanProperty(value)) {
+    this.checked = coerceBooleanProperty(value);
+    if (this.checked) {
       this.render.setAttribute(this.input.nativeElement, 'checked', '');
     }
   }
@@ -62,8 +110,8 @@ export class SwitchComponent implements ControlValueAccessor {
 
   onChanged(event: Event): void {
     if (!this.isDisabled) {
-      const changed = (event.target as HTMLInputElement).checked;
-      this.onChange(changed);
+      this.checked = (event.target as HTMLInputElement).checked;
+      this.onChange(this.checked);
     }
   }
 }

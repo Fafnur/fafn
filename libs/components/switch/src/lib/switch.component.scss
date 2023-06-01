@@ -3,56 +3,65 @@
 }
 
 label {
-  position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
 }
 
 input {
   opacity: 0;
   width: 0;
   height: 0;
+
+  &[disabled] + span {
+    cursor: not-allowed;
+  }
+
+  &:checked + span {
+    background-color: #2196f3;
+  }
+
+  &:focus + span {
+    box-shadow: 0 0 1px red;
+  }
+
+  //&:checked + span {
+  //}
 }
 
 span {
-  position: absolute;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 52px;
+  height: 28px;
   background-color: #ccc;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 34px;
+  border-radius: 28px;
+  outline: green solid 3px;
 
-  &:before {
-    position: absolute;
-    content: '';
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+  fafn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-    -webkit-transition: 0.4s;
     transition: 0.4s;
-    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    margin-left: 4px;
+    border-radius: var(--md-sys-shape-corner-full);
+
+    //&.with-icon {
+    //  width: 24px;
+    //  height: 24px;
+    //  margin-left: 4px;
+    //  font-size: 16px;
+    //}
+
+    //&:hover {
+    //  width: 28px;
+    //  height: 28px;
+    //  margin-left: 0;
+    //  margin-right: 0;
+    //}
   }
-}
-
-input[disabled] + span {
-  cursor: not-allowed;
-}
-
-input:checked + span {
-  background-color: #2196f3;
-}
-
-input:focus + span {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + span:before {
-  transform: translateX(26px);
 }

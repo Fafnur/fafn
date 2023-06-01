@@ -1,4 +1,9 @@
 <label>
   <input #input type="checkbox" (change)="onChanged($event)" />
-  <span></span>
+  <span>
+    <fafn-icon [class.with-icon]="icons" [@checked]="checked ? 'on' : 'off'">
+      <ng-container *ngIf="icons && input.checked">done</ng-container>
+      <ng-container *ngIf="icons && !input.checked">close</ng-container>
+    </fafn-icon>
+  </span>
 </label>
