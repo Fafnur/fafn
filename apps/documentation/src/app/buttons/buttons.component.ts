@@ -8,8 +8,8 @@ import { FafnIcon } from '@fafn/components/icon';
   selector: 'fafn-page-buttons',
   templateUrl: './buttons.component.html',
   styleUrls: ['./buttons.component.scss'],
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   imports: [FafnContainer, FafnIcon, FafnButton, FafnFabButton, FafnEFabButton, FafnIconButton],
 })
 export class ButtonsComponent {}
