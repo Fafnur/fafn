@@ -1,6 +1,6 @@
 <label>
   <input #input type="checkbox" (change)="onChanged($event)" />
-  <span>
+  <span control>
     <fafn-icon
       [ngClass]="{
         'with-on': icons === 'on',
@@ -12,5 +12,6 @@
     >
       <ng-container *ngIf="icon">{{ icon }}</ng-container>
     </fafn-icon>
+    <span state-layer></span>
   </span>
 </label>

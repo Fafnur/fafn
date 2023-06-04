@@ -1,26 +1,50 @@
+@use '../../../src/styles/mixins/state-layer' as state-layer;
+
 :host {
   user-select: none;
+  overflow: hidden;
+  height: 32px;
 }
 
 label {
   display: inline-flex;
   flex-direction: column;
+  position: relative;
 }
 
 input {
   opacity: 0;
   width: 0;
   height: 0;
+  position: absolute;
 
-  &[disabled] + span {
+  &[disabled] + [control] {
     cursor: not-allowed;
+    border-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    background-color: rgba(var(--md-sys-color-surface-container-highest-rgba), 0.12);
+
+    fafn-icon {
+      background-color: rgba(var(--md-sys-color-surface-container-highest-rgba), 0.38);
+      color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+    }
   }
 
-  &:focus + span {
+  &:checked[disabled] + [control] {
+    cursor: not-allowed;
+    border-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+
+    fafn-icon {
+      background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+      color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+    }
+  }
+
+  &:focus + [control] {
     //box-shadow: 0 0 1px red;
   }
 
-  &:checked + span {
+  &:checked + [control] {
     background-color: var(--md-sys-color-primary);
     border-color: transparent;
     height: 32px;
@@ -42,11 +66,47 @@ input {
       &.with-on-off {
         left: -8px;
       }
+
+      &.with-on,
+      &.with-off,
+      &.with-on-off {
+        color: var(--md-sys-color-on-primary-container);
+      }
+    }
+
+    &:where([hovered], &:hover, &.is-hovered) {
+      [state-layer] {
+        background-color: var(--md-sys-color-primary);
+      }
+
+      fafn-icon {
+        background-color: var(--md-sys-color-primary-container);
+      }
+    }
+
+    &:where([focused], &:focus, &.is-focused) {
+      [state-layer] {
+        background-color: var(--md-sys-color-primary);
+      }
+
+      fafn-icon {
+        background-color: var(--md-sys-color-primary-container);
+      }
+    }
+
+    &:where([pressed], &:active, &.is-pressed) {
+      [state-layer] {
+        background-color: var(--md-sys-color-primary);
+      }
+
+      fafn-icon {
+        background-color: var(--md-sys-color-primary-container);
+      }
     }
   }
 }
 
-span {
+[control] {
   display: flex;
   flex-flow: row;
   align-items: center;
@@ -71,6 +131,12 @@ span {
     position: relative;
     font-size: 16px;
 
+    &.with-on,
+    &.with-off,
+    &.with-on-off {
+      color: var(--md-sys-color-surface-container-highest);
+    }
+
     &.with-on {
       left: 4px;
     }
@@ -84,6 +150,41 @@ span {
       width: 24px;
       height: 24px;
       left: 2px;
+    }
+  }
+
+  @include state-layer.add-state-layer();
+
+  &:where([hovered], &:hover, &.is-hovered) {
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+      opacity: var(--md-sys-state-hover-state-layer-opacity);
+    }
+
+    fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+
+  &:where([focused], &:focus, &.is-focused) {
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+      opacity: var(--md-sys-state-focus-state-layer-opacity);
+    }
+
+    fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+
+  &:where([pressed], &:active, &.is-pressed) {
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+      opacity: var(--md-sys-state-pressed-state-layer-opacity);
+    }
+
+    fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
     }
   }
 }
