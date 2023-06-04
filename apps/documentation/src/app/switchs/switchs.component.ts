@@ -15,5 +15,6 @@ import { FafnSwitch } from '@fafn/components/switch';
 export class SwitchsComponent {
   control = new FormControl<boolean>(false, { nonNullable: true });
   control2 = new FormControl<boolean>(true, { nonNullable: true });
+  control3 = new FormControl<boolean>(false, { nonNullable: true });
   controlDisabled = new FormControl<boolean>({ value: false, disabled: true }, { nonNullable: true });
 }
