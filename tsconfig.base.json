@@ -32,6 +32,7 @@
       "@fafn/components/image": ["libs/components/image/src/index.ts"],
       "@fafn/components/label": ["libs/components/label/src/index.ts"],
       "@fafn/components/layout": ["libs/components/layout/src/index.ts"],
+      "@fafn/components/switch": ["libs/components/switch/src/index.ts"],
       "@fafn/components/title": ["libs/components/title/src/index.ts"],
       "@fafn/core": ["libs/core/src/index.ts"],
       "@fafn/core/testing": ["libs/core/testing/src/index.ts"],

@@ -1,0 +1,190 @@
+@use '../../../src/styles/mixins/state-layer' as state-layer;
+
+:host {
+  user-select: none;
+  overflow: hidden;
+  height: 32px;
+}
+
+label {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+
+input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+
+  &[disabled] + [control] {
+    cursor: not-allowed;
+    border-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    background-color: rgba(var(--md-sys-color-surface-container-highest-rgba), 0.12);
+
+    fafn-icon {
+      background-color: rgba(var(--md-sys-color-surface-container-highest-rgba), 0.38);
+      color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+    }
+  }
+
+  &:checked[disabled] + [control] {
+    cursor: not-allowed;
+    border-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+
+    fafn-icon {
+      background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+      color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+    }
+  }
+
+  &:focus + [control] {
+    //box-shadow: 0 0 1px red;
+  }
+
+  &:checked + [control] {
+    background-color: var(--md-sys-color-primary);
+    border-color: transparent;
+    height: 32px;
+
+    fafn-icon {
+      left: -4px;
+      background-color: var(--md-sys-color-on-primary);
+
+      &.with-on {
+        width: 24px;
+        height: 24px;
+        left: -8px;
+      }
+      &.with-off {
+        width: 16px;
+        height: 16px;
+        left: -4px;
+      }
+      &.with-on-off {
+        left: -8px;
+      }
+
+      &.with-on,
+      &.with-off,
+      &.with-on-off {
+        color: var(--md-sys-color-on-primary-container);
+      }
+    }
+
+    &:where([hovered], &:hover, &.is-hovered) {
+      [state-layer] {
+        background-color: var(--md-sys-color-primary);
+      }
+
+      fafn-icon {
+        background-color: var(--md-sys-color-primary-container);
+      }
+    }
+
+    &:where([focused], &:focus, &.is-focused) {
+      [state-layer] {
+        background-color: var(--md-sys-color-primary);
+      }
+
+      fafn-icon {
+        background-color: var(--md-sys-color-primary-container);
+      }
+    }
+
+    &:where([pressed], &:active, &.is-pressed) {
+      [state-layer] {
+        background-color: var(--md-sys-color-primary);
+      }
+
+      fafn-icon {
+        background-color: var(--md-sys-color-primary-container);
+      }
+    }
+  }
+}
+
+[control] {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  cursor: pointer;
+  width: 52px;
+  height: 32px;
+  background-color: var(--md-sys-color-surface-container-highest);
+  transition: 0.4s;
+  border-radius: 32px;
+  border: var(--md-sys-color-outline) solid 2px;
+
+  fafn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-sys-color-outline);
+    transition: 0.4s;
+    width: 16px;
+    height: 16px;
+    border-radius: var(--md-sys-shape-corner-full);
+    left: 4px;
+    position: relative;
+    font-size: 16px;
+
+    &.with-on,
+    &.with-off,
+    &.with-on-off {
+      color: var(--md-sys-color-surface-container-highest);
+    }
+
+    &.with-on {
+      left: 4px;
+    }
+
+    &.with-off {
+      width: 24px;
+      height: 24px;
+      left: 2px;
+    }
+    &.with-on-off {
+      width: 24px;
+      height: 24px;
+      left: 2px;
+    }
+  }
+
+  @include state-layer.add-state-layer();
+
+  &:where([hovered], &:hover, &.is-hovered) {
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+      opacity: var(--md-sys-state-hover-state-layer-opacity);
+    }
+
+    fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+
+  &:where([focused], &:focus, &.is-focused) {
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+      opacity: var(--md-sys-state-focus-state-layer-opacity);
+    }
+
+    fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+
+  &:where([pressed], &:active, &.is-pressed) {
+    [state-layer] {
+      background-color: var(--md-sys-color-on-surface);
+      opacity: var(--md-sys-state-pressed-state-layer-opacity);
+    }
+
+    fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+}
