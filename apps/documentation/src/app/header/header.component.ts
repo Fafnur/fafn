@@ -46,6 +46,10 @@ export class HeaderComponent implements OnInit {
       route: '/switchs',
       label: 'Switchs',
     },
+    {
+      route: '/inputs',
+      label: 'Inputs',
+    },
   ];
 
   constructor(
