@@ -78,7 +78,9 @@
           "libs/components/display/**/*.ts",
           "libs/components/display/**/*.html",
           "libs/components/switch/**/*.ts",
-          "libs/components/switch/**/*.html"
+          "libs/components/switch/**/*.html",
+          "libs/components/input/**/*.ts",
+          "libs/components/input/**/*.html"
         ]
       }
     }

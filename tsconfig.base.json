@@ -30,6 +30,7 @@
       "@fafn/components/headline": ["libs/components/headline/src/index.ts"],
       "@fafn/components/icon": ["libs/components/icon/src/index.ts"],
       "@fafn/components/image": ["libs/components/image/src/index.ts"],
+      "@fafn/components/input": ["libs/components/input/src/index.ts"],
       "@fafn/components/label": ["libs/components/label/src/index.ts"],
       "@fafn/components/layout": ["libs/components/layout/src/index.ts"],
       "@fafn/components/switch": ["libs/components/switch/src/index.ts"],
