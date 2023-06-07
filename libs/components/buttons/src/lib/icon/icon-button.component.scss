@@ -107,40 +107,56 @@
   &[mode='filled']:not([disabled]) [content] {
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
-    fill: var(--md-sys-color-on-primary);
 
     [state-layer] {
       background-color: var(--md-sys-color-on-primary);
+    }
+
+    ::ng-deep [fafnIcon],
+    ::ng-deep fafn-icon {
+      fill: var(--md-sys-color-on-primary);
     }
   }
 
   &[mode='filled-tonal']:not([disabled]) [content] {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
-    fill: var(--md-sys-color-on-secondary-container);
 
     [state-layer] {
       background-color: var(--md-sys-color-on-secondary-container);
+    }
+
+    ::ng-deep [fafnIcon],
+    ::ng-deep fafn-icon {
+      fill: var(--md-sys-color-on-secondary-container);
     }
   }
 
   &[mode='outlined'] [content] {
     border: 1px solid var(--md-sys-color-outline);
     color: var(--md-sys-color-primary);
-    fill: var(--md-sys-color-primary);
 
     [state-layer] {
       background-color: var(--md-sys-color-primary);
+    }
+
+    ::ng-deep [fafnIcon],
+    ::ng-deep fafn-icon {
+      fill: var(--md-sys-color-primary);
     }
   }
 
   &[mode='text'] [content],
   &:not([mode]) [content] {
     color: var(--md-sys-color-on-surface-variant);
-    fill: var(--md-sys-color-on-surface-variant);
 
     &[disabled] {
       color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+    }
+
+    ::ng-deep [fafnIcon],
+    ::ng-deep fafn-icon {
+      fill: var(--md-sys-color-on-surface-variant);
     }
   }
 }

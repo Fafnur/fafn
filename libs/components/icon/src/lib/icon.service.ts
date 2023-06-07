@@ -2,36 +2,27 @@ import { DOCUMENT } from '@angular/common';
 import { inject, Injectable, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
-export function updateAttributes(svg: SVGElement): SVGElement {
-  svg.removeAttribute('id');
-
-  svg.setAttribute('fit', '');
-  svg.setAttribute('height', '100%');
-  svg.setAttribute('width', '100%');
-  svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
-  svg.setAttribute('focusable', 'false'); // Disable IE11 default behavior to make SVGs focusable.
-
-  return svg;
-}
-
 @Injectable({
   providedIn: 'root',
 })
 export class IconService {
-  private readonly state: Record<string, SVGElement | null> = {};
+  private readonly state: Record<string, SVGSVGElement | null> = {};
   private readonly document = inject(DOCUMENT);
-  private readonly sanitizer = inject(DomSanitizer);
+  private readonly sanitizer = inject(DomSanitizer, { optional: true });
 
   add(name: string, icon: string): void {
-    const value = this.sanitizer.sanitize(SecurityContext.HTML, this.sanitizer.bypassSecurityTrustHtml(icon));
-    if (!value) {
+    const source = this.sanitizer ? this.sanitizer.sanitize(SecurityContext.HTML, this.sanitizer.bypassSecurityTrustHtml(icon)) : icon;
+
+    if (!source) {
       console.error(`Not valid icon ${name} with content ${icon}`);
-    } else {
-      this.state[name] = this.getSvg(value);
+
+      return;
     }
+
+    this.state[name] = this.getSvg(source);
   }
 
-  get(name: string): SVGElement | null {
+  get(name: string): SVGSVGElement | null {
     const source = this.state[name] ?? null;
 
     if (!source) {
@@ -40,17 +31,29 @@ export class IconService {
       return null;
     }
 
-    return source.cloneNode(true) as SVGElement;
+    return source.cloneNode(true) as SVGSVGElement;
   }
 
-  private getSvg(source: string): SVGElement | null {
+  private getSvg(source: string): SVGSVGElement | null {
     const div = this.document.createElement('div');
     div.innerHTML = source;
     const svg = div.querySelector('svg');
+
     if (!svg) {
       console.error('<svg> tag not found');
+
+      return null;
     }
 
-    return svg ? updateAttributes(svg) : svg;
+    // Reset SVG styles
+    svg.removeAttribute('id');
+    svg.setAttribute('fit', '');
+    svg.setAttribute('height', '100%');
+    svg.setAttribute('width', '100%');
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    // Disable IE11 default behavior to make SVGs focusable.
+    svg.setAttribute('focusable', 'false');
+
+    return svg;
   }
 }
