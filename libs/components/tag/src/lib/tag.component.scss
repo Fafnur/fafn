@@ -1,0 +1,30 @@
+@use '../../../src/styles/mixins' as mixins;
+
+:host {
+  @include mixins.media-handset() {
+    font-family: var(--md-sys-typescale-label-small-font-family-name);
+    font-style: var(--md-sys-typescale-label-small-font-family-style);
+    font-weight: var(--md-sys-typescale-label-small-font-weight);
+    font-size: var(--md-sys-typescale-label-small-font-size);
+    letter-spacing: var(--md-sys-typescale-label-small-letter-spacing);
+    line-height: var(--md-sys-typescale-label-small-line-height);
+  }
+
+  @include mixins.media-tablet() {
+    font-family: var(--md-sys-typescale-label-medium-font-family-name);
+    font-style: var(--md-sys-typescale-label-medium-font-family-style);
+    font-weight: var(--md-sys-typescale-label-medium-font-weight);
+    font-size: var(--md-sys-typescale-label-medium-font-size);
+    letter-spacing: var(--md-sys-typescale-label-medium-letter-spacing);
+    line-height: var(--md-sys-typescale-label-medium-line-height);
+  }
+
+  @include mixins.media-web() {
+    font-family: var(--md-sys-typescale-label-large-font-family-name);
+    font-style: var(--md-sys-typescale-label-large-font-family-style);
+    font-weight: var(--md-sys-typescale-label-large-font-weight);
+    font-size: var(--md-sys-typescale-label-large-font-size);
+    letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
+    line-height: var(--md-sys-typescale-label-large-line-height);
+  }
+}
