@@ -3,7 +3,6 @@
 :host {
   :host-context(fafn-control),
   :host-context([fafnControl]) {
-    position: absolute;
-    margin: auto;
+    padding: 0 16px;
   }
 }

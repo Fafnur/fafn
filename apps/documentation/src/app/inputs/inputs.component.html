@@ -1,5 +1,25 @@
 <fafn-container>
   <div>
-    <fafn-input></fafn-input>
+    <fafn-control>
+      <label fafnLabel>Full name</label>
+      <span fafnPrefix>lf</span>
+      <span fafnSuffix="">rt</span>
+      <input fafnInput type="text" [formControl]="control" />
+      <fafn-hint>text</fafn-hint>
+    </fafn-control>
+  </div>
+  <div>
+    <fafn-control>
+      <label fafnLabel>Full name</label>
+      <span fafnPrefix>lf</span>
+      <input fafnInput type="text" [formControl]="control" />
+    </fafn-control>
+  </div>
+  <div>
+    <fafn-control>
+      <label fafnLabel>Full name</label>
+      <span fafnSuffix>rt</span>
+      <input fafnInput type="text" [formControl]="control" />
+    </fafn-control>
   </div>
 </fafn-container>

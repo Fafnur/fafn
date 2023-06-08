@@ -29,6 +29,7 @@
       "@fafn/components/gallery": ["libs/components/gallery/src/index.ts"],
       "@fafn/components/grid": ["libs/components/grid/src/index.ts"],
       "@fafn/components/headline": ["libs/components/headline/src/index.ts"],
+      "@fafn/components/hint": ["libs/components/hint/src/index.ts"],
       "@fafn/components/icon": ["libs/components/icon/src/index.ts"],
       "@fafn/components/image": ["libs/components/image/src/index.ts"],
       "@fafn/components/input": ["libs/components/input/src/index.ts"],

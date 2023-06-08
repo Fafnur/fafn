@@ -84,7 +84,9 @@
           "libs/components/control/**/*.ts",
           "libs/components/control/**/*.html",
           "libs/components/label/**/*.ts",
-          "libs/components/label/**/*.html"
+          "libs/components/label/**/*.html",
+          "libs/components/hint/**/*.ts",
+          "libs/components/hint/**/*.html"
         ]
       }
     }

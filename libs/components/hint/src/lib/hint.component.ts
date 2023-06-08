@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'fafn-label,label[fafnLabel]',
+  selector: 'fafn-hint,[fafnHint]',
   template: '<ng-content></ng-content>',
-  styleUrls: ['./label.component.scss'],
+  styleUrls: ['./hint.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class LabelComponent {}
+export class HintComponent {}
