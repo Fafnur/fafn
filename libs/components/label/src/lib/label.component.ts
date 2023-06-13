@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'fafn-label,label[fafnLabel]',
@@ -7,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class LabelComponent {}
+export class LabelComponent {
+  constructor(public readonly elementRef: ElementRef<HTMLLabelElement>) {}
+}

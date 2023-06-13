@@ -1,0 +1,15 @@
+//@use '../../../../src/styles/mixins' as mixins;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  [fafnControlPrefix] {
+    margin-left: 12px;
+  }
+
+  [fafnControlSuffix] {
+    margin-right: 12px;
+  }
+}

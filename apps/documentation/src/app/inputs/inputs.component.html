@@ -2,8 +2,8 @@
   <div>
     <fafn-control>
       <label fafnLabel>Full name</label>
-      <span fafnPrefix>lf</span>
-      <span fafnSuffix="">rt</span>
+      <span prefix>lf</span>
+      <span suffix>rt</span>
       <input fafnInput type="text" [formControl]="control" />
       <fafn-hint>text</fafn-hint>
     </fafn-control>
@@ -11,14 +11,16 @@
   <div>
     <fafn-control>
       <label fafnLabel>Full name</label>
-      <span fafnPrefix>lf</span>
+      <span prefix>lf</span>
       <input fafnInput type="text" [formControl]="control" />
     </fafn-control>
   </div>
   <div>
     <fafn-control>
       <label fafnLabel>Full name</label>
-      <span fafnSuffix>rt</span>
+      <button fafn-icon-button suffix>
+        <fafn-icon>close</fafn-icon>
+      </button>
       <input fafnInput type="text" [formControl]="control" />
     </fafn-control>
   </div>

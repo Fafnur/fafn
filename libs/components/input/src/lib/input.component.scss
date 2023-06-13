@@ -1,6 +1,11 @@
 :host {
   :host-context(fafn-control),
-  :host-context([fafnControl]) {
-    height: 56px;
+  :host-context([fafnControl] [fafnInput]) {
+    display: block;
+    background-color: transparent;
+    height: 100%;
+
+    position: relative;
+    z-index: 1;
   }
 }

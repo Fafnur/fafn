@@ -1,9 +1,0 @@
-<div field>
-  <ng-content select="[fafnPrefix]"></ng-content>
-  <div control [ngClass]="{ 'with-content': !!control?.ngControl?.value }">
-    <ng-content select="label[fafnLabel],fafn-label"></ng-content>
-    <ng-content select="input[fafnInput],fafn-input"></ng-content>
-  </div>
-  <ng-content select="[fafnSuffix]"></ng-content>
-</div>
-<ng-content></ng-content>

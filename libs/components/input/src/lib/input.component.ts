@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, Optional, Renderer2, Self, SkipSelf } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'fafn-input,input[fafnInput]',
@@ -16,18 +16,27 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/for
     },
   ],
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
   private onTouched!: () => void;
-  private onChange!: (value: boolean | null) => void;
+  private onChanged!: (value: string | null) => void;
 
-  constructor(
-    private readonly render: Renderer2,
-    private readonly elementRef: ElementRef<HTMLInputElement>,
-    @SkipSelf() @Optional() public ngControl: NgControl
-  ) {}
+  private onInput = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    this.onChanged(target.value);
+  };
 
-  registerOnChange(fn: (value: boolean | null) => void): void {
-    this.onChange = fn;
+  constructor(private readonly render: Renderer2, public readonly elementRef: ElementRef<HTMLInputElement>) {}
+
+  ngOnInit(): void {
+    this.elementRef.nativeElement.addEventListener('input', this.onInput);
+  }
+
+  ngOnDestroy(): void {
+    this.elementRef.nativeElement.removeEventListener('input', this.onInput);
+  }
+
+  registerOnChange(fn: (value: string | null) => void): void {
+    this.onChanged = fn;
   }
 
   registerOnTouched(fn: () => void): void {
