@@ -1,11 +1,16 @@
 :host {
-  :host-context(fafn-control),
-  :host-context([fafnControl] [fafnInput]) {
+  :host-context(fafn-control fafn-control-input) {
     display: block;
     background-color: transparent;
     height: 100%;
     width: 100%;
     position: relative;
     z-index: 1;
+    transition: opacity 0.1s;
+    opacity: 0;
+  }
+
+  :host-context(fafn-control fafn-control-input.active) {
+    opacity: 1;
   }
 }

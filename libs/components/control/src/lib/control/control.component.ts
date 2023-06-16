@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ContentChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ContentChild, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 import { FafnInput } from '@fafn/components/input';
 import { FafnLabel } from '@fafn/components/label';
@@ -17,15 +17,20 @@ import { ControlInputComponent } from '../control-input/control-input.component'
 export class ControlComponent implements AfterViewInit {
   @ContentChild(FafnLabel) label: FafnLabel | undefined;
   @ContentChild(FafnInput) control: FafnInput | undefined;
-  // @ContentChildren(FafnHint, { descendants: true }) hints!: QueryList<FafnHint>;
+  @ViewChild(ControlInputComponent, { static: true }) controlInput!: ControlInputComponent;
+
+  constructor(private readonly renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
+    console.log();
     this.control?.elementRef.nativeElement.addEventListener('click', () => {
-      this.label?.elementRef.nativeElement.classList.add('active');
+      this.renderer.addClass(this.label?.elementRef.nativeElement, 'active');
+      this.renderer.addClass(this.controlInput.elementRef.nativeElement, 'active');
     });
 
     this.control?.elementRef.nativeElement.addEventListener('focusout', () => {
-      this.label?.elementRef.nativeElement.classList.remove('active');
+      this.renderer.removeClass(this.label?.elementRef.nativeElement, 'active');
+      this.renderer.removeClass(this.controlInput.elementRef.nativeElement, 'active');
     });
   }
 }

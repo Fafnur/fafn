@@ -16,5 +16,14 @@
       margin-right: 12px;
       user-select: none;
     }
+
+    input {
+      display: block;
+      background-color: transparent;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
   }
 }
