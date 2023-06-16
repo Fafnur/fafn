@@ -1,9 +1,10 @@
+import { NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { FafnButton, FafnIconButton } from '@fafn/components/buttons';
 import { FafnContainer } from '@fafn/components/container';
-import { FafnControl, FafnSuffix, FafnPrefix } from '@fafn/components/control';
+import { FafnControl, FafnPrefix, FafnSuffix } from '@fafn/components/control';
 import { FafnHint } from '@fafn/components/hint';
 import { FafnIcon } from '@fafn/components/icon';
 import { FafnInput } from '@fafn/components/input';
@@ -27,8 +28,13 @@ import { FafnLabel } from '@fafn/components/label';
     FafnButton,
     FafnIconButton,
     FafnIcon,
+    NgIf,
   ],
 })
 export class InputsComponent {
   control = new FormControl<string>('', { nonNullable: true });
+
+  onReset() {
+    this.control.reset();
+  }
 }

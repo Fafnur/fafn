@@ -2,8 +2,8 @@
   <div>
     <fafn-control>
       <label fafnLabel>Full name</label>
-      <span prefix>lf</span>
-      <span suffix>rt</span>
+      <fafn-icon fafnPrefix>search</fafn-icon>
+      <span fafnSuffix>rt</span>
       <input fafnInput type="text" [formControl]="control" />
       <fafn-hint>text</fafn-hint>
     </fafn-control>
@@ -11,17 +11,17 @@
   <div>
     <fafn-control>
       <label fafnLabel>Full name</label>
-      <span prefix>lf</span>
+      <span fafnPrefix>lf</span>
       <input fafnInput type="text" [formControl]="control" />
     </fafn-control>
   </div>
   <div>
     <fafn-control>
       <label fafnLabel>Full name</label>
-      <button fafn-icon-button suffix>
+      <button fafn-icon-button fafnSuffix *ngIf="control.value" (click)="onReset()">
         <fafn-icon>close</fafn-icon>
       </button>
-      <input fafnInput type="text" [formControl]="control" />
+      <input fafnInput type="text" [formControl]="control" value="123" />
     </fafn-control>
   </div>
 </fafn-container>

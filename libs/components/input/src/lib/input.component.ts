@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -53,7 +53,9 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
 
   writeValue(value: unknown): void {
     if (value) {
-      this.render.setAttribute(this.elementRef.nativeElement, 'value', value.toString());
+      this.render.setProperty(this.elementRef.nativeElement, 'value', value.toString());
+    } else {
+      this.render.setProperty(this.elementRef.nativeElement, 'value', '');
     }
   }
 }

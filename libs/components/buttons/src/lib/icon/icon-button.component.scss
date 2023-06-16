@@ -6,6 +6,17 @@
   width: 48px;
   padding: 4px;
 
+  :host-context(fafn-control) {
+    padding: 0;
+    width: 24px;
+    height: 24px;
+
+    [content] {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
   [state-layer] {
     position: absolute;
     width: 100%;

@@ -4,12 +4,17 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 
-  [fafnControlPrefix] {
-    margin-left: 12px;
-  }
+  ::ng-deep {
+    [fafnPrefix] {
+      margin-left: 12px;
+      user-select: none;
+    }
 
-  [fafnControlSuffix] {
-    margin-right: 12px;
+    [fafnSuffix] {
+      margin-right: 12px;
+      user-select: none;
+    }
   }
 }
