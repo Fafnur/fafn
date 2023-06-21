@@ -1,3 +1,5 @@
+@use '../../../../src/styles/mixins' as mixins;
+
 :host {
   flex-grow: 1;
   overflow-y: auto;
@@ -11,12 +13,19 @@
   line-height: var(--md-sys-typescale-body-medium-line-height);
   letter-spacing: var(--md-sys-typescale-body-medium-letter-spacing);
 
-  :host-context(fafn-dialog:not([fullscreen])),
-  :host-context([fafnDialog]:not([fafnFullscreen])) {
-    max-height: 600px;
-  }
-
   ::ng-deep p {
     margin-top: 0;
+  }
+
+  :host-context(fafn-dialog:not([fullscreen])),
+  :host-context([fafnDialog]:not([fafnFullscreen])) {
+    max-height: 55vh;
+  }
+
+  @include mixins.media-web() {
+    :host-context(fafn-dialog:not([fullscreen])),
+    :host-context([fafnDialog]:not([fafnFullscreen])) {
+      max-height: 600px;
+    }
   }
 }
