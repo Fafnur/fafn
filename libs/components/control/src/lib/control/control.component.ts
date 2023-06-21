@@ -1,4 +1,13 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ContentChild, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  ElementRef,
+  OnDestroy,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 
 import { FafnInput } from '@fafn/components/input';
 import { FafnLabel } from '@fafn/components/label';
@@ -14,23 +23,34 @@ import { ControlInputComponent } from '../control-input/control-input.component'
   standalone: true,
   imports: [ControlContainerComponent, ControlInputComponent],
 })
-export class ControlComponent implements AfterViewInit {
+export class ControlComponent implements AfterViewInit, OnDestroy {
   @ContentChild(FafnLabel) label: FafnLabel | undefined;
   @ContentChild(FafnInput) control: FafnInput | undefined;
   @ViewChild(ControlInputComponent, { static: true }) controlInput!: ControlInputComponent;
 
-  constructor(private readonly renderer: Renderer2) {}
+  private focusin = () => {
+    this.renderer.addClass(this.elementRef.nativeElement, 'active');
+  };
+
+  private focusout = () => {
+    this.renderer.removeClass(this.elementRef.nativeElement, 'active');
+  };
+
+  constructor(private readonly renderer: Renderer2, private readonly elementRef: ElementRef<HTMLElement>) {}
 
   ngAfterViewInit(): void {
-    console.log();
-    this.control?.elementRef.nativeElement.addEventListener('click', () => {
-      this.renderer.addClass(this.label?.elementRef.nativeElement, 'active');
-      this.renderer.addClass(this.controlInput.elementRef.nativeElement, 'active');
-    });
+    if (this.control) {
+      this.control.elementRef.nativeElement.addEventListener('click', this.focusin);
+      this.control.elementRef.nativeElement.addEventListener('focusout', this.focusout);
+    } else {
+      console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-control></fafn-control>');
+    }
+  }
 
-    this.control?.elementRef.nativeElement.addEventListener('focusout', () => {
-      this.renderer.removeClass(this.label?.elementRef.nativeElement, 'active');
-      this.renderer.removeClass(this.controlInput.elementRef.nativeElement, 'active');
-    });
+  ngOnDestroy(): void {
+    if (this.control) {
+      this.control.elementRef.nativeElement.removeEventListener('click', this.focusin);
+      this.control.elementRef.nativeElement.removeEventListener('focusout', this.focusout);
+    }
   }
 }

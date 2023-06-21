@@ -10,7 +10,7 @@
     opacity: 0;
   }
 
-  :host-context(fafn-control fafn-control-input.active) {
+  :host-context(fafn-control.active) {
     opacity: 1;
   }
 }

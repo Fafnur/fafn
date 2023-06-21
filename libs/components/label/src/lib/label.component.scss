@@ -17,16 +17,16 @@
     transform: translateY(14px);
     transition: transform 0.1s;
     user-select: none;
+  }
 
-    &.active {
-      color: red;
-      font-family: var(--md-sys-typescale-body-small-font-family-name);
-      font-style: var(--md-sys-typescale-body-small-font-family-style);
-      font-weight: var(--md-sys-typescale-body-small-font-weight);
-      font-size: var(--md-sys-typescale-body-small-font-size);
-      letter-spacing: var(--md-sys-typescale-body-small-letter-spacing);
-      line-height: var(--md-sys-typescale-body-small-line-height);
-      transform: translateY(0);
-    }
+  :host-context(fafn-control.active) {
+    color: red;
+    font-family: var(--md-sys-typescale-body-small-font-family-name);
+    font-style: var(--md-sys-typescale-body-small-font-family-style);
+    font-weight: var(--md-sys-typescale-body-small-font-weight);
+    font-size: var(--md-sys-typescale-body-small-font-size);
+    letter-spacing: var(--md-sys-typescale-body-small-letter-spacing);
+    line-height: var(--md-sys-typescale-body-small-line-height);
+    transform: translateY(0);
   }
 }
