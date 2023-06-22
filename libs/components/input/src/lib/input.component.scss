@@ -10,7 +10,8 @@
     opacity: 0;
   }
 
-  :host-context(fafn-control.active) {
+  :host-context(fafn-control.is-pressed),
+  :host-context(fafn-control.is-value) {
     opacity: 1;
   }
 }
