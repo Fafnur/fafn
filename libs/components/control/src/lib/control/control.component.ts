@@ -1,23 +1,21 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ContentChild,
   DestroyRef,
   ElementRef,
-  inject,
   OnDestroy,
   Renderer2,
-  ViewChild,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { tap } from 'rxjs';
 
 import { FafnInput } from '@fafn/components/input';
 import { FafnLabel } from '@fafn/components/label';
 
 import { ControlContainerComponent } from '../control-container/control-container.component';
 import { ControlInputComponent } from '../control-input/control-input.component';
-import { Subject, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'fafn-control,[fafnControl]',
@@ -30,37 +28,30 @@ import { Subject, takeUntil, tap } from 'rxjs';
 export class ControlComponent implements AfterViewInit, OnDestroy {
   @ContentChild(FafnLabel) label: FafnLabel | undefined;
   @ContentChild(FafnInput) control: FafnInput | undefined;
-  @ViewChild(ControlInputComponent, { static: true }) controlInput!: ControlInputComponent;
 
-  private readonly destroy$ = new Subject<void>();
-
-  private focusin = () => {
-    this.renderer.addClass(this.elementRef.nativeElement, 'is-pressed');
-  };
-
-  private focusout = () => {
-    this.renderer.removeClass(this.elementRef.nativeElement, 'is-pressed');
-  };
-
-  constructor(private readonly renderer: Renderer2, private readonly elementRef: ElementRef<HTMLElement>) {}
+  constructor(
+    private readonly renderer: Renderer2,
+    private readonly elementRef: ElementRef<HTMLElement>,
+    private readonly destroyRef: DestroyRef
+  ) {}
 
   ngAfterViewInit(): void {
     if (this.control) {
-      this.control.valueChanges$
-        .pipe(
-          tap((value) => {
-            if (value) {
-              this.renderer.addClass(this.elementRef.nativeElement, 'is-value');
-            } else {
+      this.control.elementRef.nativeElement.addEventListener('click', this.focusin);
+      this.control.elementRef.nativeElement.addEventListener('focusout', this.focusout);
+      this.control.elementRef.nativeElement.addEventListener('input', this.input);
+      this.input({ target: this.control.elementRef.nativeElement });
+
+      this.control.ngControl.valueChanges
+        ?.pipe(
+          tap(() => {
+            if (!this.control?.ngControl.value && this.elementRef.nativeElement.classList.contains('is-value')) {
               this.renderer.removeClass(this.elementRef.nativeElement, 'is-value');
             }
           }),
-          takeUntil(this.destroy$)
+          takeUntilDestroyed(this.destroyRef)
         )
         .subscribe();
-
-      this.control.elementRef.nativeElement.addEventListener('click', this.focusin);
-      this.control.elementRef.nativeElement.addEventListener('focusout', this.focusout);
     } else {
       console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-control></fafn-control>');
     }
@@ -70,8 +61,25 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
     if (this.control) {
       this.control.elementRef.nativeElement.removeEventListener('click', this.focusin);
       this.control.elementRef.nativeElement.removeEventListener('focusout', this.focusout);
+      this.control.elementRef.nativeElement.removeEventListener('input', this.input);
     }
-    this.destroy$.next();
-    this.destroy$.complete();
   }
+
+  private focusin = () => {
+    this.renderer.addClass(this.elementRef.nativeElement, 'is-pressed');
+  };
+
+  private focusout = () => {
+    this.renderer.removeClass(this.elementRef.nativeElement, 'is-pressed');
+  };
+
+  private input = (event: Event | { target: HTMLInputElement }) => {
+    const target = event.target as HTMLInputElement;
+
+    if (target.value?.length > 0) {
+      this.renderer.addClass(this.elementRef.nativeElement, 'is-value');
+    } else {
+      this.renderer.removeClass(this.elementRef.nativeElement, 'is-value');
+    }
+  };
 }

@@ -8,6 +8,14 @@
     z-index: 1;
     transition: opacity 0.1s;
     opacity: 0;
+    border: none;
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+    }
   }
 
   :host-context(fafn-control.is-pressed),
