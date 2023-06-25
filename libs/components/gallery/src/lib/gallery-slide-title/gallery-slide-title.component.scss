@@ -1,4 +1,4 @@
-@use '../../../../src/styles/mixins' as mixins;
+@use '../../../../src/styles/mixins/device' as device;
 
 :host {
   position: absolute;
@@ -10,7 +10,7 @@
   text-align: center;
   font-size: 1.25rem;
 
-  @include mixins.media-web() {
+  @include device.media-web() {
     font-size: 1.5rem;
   }
 }

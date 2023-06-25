@@ -17,6 +17,9 @@
     "./styles/mixins": {
       "sass": "./styles/mixins.scss"
     },
+    "./styles/mixins/device": {
+      "sass": "./styles/mixins/device.scss"
+    },
     "./styles/variables": {
       "sass": "./styles/variables.scss"
     },

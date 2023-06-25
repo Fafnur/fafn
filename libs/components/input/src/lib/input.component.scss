@@ -22,4 +22,8 @@
   :host-context(fafn-control.is-value) {
     opacity: 1;
   }
+
+  &::placeholder {
+    color: var(--md-sys-color-on-surface-variant);
+  }
 }

@@ -1,4 +1,4 @@
-@use '../../../../src/styles/mixins' as mixins;
+@use '../../../../src/styles/mixins/device' as device;
 
 :host {
   display: flex;
@@ -12,7 +12,7 @@
     max-width: 100%;
   }
 
-  @include mixins.media-handset() {
+  @include device.media-handset() {
     &[mobile-no-gutter],
     &[fafnMobileNoGutter] {
       padding-left: 0;
@@ -20,28 +20,28 @@
     }
   }
 
-  @include mixins.media-tablet-portrait() {
+  @include device.media-tablet-portrait() {
     &:not([fluid]),
     &:not([fafnFluid]) {
       max-width: 788px;
     }
   }
 
-  @include mixins.media-tablet-landscape() {
+  @include device.media-tablet-landscape() {
     &:not([fluid]),
     &:not([fafnFluid]) {
       max-width: 928px;
     }
   }
 
-  @include mixins.media-web-portrait() {
+  @include device.media-web-portrait() {
     &:not([fluid]),
     &:not([fafnFluid]) {
       max-width: 808px;
     }
   }
 
-  @include mixins.media-web-landscape() {
+  @include device.media-web-landscape() {
     &:not([fluid]),
     &:not([fafnFluid]) {
       max-width: 1200px;

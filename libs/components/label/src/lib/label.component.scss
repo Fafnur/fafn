@@ -1,5 +1,3 @@
-@use '../../../src/styles/mixins' as mixins;
-
 :host {
   :host-context(fafn-control),
   :host-context([fafnControl]) {
@@ -21,7 +19,6 @@
 
   :host-context(fafn-control.is-pressed),
   :host-context(fafn-control.is-value) {
-    color: red;
     font-family: var(--md-sys-typescale-body-small-font-family-name);
     font-style: var(--md-sys-typescale-body-small-font-family-style);
     font-weight: var(--md-sys-typescale-body-small-font-weight);
