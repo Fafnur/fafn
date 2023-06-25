@@ -5,7 +5,7 @@
       <fafn-icon fafnPrefix>search</fafn-icon>
       <span fafnSuffix>rt</span>
       <input fafnInput type="text" [formControl]="control" />
-      <fafn-hint>text</fafn-hint>
+      <fafn-hint>Hint text</fafn-hint>
     </fafn-control>
   </div>
   <div>
@@ -21,12 +21,13 @@
       <button fafn-icon-button fafnSuffix *ngIf="control.value" (click)="onReset()">
         <fafn-icon>close</fafn-icon>
       </button>
-      <input fafnInput type="text" [formControl]="control" placeholder="Simpe Text" />
+      <input fafnInput type="text" [formControl]="control" placeholder="Simple Text" />
+      <fafn-hint>Hint text</fafn-hint>
     </fafn-control>
   </div>
 
   <div>
-    <input type="text" [formControl]="control" placeholder="Simpe 1" />
-    <input type="text" [formControl]="control" placeholder="Simpe 2" />
+    <input type="text" [formControl]="control" placeholder="Simple 1" />
+    <input type="text" [formControl]="control" placeholder="Simple 2" />
   </div>
 </fafn-container>
