@@ -2,15 +2,15 @@
   "name": "@fafn/components",
   "version": "16.0.0",
   "peerDependencies": {
-    "@angular/common": ">= 15.0.0",
-    "@angular/core": ">= 15.0.0",
-    "@angular/cdk": ">= 15.0.0",
-    "@angular/platform-browser": ">= 15.0.0",
-    "@angular/router": ">= 15.0.0",
+    "@angular/common": ">= 16.0.0",
+    "@angular/core": ">= 16.0.0",
+    "@angular/cdk": ">= 16.0.0",
+    "@angular/platform-browser": ">= 16.0.0",
+    "@angular/router": ">= 16.0.0",
     "rxjs": ">= 7.5.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.5.3"
   },
   "sideEffects": false,
   "exports": {
@@ -19,6 +19,12 @@
     },
     "./styles/mixins/device": {
       "sass": "./styles/mixins/device.scss"
+    },
+    "./styles/mixins/typography": {
+      "sass": "./styles/mixins/typography.scss"
+    },
+    "./styles/mixins/state-layer": {
+      "sass": "./styles/mixins/state-layer.scss"
     },
     "./styles/variables": {
       "sass": "./styles/variables.scss"
