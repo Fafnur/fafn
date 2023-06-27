@@ -25,6 +25,10 @@
     font-size: var(--md-sys-typescale-body-small-font-size);
     letter-spacing: var(--md-sys-typescale-body-small-letter-spacing);
     line-height: var(--md-sys-typescale-body-small-line-height);
-    transform: translateY(2px);
+    transform: translateY(8px);
+  }
+
+  :host-context(fafn-control.is-disabled) {
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
   }
 }

@@ -7,4 +7,8 @@
     padding: 0 16px;
     @include typography.body-small();
   }
+
+  :host-context(fafn-control.is-disabled) {
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+  }
 }

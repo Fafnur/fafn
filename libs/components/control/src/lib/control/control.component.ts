@@ -9,7 +9,8 @@ import {
   Renderer2,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { tap } from 'rxjs';
+import { FormControlStatus } from '@angular/forms';
+import { startWith, tap } from 'rxjs';
 
 import { FafnInput } from '@fafn/components/input';
 import { FafnLabel } from '@fafn/components/label';
@@ -28,6 +29,8 @@ import { ControlInputComponent } from '../control-input/control-input.component'
 export class ControlComponent implements AfterViewInit, OnDestroy {
   @ContentChild(FafnLabel) label: FafnLabel | undefined;
   @ContentChild(FafnInput) control: FafnInput | undefined;
+
+  private isDisabled = false;
 
   constructor(
     private readonly renderer: Renderer2,
@@ -52,6 +55,17 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
           takeUntilDestroyed(this.destroyRef)
         )
         .subscribe();
+
+      this.control.ngControl.statusChanges
+        ?.pipe(
+          startWith(this.control.ngControl.status),
+          tap((status: FormControlStatus) => {
+            this.isDisabled = status === 'DISABLED';
+            this.disable();
+          }),
+          takeUntilDestroyed(this.destroyRef)
+        )
+        .subscribe();
     } else {
       console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-control></fafn-control>');
     }
@@ -66,20 +80,34 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
   }
 
   private focusin = () => {
-    this.renderer.addClass(this.elementRef.nativeElement, 'is-pressed');
+    if (!this.isDisabled) {
+      this.renderer.addClass(this.elementRef.nativeElement, 'is-pressed');
+    }
   };
 
   private focusout = () => {
-    this.renderer.removeClass(this.elementRef.nativeElement, 'is-pressed');
+    if (!this.isDisabled) {
+      this.renderer.removeClass(this.elementRef.nativeElement, 'is-pressed');
+    }
   };
 
   private input = (event: Event | { target: HTMLInputElement }) => {
-    const target = event.target as HTMLInputElement;
+    if (!this.isDisabled) {
+      const target = event.target as HTMLInputElement;
 
-    if (target.value?.length > 0) {
-      this.renderer.addClass(this.elementRef.nativeElement, 'is-value');
-    } else {
-      this.renderer.removeClass(this.elementRef.nativeElement, 'is-value');
+      if (target.value?.length > 0) {
+        this.renderer.addClass(this.elementRef.nativeElement, 'is-value');
+      } else {
+        this.renderer.removeClass(this.elementRef.nativeElement, 'is-value');
+      }
     }
   };
+
+  private disable(): void {
+    if (this.isDisabled) {
+      this.renderer.addClass(this.elementRef.nativeElement, 'is-disabled');
+    } else {
+      this.renderer.removeClass(this.elementRef.nativeElement, 'is-disabled');
+    }
+  }
 }

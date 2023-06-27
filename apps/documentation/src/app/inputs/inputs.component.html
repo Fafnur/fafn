@@ -27,6 +27,16 @@
   </div>
 
   <div>
+    <fafn-control>
+      <label fafnLabel>Full name</label>
+      <fafn-icon fafnPrefix>search</fafn-icon>
+      <span fafnSuffix>rt</span>
+      <input fafnInput type="text" [formControl]="controlDisabled" />
+      <fafn-hint>Hint text</fafn-hint>
+    </fafn-control>
+  </div>
+
+  <div>
     <input type="text" [formControl]="control" placeholder="Simple 1" />
     <input type="text" [formControl]="control" placeholder="Simple 2" />
   </div>

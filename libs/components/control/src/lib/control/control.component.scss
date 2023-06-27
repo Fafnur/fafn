@@ -3,4 +3,10 @@
   flex-direction: column;
   position: relative;
   width: 100%;
+
+  &.is-disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+  }
 }

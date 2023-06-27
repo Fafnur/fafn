@@ -1,3 +1,5 @@
+@use '../../../../src/styles/mixins/typography' as typography;
+
 @import '../base/button-base';
 
 :host {
@@ -10,10 +12,18 @@
     padding: 0;
     width: 24px;
     height: 24px;
+    z-index: 2;
+    position: relative;
 
     [content] {
       width: 24px;
       height: 24px;
+    }
+  }
+
+  :host-context(fafn-control.is-disabled) {
+    [content] {
+      color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
     }
   }
 
@@ -99,13 +109,7 @@
     cursor: pointer;
     background: rgba(0, 0, 0, 0);
 
-    font-family: var(--md-sys-typescale-label-large-font-family-name);
-    font-style: var(--md-sys-typescale-label-large-font-family-style);
-    font-weight: var(--md-sys-typescale-label-large-font-weight);
-    font-size: var(--md-sys-typescale-label-large-font-size);
-    line-height: var(--md-sys-typescale-label-large-line-height);
-    letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
-    text-decoration: var(--md-sys-typescale-label-large-text-decoration);
+    @include typography.label-large();
 
     border-radius: var(--md-sys-shape-corner-full);
   }

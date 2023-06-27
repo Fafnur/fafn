@@ -33,6 +33,7 @@ import { FafnLabel } from '@fafn/components/label';
 })
 export class InputsComponent {
   control = new FormControl<string>('', { nonNullable: true });
+  controlDisabled = new FormControl<string>({ value: 'Dis 123', disabled: true }, { nonNullable: true });
 
   onReset() {
     this.control.reset();

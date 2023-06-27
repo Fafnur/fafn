@@ -1,15 +1,16 @@
 :host {
-  :host-context(fafn-control fafn-control-input) {
+  :host-context(fafn-control) {
     display: block;
     background-color: transparent;
     height: 100%;
     width: 100%;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     transition: opacity 0.1s;
     opacity: 0;
     border: none;
     outline: none;
+    padding: 12px 0 0 0;
 
     &:hover,
     &:focus,
@@ -21,6 +22,10 @@
   :host-context(fafn-control.is-pressed),
   :host-context(fafn-control.is-value) {
     opacity: 1;
+  }
+
+  :host-context(fafn-control.is-disabled) {
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
   }
 
   &::placeholder {
