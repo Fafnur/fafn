@@ -12,11 +12,11 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControlStatus } from '@angular/forms';
 import { startWith, tap } from 'rxjs';
 
-import { FafnInput } from '@fafn/components/input';
 import { FafnLabel } from '@fafn/components/label';
 
 import { ControlContainerComponent } from '../control-container/control-container.component';
 import { ControlInputComponent } from '../control-input/control-input.component';
+import { InputDirective } from './input.directive';
 
 @Component({
   selector: 'fafn-control,[fafnControl]',
@@ -28,14 +28,14 @@ import { ControlInputComponent } from '../control-input/control-input.component'
 })
 export class ControlComponent implements AfterViewInit, OnDestroy {
   @ContentChild(FafnLabel) label: FafnLabel | undefined;
-  @ContentChild(FafnInput) control: FafnInput | undefined;
+  @ContentChild(InputDirective) control: InputDirective | undefined;
 
   private isDisabled = false;
 
   constructor(
     private readonly renderer: Renderer2,
     private readonly elementRef: ElementRef<HTMLElement>,
-    private readonly destroyRef: DestroyRef
+    private readonly destroyRef: DestroyRef,
   ) {}
 
   ngAfterViewInit(): void {
@@ -52,7 +52,7 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
               this.renderer.removeClass(this.elementRef.nativeElement, 'is-value');
             }
           }),
-          takeUntilDestroyed(this.destroyRef)
+          takeUntilDestroyed(this.destroyRef),
         )
         .subscribe();
 
@@ -63,11 +63,11 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
             this.isDisabled = status === 'DISABLED';
             this.disable();
           }),
-          takeUntilDestroyed(this.destroyRef)
+          takeUntilDestroyed(this.destroyRef),
         )
         .subscribe();
     } else {
-      console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-control></fafn-control>');
+      console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-input></fafn-input>');
     }
   }
 

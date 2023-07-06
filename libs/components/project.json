@@ -81,8 +81,6 @@
           "libs/components/switch/**/*.html",
           "libs/components/input/**/*.ts",
           "libs/components/input/**/*.html",
-          "libs/components/control/**/*.ts",
-          "libs/components/control/**/*.html",
           "libs/components/label/**/*.ts",
           "libs/components/label/**/*.html",
           "libs/components/hint/**/*.ts",

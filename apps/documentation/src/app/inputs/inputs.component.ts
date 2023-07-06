@@ -4,10 +4,9 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { FafnButton, FafnIconButton } from '@fafn/components/buttons';
 import { FafnContainer } from '@fafn/components/container';
-import { FafnControl, FafnPrefix, FafnSuffix } from '@fafn/components/control';
 import { FafnHint } from '@fafn/components/hint';
 import { FafnIcon } from '@fafn/components/icon';
-import { FafnInput } from '@fafn/components/input';
+import { FafnControl, FafnPrefix, FafnSuffix } from '@fafn/components/input';
 import { FafnLabel } from '@fafn/components/label';
 
 @Component({
@@ -19,7 +18,6 @@ import { FafnLabel } from '@fafn/components/label';
   imports: [
     FafnContainer,
     ReactiveFormsModule,
-    FafnInput,
     FafnControl,
     FafnLabel,
     FafnHint,
