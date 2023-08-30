@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { IconService } from './icon.service';
+import { SvgIconDirective } from './svg-icon.directive';
+import { WithColorsDirective } from './with-colors.directive';
 
 @Component({
   selector: 'fafn-icon, [fafnIcon]',
@@ -12,20 +13,15 @@ import { IconService } from './icon.service';
   host: {
     class: 'fafn-icon',
   },
+  hostDirectives: [
+    {
+      directive: WithColorsDirective,
+      inputs: ['with-colors'],
+    },
+    {
+      directive: SvgIconDirective,
+      inputs: ['icon'],
+    },
+  ],
 })
-export class IconComponent {
-  @Input() set icon(icon: string) {
-    if (icon) {
-      const svg = this.iconService.get(icon);
-
-      if (svg) {
-        this.elementRef.nativeElement.appendChild(svg);
-      }
-    }
-  }
-
-  constructor(
-    private readonly elementRef: ElementRef<HTMLElement>,
-    private readonly iconService: IconService,
-  ) {}
-}
+export class IconComponent {}

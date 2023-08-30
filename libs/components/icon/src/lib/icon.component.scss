@@ -4,7 +4,7 @@
   height: 24px;
   user-select: none;
 
-  &:not([with-colors]):not([fafnWithColors]) {
+  &:not(.fafn-with-colors) {
     fill: var(--md-sys-color-on-surface);
   }
 
@@ -23,8 +23,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  :host-context([fafn-button]),
-  :host-context([fafnButton]) {
+  :host-context(.fafn-button) {
     margin-left: -8px;
     position: relative;
     z-index: 2;
@@ -34,16 +33,13 @@
     }
   }
 
-  :host-context([fafn-icon][size='large']),
-  :host-context([fafn-fab][size='large']),
-  :host-context([fafnIcon][size='large']),
-  :host-context([fafnFab][size='large']) {
+  :host-context(:is(.fafn-icon, .fafn-fab).fafn-size-large) {
     font-size: 36px;
     width: 36px;
     height: 36px;
   }
 
-  :host-context(fafn-control.is-disabled) {
+  :host-context(.fafn-control:is(.is-disabled, [disabled])) {
     color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
   }
 }
