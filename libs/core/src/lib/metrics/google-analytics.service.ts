@@ -167,7 +167,7 @@ export class GoogleAnalyticsService {
   constructor(
     private readonly webviewService: WebviewService,
     @Inject(DOCUMENT) private readonly document: Document,
-    @Optional() @Inject(GA_CONFIG) config: Partial<GoogleAnalyticsConfig> | null
+    @Optional() @Inject(GA_CONFIG) config: Partial<GoogleAnalyticsConfig> | null,
   ) {
     this.config = {
       ids: config?.ids ?? [],
@@ -212,7 +212,7 @@ export class GoogleAnalyticsService {
         value: payload?.eventValue,
         ...values,
       },
-      data
+      data,
     );
     /* eslint-enable @typescript-eslint/naming-convention */
   }

@@ -49,7 +49,10 @@ export class AnchorBase extends ButtonBase implements OnInit, OnDestroy {
     }
   };
 
-  constructor(elementRef: ElementRef, protected readonly ngZone: NgZone) {
+  constructor(
+    elementRef: ElementRef,
+    protected readonly ngZone: NgZone,
+  ) {
     super(elementRef);
   }
 

@@ -30,7 +30,7 @@ import { FafnIcon } from '@fafn/components/icon';
           keyframes([
             style({ transform: 'translateX(0)', left: '0px', height: '28px', width: '28px', offset: 0 }),
             style({ transform: 'translateX(32px)', left: '-4px', height: '16px', width: '16px', offset: 1 }),
-          ])
+          ]),
         ),
       ]),
       transition('on => off', [
@@ -39,7 +39,7 @@ import { FafnIcon } from '@fafn/components/icon';
           keyframes([
             style({ transform: 'translateX(32px)', left: '-12px', height: '28px', width: '28px', offset: 0 }),
             style({ transform: 'translateX(0)', left: '4px', height: '16px', width: '16px', offset: 1 }),
-          ])
+          ]),
         ),
       ]),
     ]),

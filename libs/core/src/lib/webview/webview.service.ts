@@ -79,7 +79,7 @@ export class WebviewService {
     @Inject(DOCUMENT) private readonly document: Document,
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private readonly platformId: Object,
-    @Optional() @Inject(WEBVIEW_CONFIG) config: Partial<WebviewConfig> | null
+    @Optional() @Inject(WEBVIEW_CONFIG) config: Partial<WebviewConfig> | null,
   ) {
     this.config = {
       android: config?.android ?? 'WebViewAndroid',

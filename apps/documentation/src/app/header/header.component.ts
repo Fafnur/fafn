@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private readonly localStorageSync: LocalStorageSync<{ themePreference: boolean }>,
     private readonly destroyRef: DestroyRef,
-    @Inject(DOCUMENT) private readonly document: Document
+    @Inject(DOCUMENT) private readonly document: Document,
   ) {}
 
   ngOnInit(): void {
@@ -71,7 +71,7 @@ export class HeaderComponent implements OnInit {
           this.localStorageSync.setItem('themePreference', dark);
           this.document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
         }),
-        takeUntilDestroyed(this.destroyRef)
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
   }

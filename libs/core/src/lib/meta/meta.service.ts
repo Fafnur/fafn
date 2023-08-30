@@ -53,7 +53,7 @@ export class MetaService {
     @Inject(DOCUMENT) private readonly document: Document,
     @Inject(LOCALE_ID) private readonly localeId: string,
     @Optional() @Inject(META_CONFIG) metaConfig: Partial<MetaConfig> | null,
-    @Optional() @Inject(META_CONFIG_OG) metaConfigOg: Partial<MetaConfigOg> | null
+    @Optional() @Inject(META_CONFIG_OG) metaConfigOg: Partial<MetaConfigOg> | null,
   ) {
     this.metaConfig = { ...META_CONFIG_DEFAULT, ...metaConfig };
     this.metaConfigOg = { ...META_CONFIG_OG_DEFAULT, ...metaConfigOg };

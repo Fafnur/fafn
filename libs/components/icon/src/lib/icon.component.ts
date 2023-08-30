@@ -20,5 +20,8 @@ export class IconComponent {
     }
   }
 
-  constructor(private readonly elementRef: ElementRef<HTMLElement>, private readonly iconService: IconService) {}
+  constructor(
+    private readonly elementRef: ElementRef<HTMLElement>,
+    private readonly iconService: IconService,
+  ) {}
 }
