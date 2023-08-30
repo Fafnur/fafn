@@ -3,11 +3,11 @@
   flex-direction: row;
   gap: 8px;
 
-  &[align='center'] {
+  &.fafn-align-center {
     justify-content: center;
   }
 
-  &[align='end'] {
+  &.fafn-align-end {
     justify-content: end;
   }
 }
