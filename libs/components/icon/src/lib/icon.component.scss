@@ -42,4 +42,8 @@
     width: 36px;
     height: 36px;
   }
+
+  :host-context(fafn-control.is-disabled) {
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+  }
 }

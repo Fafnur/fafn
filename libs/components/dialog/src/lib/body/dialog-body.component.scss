@@ -1,4 +1,4 @@
-@use '../../../../src/styles/mixins' as mixins;
+@use '../../../../src/styles/mixins/device' as device;
 
 :host {
   flex-grow: 1;
@@ -22,7 +22,7 @@
     max-height: 55vh;
   }
 
-  @include mixins.media-web() {
+  @include device.media-web() {
     :host-context(fafn-dialog:not([fullscreen])),
     :host-context([fafnDialog]:not([fafnFullscreen])) {
       max-height: 600px;

@@ -1,0 +1,43 @@
+<fafn-container>
+  <div>
+    <fafn-input-control>
+      <label fafnLabel>Full name</label>
+      <fafn-icon fafnInputPrefix>search</fafn-icon>
+      <span fafnInputSuffix>rt</span>
+      <input fafnInput type="text" [formControl]="control" />
+      <fafn-hint>Hint text</fafn-hint>
+    </fafn-input-control>
+  </div>
+  <div>
+    <fafn-input-control>
+      <label fafnLabel>Full name</label>
+      <span fafnInputPrefix>lf</span>
+      <input fafnInput type="text" [formControl]="control" />
+    </fafn-input-control>
+  </div>
+  <div>
+    <fafn-input-control>
+      <label fafnLabel>Full name</label>
+      <button fafn-icon-button fafnInputSuffix *ngIf="control.value" (click)="onReset()">
+        <fafn-icon>close</fafn-icon>
+      </button>
+      <input fafnInput type="text" [formControl]="control" placeholder="Simple Text" />
+      <fafn-hint>Hint text</fafn-hint>
+    </fafn-input-control>
+  </div>
+
+  <div>
+    <fafn-input-control>
+      <label fafnLabel>Full name</label>
+      <fafn-icon fafnInputPrefix>search</fafn-icon>
+      <span fafnInputSuffix>rt</span>
+      <input fafnInput type="text" [formControl]="controlDisabled" />
+      <fafn-hint>Hint text</fafn-hint>
+    </fafn-input-control>
+  </div>
+
+  <div>
+    <input type="text" [formControl]="control" placeholder="Simple 1" />
+    <input type="text" [formControl]="control" placeholder="Simple 2" />
+  </div>
+</fafn-container>

@@ -1,7 +1,7 @@
-@use '../../../src/styles/mixins' as mixins;
+@use '../../../src/styles/mixins/device' as device;
 
 :host {
-  @include mixins.media-handset() {
+  @include device.media-handset() {
     font-family: var(--md-sys-typescale-display-small-font-family-name);
     font-style: var(--md-sys-typescale-display-small-font-family-style);
     font-weight: var(--md-sys-typescale-display-small-font-weight);
@@ -10,7 +10,7 @@
     line-height: var(--md-sys-typescale-display-small-line-height);
   }
 
-  @include mixins.media-tablet() {
+  @include device.media-tablet() {
     font-family: var(--md-sys-typescale-display-medium-font-family-name);
     font-style: var(--md-sys-typescale-display-medium-font-family-style);
     font-weight: var(--md-sys-typescale-display-medium-font-weight);
@@ -19,7 +19,7 @@
     line-height: var(--md-sys-typescale-display-medium-line-height);
   }
 
-  @include mixins.media-web() {
+  @include device.media-web() {
     font-family: var(--md-sys-typescale-display-large-font-family-name);
     font-style: var(--md-sys-typescale-display-large-font-family-style);
     font-weight: var(--md-sys-typescale-display-large-font-weight);

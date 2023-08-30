@@ -1,4 +1,4 @@
-@use '../../../../src/styles/mixins' as mixins;
+@use '../../../../src/styles/mixins/device' as device;
 
 button[fafn-icon-button] {
   position: absolute;
@@ -17,7 +17,7 @@ button[fafn-icon-button] {
     right: 0.25rem;
   }
 
-  @include mixins.media-tablet() {
+  @include device.media-tablet() {
     &:first-child {
       left: 0.5rem;
     }
@@ -27,7 +27,7 @@ button[fafn-icon-button] {
     }
   }
 
-  @include mixins.media-web() {
+  @include device.media-web() {
     &:first-child {
       left: 0.75rem;
     }

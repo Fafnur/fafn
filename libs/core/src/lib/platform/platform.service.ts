@@ -1,4 +1,4 @@
-import { isPlatformBrowser, isPlatformServer, isPlatformWorkerApp, isPlatformWorkerUi } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 /**
@@ -16,6 +16,8 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
  *     const isBrowser = this.platformService.isBrowser;
  *   }
  * }
+ *
+ * @description You can use Platform service for detect isBrowser from @angular/cdk
  * ```
  */
 @Injectable({
@@ -32,21 +34,9 @@ export class PlatformService {
    */
   readonly isServer: boolean;
 
-  /**
-   * Returns whether a platform id represents a web worker app platform.
-   */
-  readonly isWorkerApp: boolean;
-
-  /**
-   * Returns whether a platform id represents a web worker UI platform.
-   */
-  readonly isWorkerUi: boolean;
-
   // eslint-disable-next-line @typescript-eslint/ban-types
   constructor(@Inject(PLATFORM_ID) private readonly platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
     this.isServer = isPlatformServer(this.platformId);
-    this.isWorkerApp = isPlatformWorkerApp(this.platformId);
-    this.isWorkerUi = isPlatformWorkerUi(this.platformId);
   }
 }

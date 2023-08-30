@@ -1,5 +1,5 @@
 import { DOCUMENT, NgForOf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, Inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -18,8 +18,8 @@ import { LocalStorageSync } from '@fafn/core';
   imports: [RouterLink, RouterLinkActive, FafnAnchor, NgForOf, FafnSwitch, ReactiveFormsModule],
 })
 export class HeaderComponent implements OnInit {
-  readonly control = new FormControl<boolean>(false, { nonNullable: true });
-  isDark = false;
+  control!: FormControl<boolean>;
+  isDark!: boolean;
 
   readonly links = [
     {
@@ -46,31 +46,34 @@ export class HeaderComponent implements OnInit {
       route: '/switchs',
       label: 'Switchs',
     },
+    {
+      route: '/inputs',
+      label: 'Inputs',
+    },
   ];
 
   constructor(
     private readonly localStorageSync: LocalStorageSync<{ themePreference: boolean }>,
+    private readonly destroyRef: DestroyRef,
     @Inject(DOCUMENT) private readonly document: Document
-  ) {
-    this.control.valueChanges
-      .pipe(
-        tap((isDark) => {
-          this.isDark = isDark;
-          this.localStorageSync.setItem('themePreference', isDark);
-          this.document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-        }),
-        takeUntilDestroyed()
-      )
-      .subscribe();
-  }
+  ) {}
 
   ngOnInit(): void {
-    const isDark =
-      this.localStorageSync.getItem('themePreference') ??
-      this.document.defaultView?.matchMedia('(prefers-color-scheme: dark)').matches ??
-      false;
+    const prefers = this.document.defaultView?.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.isDark = this.localStorageSync.getItem('themePreference') ?? prefers ?? false;
+    this.document.documentElement.setAttribute('data-theme', this.isDark ? 'dark' : 'light');
+    this.control = new FormControl<boolean>(this.isDark, { nonNullable: true });
 
-    this.control.setValue(isDark);
+    this.control.valueChanges
+      .pipe(
+        tap((dark) => {
+          this.isDark = dark;
+          this.localStorageSync.setItem('themePreference', dark);
+          this.document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        }),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe();
   }
 
   get label(): string {
