@@ -1,0 +1,42 @@
+@use '../../../src/styles/mixins/device' as device;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  &.fafn-fluid {
+    max-width: 100%;
+  }
+
+  &:not(.fafn-mobile-no-gutter) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  @include device.media-tablet-portrait() {
+    &:not(.fafn-fluid) {
+      max-width: 788px;
+    }
+  }
+
+  @include device.media-tablet-landscape() {
+    &:not(.fafn-fluid) {
+      max-width: 928px;
+    }
+  }
+
+  @include device.media-web-portrait() {
+    &:not(.fafn-fluid) {
+      max-width: 808px;
+    }
+  }
+
+  @include device.media-web-landscape() {
+    &:not(.fafn-fluid) {
+      max-width: 1200px;
+    }
+  }
+}
