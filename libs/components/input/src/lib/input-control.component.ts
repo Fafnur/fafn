@@ -14,21 +14,18 @@ import { startWith, tap } from 'rxjs';
 
 import { FafnLabel } from '@fafn/components/label';
 
-import { ControlContainerComponent } from '../control-container/control-container.component';
-import { ControlInputComponent } from '../control-input/control-input.component';
 import { InputDirective } from './input.directive';
 
 @Component({
-  selector: 'fafn-control,[fafnControl]',
-  templateUrl: './control.component.html',
-  styleUrls: ['./control.component.scss'],
+  selector: 'fafn-input-control,[fafnInputControl]',
+  templateUrl: './input-control.component.html',
+  styleUrls: ['./input-control.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ControlContainerComponent, ControlInputComponent],
 })
-export class ControlComponent implements AfterViewInit, OnDestroy {
+export class InputControlComponent implements AfterViewInit, OnDestroy {
   @ContentChild(FafnLabel) label: FafnLabel | undefined;
-  @ContentChild(InputDirective) control: InputDirective | undefined;
+  @ContentChild(InputDirective) input: InputDirective | undefined;
 
   private isDisabled = false;
 
@@ -39,16 +36,16 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
   ) {}
 
   ngAfterViewInit(): void {
-    if (this.control) {
-      this.control.elementRef.nativeElement.addEventListener('click', this.focusin);
-      this.control.elementRef.nativeElement.addEventListener('focusout', this.focusout);
-      this.control.elementRef.nativeElement.addEventListener('input', this.input);
-      this.input({ target: this.control.elementRef.nativeElement });
+    if (this.input) {
+      this.input.elementRef.nativeElement.addEventListener('click', this.onFocusin);
+      this.input.elementRef.nativeElement.addEventListener('focusout', this.onFocusout);
+      this.input.elementRef.nativeElement.addEventListener('input', this.onInput);
+      this.onInput({ target: this.input.elementRef.nativeElement });
 
-      this.control.ngControl.valueChanges
+      this.input.ngControl.valueChanges
         ?.pipe(
           tap(() => {
-            if (!this.control?.ngControl.value && this.elementRef.nativeElement.classList.contains('is-value')) {
+            if (!this.input?.ngControl.value && this.elementRef.nativeElement.classList.contains('is-value')) {
               this.renderer.removeClass(this.elementRef.nativeElement, 'is-value');
             }
           }),
@@ -56,9 +53,9 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
         )
         .subscribe();
 
-      this.control.ngControl.statusChanges
+      this.input.ngControl.statusChanges
         ?.pipe(
-          startWith(this.control.ngControl.status),
+          startWith(this.input.ngControl.status),
           tap((status: FormControlStatus) => {
             this.isDisabled = status === 'DISABLED';
             this.disable();
@@ -67,31 +64,31 @@ export class ControlComponent implements AfterViewInit, OnDestroy {
         )
         .subscribe();
     } else {
-      console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-input></fafn-input>');
+      console.warn('Input[fafnInput] not found. Add child <input fafnInput /> in <fafn-input-control></fafn-input-control>');
     }
   }
 
   ngOnDestroy(): void {
-    if (this.control) {
-      this.control.elementRef.nativeElement.removeEventListener('click', this.focusin);
-      this.control.elementRef.nativeElement.removeEventListener('focusout', this.focusout);
-      this.control.elementRef.nativeElement.removeEventListener('input', this.input);
+    if (this.input) {
+      this.input.elementRef.nativeElement.removeEventListener('click', this.onFocusin);
+      this.input.elementRef.nativeElement.removeEventListener('focusout', this.onFocusout);
+      this.input.elementRef.nativeElement.removeEventListener('input', this.onInput);
     }
   }
 
-  private focusin = () => {
+  private onFocusin = () => {
     if (!this.isDisabled) {
       this.renderer.addClass(this.elementRef.nativeElement, 'is-pressed');
     }
   };
 
-  private focusout = () => {
+  private onFocusout = () => {
     if (!this.isDisabled) {
       this.renderer.removeClass(this.elementRef.nativeElement, 'is-pressed');
     }
   };
 
-  private input = (event: Event | { target: HTMLInputElement }) => {
+  private onInput = (event: Event | { target: HTMLInputElement }) => {
     if (!this.isDisabled) {
       const target = event.target as HTMLInputElement;
 

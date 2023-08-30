@@ -1,4 +1,4 @@
-export { ControlComponent as FafnControl } from './lib/control/control.component';
-export { InputDirective as FafnInput } from './lib/control/input.directive';
-export { PrefixDirective as FafnPrefix } from './lib/control/prefix.directive';
-export { SuffixDirective as FafnSuffix } from './lib/control/suffix.directive';
+export { InputDirective as FafnInput } from './lib/input.directive';
+export { InputControlComponent as FafnInputControl } from './lib/input-control.component';
+export { InputPrefixDirective as FafnPrefix } from './lib/input-prefix.directive';
+export { InputSuffixDirective as FafnSuffix } from './lib/input-suffix.directive';

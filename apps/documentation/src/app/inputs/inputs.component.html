@@ -1,39 +1,39 @@
 <fafn-container>
   <div>
-    <fafn-control>
+    <fafn-input-control>
       <label fafnLabel>Full name</label>
-      <fafn-icon fafnPrefix>search</fafn-icon>
-      <span fafnSuffix>rt</span>
+      <fafn-icon fafnInputPrefix>search</fafn-icon>
+      <span fafnInputSuffix>rt</span>
       <input fafnInput type="text" [formControl]="control" />
       <fafn-hint>Hint text</fafn-hint>
-    </fafn-control>
+    </fafn-input-control>
   </div>
   <div>
-    <fafn-control>
+    <fafn-input-control>
       <label fafnLabel>Full name</label>
-      <span fafnPrefix>lf</span>
+      <span fafnInputPrefix>lf</span>
       <input fafnInput type="text" [formControl]="control" />
-    </fafn-control>
+    </fafn-input-control>
   </div>
   <div>
-    <fafn-control>
+    <fafn-input-control>
       <label fafnLabel>Full name</label>
-      <button fafn-icon-button fafnSuffix *ngIf="control.value" (click)="onReset()">
+      <button fafn-icon-button fafnInputSuffix *ngIf="control.value" (click)="onReset()">
         <fafn-icon>close</fafn-icon>
       </button>
       <input fafnInput type="text" [formControl]="control" placeholder="Simple Text" />
       <fafn-hint>Hint text</fafn-hint>
-    </fafn-control>
+    </fafn-input-control>
   </div>
 
   <div>
-    <fafn-control>
+    <fafn-input-control>
       <label fafnLabel>Full name</label>
-      <fafn-icon fafnPrefix>search</fafn-icon>
-      <span fafnSuffix>rt</span>
+      <fafn-icon fafnInputPrefix>search</fafn-icon>
+      <span fafnInputSuffix>rt</span>
       <input fafnInput type="text" [formControl]="controlDisabled" />
       <fafn-hint>Hint text</fafn-hint>
-    </fafn-control>
+    </fafn-input-control>
   </div>
 
   <div>

@@ -6,7 +6,7 @@ import { FafnButton, FafnIconButton } from '@fafn/components/buttons';
 import { FafnContainer } from '@fafn/components/container';
 import { FafnHint } from '@fafn/components/hint';
 import { FafnIcon } from '@fafn/components/icon';
-import { FafnControl, FafnPrefix, FafnSuffix } from '@fafn/components/input';
+import { FafnInput, FafnInputControl, FafnPrefix, FafnSuffix } from '@fafn/components/input';
 import { FafnLabel } from '@fafn/components/label';
 
 @Component({
@@ -18,7 +18,8 @@ import { FafnLabel } from '@fafn/components/label';
   imports: [
     FafnContainer,
     ReactiveFormsModule,
-    FafnControl,
+    FafnInputControl,
+    FafnInput,
     FafnLabel,
     FafnHint,
     FafnSuffix,
