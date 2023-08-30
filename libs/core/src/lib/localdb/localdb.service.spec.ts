@@ -1,14 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { firstValueFrom } from 'rxjs';
 
-import { LOCAL_DB_CONFIG, LOCAL_DB_CONFIG_DEFAULT, LocalDBConfig, LocalDBRecord, LocalDBService } from './localdb.service';
+import { LOCAL_DB_CONFIG, LOCAL_DB_CONFIG_DEFAULT, LocalDBConfig, LocalDBService } from './localdb.service';
 
 describe('LocalDBService', () => {
   let service: LocalDBService;
-  const LOCAL_DB_RECORD_STUB: LocalDBRecord = {
-    id: 'long-uuid',
-    name: 'Last',
-  };
+
   const STORE_NAME_STUB = 'posts';
   const LOCAL_DB_CONFIG_STUB: LocalDBConfig = {
     ...LOCAL_DB_CONFIG_DEFAULT,
