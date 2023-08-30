@@ -10,6 +10,10 @@ import { WebDirective } from './web.directive';
   styleUrls: ['./column.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-column',
+  },
   hostDirectives: [
     {
       directive: HandsetDirective,

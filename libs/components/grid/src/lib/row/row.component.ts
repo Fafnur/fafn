@@ -8,6 +8,10 @@ import { NoGutterDirective } from './no-gutter.directive';
   styleUrls: ['./row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-row',
+  },
   hostDirectives: [
     {
       directive: NoGutterDirective,
