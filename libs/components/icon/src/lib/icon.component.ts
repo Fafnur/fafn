@@ -8,6 +8,10 @@ import { IconService } from './icon.service';
   styleUrls: ['./icon.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-icon',
+  },
 })
 export class IconComponent {
   @Input() set icon(icon: string) {

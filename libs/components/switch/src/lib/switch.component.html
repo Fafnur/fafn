@@ -1,17 +1,17 @@
 <label>
   <input #input type="checkbox" (change)="onChanged($event)" />
-  <span control>
+  <span class="fafn-control">
     <fafn-icon
       [ngClass]="{
-        'with-on': icons === 'on',
-        'with-off': icons === 'off',
-        'with-on-off': icons === 'on-off'
+        'fafn-with-on': icons === 'on',
+        'fafn-with-off': icons === 'off',
+        'fafn-with-on-off': icons === 'on-off'
       }"
       [@checked]="input.checked ? 'on' : 'off'"
       (@checked.done)="onToggled()"
     >
       <ng-container *ngIf="icon">{{ icon }}</ng-container>
     </fafn-icon>
-    <span state-layer></span>
+    <span class="fafn-state-layer"></span>
   </span>
 </label>
