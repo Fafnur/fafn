@@ -1,19 +1,13 @@
 @use '../../../../src/styles/mixins/state-layer' as state-layer;
+@use '../../../../src/styles/mixins/typography' as typography;
 
 :host {
   display: flex;
   flex-direction: column;
-  font-family: var(--md-sys-typescale-label-large-font-family-name);
-  font-style: var(--md-sys-typescale-label-large-font-family-style);
-  font-weight: var(--md-sys-typescale-label-large-font-weight);
-  font-size: var(--md-sys-typescale-label-large-font-size);
-  line-height: var(--md-sys-typescale-label-large-line-height);
-  letter-spacing: var(--md-sys-typescale-label-large-letter-spacing);
-  text-decoration: var(--md-sys-typescale-label-large-text-decoration);
-
   border-radius: var(--md-sys-shape-corner-medium);
-
   max-width: 100%;
+
+  @include typography.label-large();
 
   @include state-layer.add-state-layer();
   @include state-layer.add-states();

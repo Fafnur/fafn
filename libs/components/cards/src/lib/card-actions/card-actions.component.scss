@@ -3,19 +3,11 @@
   flex-direction: row;
   gap: 8px;
 
-  &[align='start'] {
-    justify-content: start;
-  }
-
-  &[align='space-between'] {
-    justify-content: space-between;
-  }
-
-  &[align='center'] {
+  &.fafn-align-center {
     justify-content: center;
   }
 
-  &[align='end'] {
+  &.fafn-align-end {
     justify-content: end;
   }
 }
