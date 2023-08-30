@@ -1,30 +1,15 @@
-@use '../../../src/styles/mixins/device' as device;
+@use '../../../src/styles/mixins/typography' as typography;
 
 :host {
-  @include device.media-handset() {
-    font-family: var(--md-sys-typescale-title-small-font-family-name);
-    font-style: var(--md-sys-typescale-title-small-font-family-style);
-    font-weight: var(--md-sys-typescale-title-small-font-weight);
-    font-size: var(--md-sys-typescale-title-small-font-size);
-    letter-spacing: var(--md-sys-typescale-title-small-letter-spacing);
-    line-height: var(--md-sys-typescale-title-small-line-height);
+  &.fafn-size-small {
+    @include typography.title-small();
   }
 
-  @include device.media-tablet() {
-    font-family: var(--md-sys-typescale-title-medium-font-family-name);
-    font-style: var(--md-sys-typescale-title-medium-font-family-style);
-    font-weight: var(--md-sys-typescale-title-medium-font-weight);
-    font-size: var(--md-sys-typescale-title-medium-font-size);
-    letter-spacing: var(--md-sys-typescale-title-medium-letter-spacing);
-    line-height: var(--md-sys-typescale-title-medium-line-height);
+  &.fafn-size-medium {
+    @include typography.title-medium();
   }
 
-  @include device.media-web() {
-    font-family: var(--md-sys-typescale-title-large-font-family-name);
-    font-style: var(--md-sys-typescale-title-large-font-family-style);
-    font-weight: var(--md-sys-typescale-title-large-font-weight);
-    font-size: var(--md-sys-typescale-title-large-font-size);
-    letter-spacing: var(--md-sys-typescale-title-large-letter-spacing);
-    line-height: var(--md-sys-typescale-title-large-line-height);
+  &.fafn-size-large {
+    @include typography.title-large();
   }
 }

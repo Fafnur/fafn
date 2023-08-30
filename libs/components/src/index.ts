@@ -4,5 +4,6 @@ export * from './lib/common-behaviors/constructor';
 export * from './lib/common-behaviors/disabled';
 export * from './lib/common-behaviors/mode';
 export * from './lib/common-behaviors/size';
+export * from './lib/directives/size.directive';
 export * from './lib/gallery/gallery.interface';
 export * from './lib/utils/prop';
