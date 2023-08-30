@@ -33,7 +33,7 @@ export abstract class ColumnDirective {
     }
 
     const value = Number(size);
-    if (Number.isInteger(value)) {
+    if (Number.isInteger(value) && value > 0) {
       this.size = value;
       this.renderer.addClass(this.elementRef.nativeElement, `fafn-${this.className}-${this.size}`);
     } else {
@@ -53,7 +53,7 @@ export abstract class ColumnDirective {
     }
 
     const value = Number(offset);
-    if (Number.isInteger(value)) {
+    if (Number.isInteger(value) && value > 0) {
       this.offset = value;
       this.renderer.addClass(this.elementRef.nativeElement, `fafn-${this.className}-offset-${this.offset}`);
     } else {

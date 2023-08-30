@@ -1,10 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+import { NoGutterDirective } from './no-gutter.directive';
+
 @Component({
   selector: 'fafn-row',
   template: '<ng-content></ng-content>',
   styleUrls: ['./row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  hostDirectives: [
+    {
+      directive: NoGutterDirective,
+      inputs: ['no-gutter'],
+    },
+  ],
 })
 export class RowComponent {}

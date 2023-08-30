@@ -4,12 +4,10 @@ import { FafnBody } from '@fafn/components/body';
 import { FafnButton } from '@fafn/components/buttons';
 import { FafnCard, FafnCardActions, FafnCardContent } from '@fafn/components/cards';
 import { FafnContainer } from '@fafn/components/container';
-import { FafnColumn, FafnRow, FafnTablet } from '@fafn/components/grid';
+import { FafnColumn, FafnRow } from '@fafn/components/grid';
 import { FafnHeadline } from '@fafn/components/headline';
 import { FafnImage } from '@fafn/components/image';
 import { FafnTitle } from '@fafn/components/title';
-import { WebDirective } from '../../../../../libs/components/grid/src/lib/column/web.directive';
-import { NoGutterDirective } from '../../../../../libs/components/grid/src/lib/row/no-gutter.directive';
 
 @Component({
   selector: 'fafn-page-dividers',
@@ -23,15 +21,12 @@ import { NoGutterDirective } from '../../../../../libs/components/grid/src/lib/r
     FafnImage,
     FafnRow,
     FafnColumn,
-    FafnTablet,
     FafnHeadline,
     FafnTitle,
     FafnCardContent,
     FafnBody,
     FafnCardActions,
     FafnButton,
-    WebDirective,
-    NoGutterDirective,
   ],
 })
 export class CardsComponent {}
