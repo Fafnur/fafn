@@ -11,10 +11,6 @@ import { FafnIcon } from '@fafn/components/icon';
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
-  host: {
-    class: 'fafn-switch',
-  },
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -48,6 +44,10 @@ import { FafnIcon } from '@fafn/components/icon';
   ],
   standalone: true,
   imports: [FafnIcon, NgIf, NgClass],
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-switch',
+  },
 })
 export class SwitchComponent implements ControlValueAccessor {
   @Input() icons: 'on' | 'off' | 'on-off' | undefined;

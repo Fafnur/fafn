@@ -1,31 +1,21 @@
+@use '../../../src/styles/mixins/typography' as typography;
+
 :host {
-  :host-context(fafn-control),
-  :host-context([fafnControl]) {
+  :host-context(fafn-control) {
     position: absolute;
     z-index: 0;
     margin: auto;
     top: 0;
     left: 0;
-    font-family: var(--md-sys-typescale-body-large-font-family-name);
-    font-style: var(--md-sys-typescale-body-large-font-family-style);
-    font-weight: var(--md-sys-typescale-body-large-font-weight);
-    font-size: var(--md-sys-typescale-body-large-font-size);
-    letter-spacing: var(--md-sys-typescale-body-large-letter-spacing);
-    line-height: var(--md-sys-typescale-body-large-line-height);
     transform: translateY(14px);
     transition: transform 0.1s;
     user-select: none;
+    @include typography.body-large();
   }
 
-  :host-context(fafn-control.is-pressed),
-  :host-context(fafn-control.is-value) {
-    font-family: var(--md-sys-typescale-body-small-font-family-name);
-    font-style: var(--md-sys-typescale-body-small-font-family-style);
-    font-weight: var(--md-sys-typescale-body-small-font-weight);
-    font-size: var(--md-sys-typescale-body-small-font-size);
-    letter-spacing: var(--md-sys-typescale-body-small-letter-spacing);
-    line-height: var(--md-sys-typescale-body-small-line-height);
+  :host-context(fafn-control:is(.is-pressed, .is-value)) {
     transform: translateY(8px);
+    @include typography.body-small();
   }
 
   :host-context(fafn-control.is-disabled) {
