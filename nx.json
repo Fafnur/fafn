@@ -56,11 +56,13 @@
     },
     "@nx/angular:component": {
       "style": "scss",
-      "changeDetection": "OnPush"
+      "changeDetection": "OnPush",
+      "standalone": true
     },
     "@schematics/angular:component": {
       "style": "scss",
-      "changeDetection": "OnPush"
+      "changeDetection": "OnPush",
+      "standalone": true
     }
   },
   "defaultProject": "documentation"
