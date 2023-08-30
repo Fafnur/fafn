@@ -8,6 +8,8 @@ import { FafnColumn, FafnRow, FafnTablet } from '@fafn/components/grid';
 import { FafnHeadline } from '@fafn/components/headline';
 import { FafnImage } from '@fafn/components/image';
 import { FafnTitle } from '@fafn/components/title';
+import { WebDirective } from '../../../../../libs/components/grid/src/lib/column/web.directive';
+import { NoGutterDirective } from '../../../../../libs/components/grid/src/lib/row/no-gutter.directive';
 
 @Component({
   selector: 'fafn-page-dividers',
@@ -28,6 +30,8 @@ import { FafnTitle } from '@fafn/components/title';
     FafnBody,
     FafnCardActions,
     FafnButton,
+    WebDirective,
+    NoGutterDirective,
   ],
 })
 export class CardsComponent {}

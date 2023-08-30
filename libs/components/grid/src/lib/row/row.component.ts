@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'fafn-row,[fafnRow]',
+  selector: 'fafn-row',
   template: '<ng-content></ng-content>',
   styleUrls: ['./row.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

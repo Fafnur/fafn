@@ -32,7 +32,7 @@ export class GridService {
 
   constructor(
     private readonly breakpointObserver: BreakpointObserver,
-    @Optional() @Inject(BREAKPOINTS) breakpoints: typeof Breakpoints | null,
+    @Optional() @Inject(BREAKPOINTS) breakpoints: typeof Breakpoints | null
   ) {
     this.breakpoints = breakpoints ?? Breakpoints;
 
