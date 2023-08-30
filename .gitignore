@@ -41,10 +41,16 @@ Thumbs.db
 .angular
 
 # Custom
+/mocks/tmp
 package-lock.json
+.yarnrc
 yarn.lock
 .env
 /apps/**/.env
-/apps/**/routes.txt
-#/apps/**/sitemap.xml Revert after adding sitemap generator
-/libs/**/source.xlf
+/apps/**/source.xlf
+.husky/*
+junit.xml
+/junit
+/apps/**/dynamic-routes.txt
+/apps/**/sitemap.xml
+
