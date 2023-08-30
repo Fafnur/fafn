@@ -84,7 +84,7 @@ export class LocalDBService<K extends keyof S = never, S extends Record<string, 
 
   constructor(
     @Inject(DOCUMENT) protected readonly document: Document,
-    @Optional() @Inject(LOCAL_DB_CONFIG) config: Partial<LocalDBConfig> | null
+    @Optional() @Inject(LOCAL_DB_CONFIG) config: Partial<LocalDBConfig> | null,
   ) {
     if (config === null) {
       throw new Error('LocalDBConfig is not defined!');

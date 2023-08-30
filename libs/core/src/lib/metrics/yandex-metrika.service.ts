@@ -106,7 +106,7 @@ export class YandexMetrikaService {
     // eslint-disable-next-line @typescript-eslint/ban-types
     @Inject(PLATFORM_ID) private readonly platformId: Object,
     @Inject(DOCUMENT) private readonly document: Document,
-    @Optional() @Inject(YANDEX_METRIKA_CONFIG) config: Partial<YandexMetrikaConfig> | null
+    @Optional() @Inject(YANDEX_METRIKA_CONFIG) config: Partial<YandexMetrikaConfig> | null,
   ) {
     this.config = {
       ...config,

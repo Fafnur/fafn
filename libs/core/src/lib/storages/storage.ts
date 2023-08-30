@@ -158,7 +158,7 @@ export abstract class StorageAsync<S> {
    */
   getItems<K extends keyof S>(keys: K[]): Observable<Pick<{ [P in keyof S]: S[P] | null }, K>> {
     return this.state$.pipe(
-      map((state) => keys.reduce((acc, key) => ({ ...acc, [key]: state[key] ?? null }), {} as Pick<{ [P in keyof S]: S[P] | null }, K>))
+      map((state) => keys.reduce((acc, key) => ({ ...acc, [key]: state[key] ?? null }), {} as Pick<{ [P in keyof S]: S[P] | null }, K>)),
     );
   }
 
@@ -321,7 +321,7 @@ export abstract class StorageSync<S> {
         ...acc,
         [key]: this.state[key] ?? null,
       }),
-      {} as Pick<{ [P in keyof S]: S[P] | null }, K>
+      {} as Pick<{ [P in keyof S]: S[P] | null }, K>,
     );
   }
 

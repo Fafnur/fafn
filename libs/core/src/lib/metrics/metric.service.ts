@@ -68,7 +68,10 @@ function isMetricNavigation(options?: Record<string, unknown> | Partial<MetricNa
   providedIn: 'root',
 })
 export class MetricService {
-  constructor(private readonly ym: YandexMetrikaService, private readonly ga: GoogleAnalyticsService) {}
+  constructor(
+    private readonly ym: YandexMetrikaService,
+    private readonly ga: GoogleAnalyticsService,
+  ) {}
 
   /**
    * Send change SPA page

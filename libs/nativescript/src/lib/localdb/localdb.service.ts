@@ -8,7 +8,7 @@ import { LOCAL_DB_CONFIG, LocalDBConfig, LocalDBRecord, LocalDBService } from '@
 @Injectable()
 export class NativescriptLocalDBService<
   K extends keyof S = never,
-  S extends Record<string, string> = Record<string, string>
+  S extends Record<string, string> = Record<string, string>,
 > extends LocalDBService<K, S> {
   constructor(@Inject(DOCUMENT) document: Document, @Optional() @Inject(LOCAL_DB_CONFIG) config: Partial<LocalDBConfig> | null) {
     super(document, config);

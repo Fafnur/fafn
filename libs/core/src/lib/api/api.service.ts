@@ -48,7 +48,10 @@ export class ApiService {
    */
   private readonly config: ApiConfig;
 
-  constructor(private readonly httpClient: HttpClient, @Optional() @Inject(API_CONFIG) config: Partial<ApiConfig> | null) {
+  constructor(
+    private readonly httpClient: HttpClient,
+    @Optional() @Inject(API_CONFIG) config: Partial<ApiConfig> | null,
+  ) {
     if (!config) {
       console.warn('API_CONFIG not provided.');
     }

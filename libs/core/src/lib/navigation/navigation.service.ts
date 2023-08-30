@@ -85,7 +85,10 @@ export class NavigationService<T extends object = object> {
    */
   private readonly paths: T;
 
-  constructor(private readonly router: Router, @Optional() @Inject(NAVIGATION_PATHS) paths: T | null) {
+  constructor(
+    private readonly router: Router,
+    @Optional() @Inject(NAVIGATION_PATHS) paths: T | null,
+  ) {
     if (paths === null) {
       console.warn('PATHS not provided.');
       this.paths = {} as T;
@@ -160,7 +163,7 @@ export class NavigationService<T extends object = object> {
   navigateByUrl<K extends keyof T>(
     path: K | string,
     params?: Record<string, string | number>,
-    extras?: NavigationExtras
+    extras?: NavigationExtras,
   ): Promise<boolean> {
     return this.navigate(this.getRoute(path, params), extras);
   }

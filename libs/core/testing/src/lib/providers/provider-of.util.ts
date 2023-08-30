@@ -55,7 +55,7 @@ export function providerOf<T>(
     | (Function & {
         prototype: T;
       }),
-  mockClass: T
+  mockClass: T,
 ): FactoryProvider {
   return {
     provide: token,
