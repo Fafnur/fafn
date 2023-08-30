@@ -8,12 +8,16 @@ import { GalleryNavsComponent } from './gallery-navs/gallery-navs.component';
 import { GallerySlideComponent } from './gallery-slide/gallery-slide.component';
 
 @Component({
-  selector: 'fafn-gallery,[fafnGallery]',
+  selector: 'fafn-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [GallerySlideComponent, GalleryDotsComponent, GalleryNavsComponent, NgIf, NgForOf],
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-gallery',
+  },
 })
 export class GalleryComponent {
   @Input() set slides(slides: GallerySlide[] | null | undefined) {
