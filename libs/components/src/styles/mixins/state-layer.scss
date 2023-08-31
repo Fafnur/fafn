@@ -40,7 +40,6 @@
 @mixin add-state-layer() {
   position: relative;
 
-  [state-layer],
   .fafn-state-layer {
     position: absolute;
     width: 100%;

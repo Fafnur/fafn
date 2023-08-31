@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { DisabledDirective, ModeDirective } from '@fafn/components';
+import { DisabledDirective, ShortModeDirective } from '@fafn/components';
 
 @Component({
   selector: 'fafn-card',
@@ -18,7 +18,7 @@ import { DisabledDirective, ModeDirective } from '@fafn/components';
       inputs: ['disabled'],
     },
     {
-      directive: ModeDirective,
+      directive: ShortModeDirective,
       inputs: ['mode'],
     },
   ],

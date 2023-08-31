@@ -5,8 +5,8 @@ import { Directive, HostBinding, Input } from '@angular/core';
   selector: '[mode]',
   standalone: true,
 })
-export class ModeDirective {
-  @Input() mode: 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text' | undefined = 'text';
+export class ShortModeDirective {
+  @Input() mode: 'elevated' | 'filled' | 'outlined' | string | undefined | null = 'elevated';
 
   @HostBinding('class.fafn-mode-elevated') get isElevated(): boolean {
     return this.mode === 'elevated';
@@ -18,13 +18,5 @@ export class ModeDirective {
 
   @HostBinding('class.fafn-mode-outlined') get isOutlined(): boolean {
     return this.mode === 'outlined';
-  }
-
-  @HostBinding('class.fafn-mode-text') get isText(): boolean {
-    return this.mode === 'text';
-  }
-
-  @HostBinding('class.fafn-mode-filled-tonal') get isFilledTonal(): boolean {
-    return this.mode === 'filled-tonal';
   }
 }
