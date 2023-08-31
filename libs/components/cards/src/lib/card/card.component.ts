@@ -1,7 +1,6 @@
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { CanDisable, CardMode } from '@fafn/components';
+import { DisabledDirective, ModeDirective } from '@fafn/components';
 
 @Component({
   selector: 'fafn-card',
@@ -13,20 +12,15 @@ import { CanDisable, CardMode } from '@fafn/components';
   host: {
     class: 'fafn-card',
   },
+  hostDirectives: [
+    {
+      directive: DisabledDirective,
+      inputs: ['disabled'],
+    },
+    {
+      directive: ModeDirective,
+      inputs: ['mode'],
+    },
+  ],
 })
-export class CardComponent implements CanDisable {
-  @Input() mode: CardMode;
-
-  private isDisabled = false;
-
-  get disabled(): boolean {
-    return this.isDisabled;
-  }
-
-  set disabled(value: string | boolean | null | undefined) {
-    const disabled = coerceBooleanProperty(value);
-    if (disabled !== this.isDisabled) {
-      this.isDisabled = disabled;
-    }
-  }
-}
+export class CardComponent {}
