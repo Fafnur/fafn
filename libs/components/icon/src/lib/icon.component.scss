@@ -39,7 +39,7 @@
     height: 36px;
   }
 
-  :host-context(.fafn-control:is(.is-disabled, [disabled])) {
+  :host-context(.fafn-control:is(.fafn-is-disabled, [disabled])) {
     color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
   }
 }

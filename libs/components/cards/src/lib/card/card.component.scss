@@ -10,7 +10,10 @@
 
   @include typography.label-large();
   @include state-layer.add-state-layer();
-  @include state-layer.add-states();
+  @include state-layer.add-state-hover();
+  @include state-layer.add-state-focus();
+  @include state-layer.add-state-active();
+  @include state-layer.add-state-disabled();
 
   &.is-dragged .fafn-state-layer {
     box-shadow: var(--md-sys-elevation-3);

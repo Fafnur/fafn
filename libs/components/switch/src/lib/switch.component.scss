@@ -59,7 +59,34 @@ label {
 
   @include state-layer.add-state-layer();
 
-  @include state-layer.add-states() {
+  @include state-layer.add-state-hover() {
+    .fafn-state-layer {
+      background-color: var(--md-sys-color-on-surface);
+    }
+
+    .fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+  @include state-layer.add-state-focus() {
+    .fafn-state-layer {
+      background-color: var(--md-sys-color-on-surface);
+    }
+
+    .fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+  @include state-layer.add-state-active() {
+    .fafn-state-layer {
+      background-color: var(--md-sys-color-on-surface);
+    }
+
+    .fafn-icon {
+      background-color: var(--md-sys-color-on-surface-variant);
+    }
+  }
+  @include state-layer.add-state-disabled() {
     .fafn-state-layer {
       background-color: var(--md-sys-color-on-surface);
     }

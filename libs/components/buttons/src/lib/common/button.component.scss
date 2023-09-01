@@ -1,113 +1,75 @@
-@use '../../../../src/styles/mixins/typography' as typography;
-@import '../base/button-base';
+@use '../../../../src/styles/mixins/state-layer' as state-layer;
+@use '../../../../src/styles/mixins/button' as button;
 
 :host {
-  @include typography.label-large();
+  @include button.base(40px);
   box-shadow: var(--md-sys-elevation-0);
 
-  &.fafn-dragged .fafn-state-layer {
-    opacity: var(--md-sys-state-dragged-state-layer-opacity);
-  }
-
-  &:is([disabled], .is-disabled) {
-    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
-  }
-
-  &:is(:hover, .is-hovered) {
-    box-shadow: var(--md-sys-elevation-1);
-  }
-
-  &.font-mode-elevated {
-    background-color: var(--md-sys-color-surface-container-low);
-    color: var(--md-sys-color-primary);
+  &.fafn-mode-elevated {
+    @include button.common-theme(--md-sys-color-surface-container-low, --md-sys-color-primary);
     box-shadow: var(--md-sys-elevation-1);
 
-    &:is(:hover, .is-hovered) {
+    &:hover,
+    &.fafn-is-hovered {
       box-shadow: var(--md-sys-elevation-2);
     }
 
-    .fafn-state-layer {
-      background-color: var(--md-sys-color-on-primary);
+    &[disabled],
+    &.fafn-is-disabled {
+      box-shadow: var(--md-sys-elevation-0);
     }
   }
 
-  &.font-mode-filled {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-
-    .fafn-state-layer {
-      background-color: var(--md-sys-color-on-primary);
-    }
+  &.fafn-mode-filled {
+    @include button.common-theme(--md-sys-color-primary, --md-sys-color-on-primary);
   }
 
-  &.font-mode-filled-tonal {
-    background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-
-    .fafn-state-layer {
-      background-color: var(--md-sys-color-on-secondary-container);
-    }
+  &.fafn-mode-filled-tonal {
+    @include button.common-theme(--md-sys-color-secondary-container, --md-sys-color-on-secondary-container);
   }
 
-  &.font-mode-outlined {
+  &.fafn-mode-outlined {
     border: 1px solid var(--md-sys-color-outline);
-    color: var(--md-sys-color-primary);
-
-    .fafn-state-layer {
-      background-color: var(--md-sys-color-primary);
-    }
+    @include button.common-theme(false, --md-sys-color-primary);
   }
 
-  &.font-mode-text {
-    .fafn-state-layer {
-      background-color: var(--md-sys-color-primary);
-    }
+  &.fafn-mode-text {
+    @include button.common-theme-state-layer(--md-sys-color-primary);
 
-    &:is([disabled], .is-disabled) {
+    &[disabled],
+    &.fafn-is-disabled {
       background-color: transparent;
+
+      .fafn-state-layer {
+        background-color: transparent !important;
+      }
     }
   }
+
+  @include state-layer.add-state-hover();
+  @include state-layer.add-state-focus();
+  @include state-layer.add-state-active();
+  @include state-layer.add-state-disabled();
 
   /// Sizes
 
-  &.font-size-xsmall {
-    font-size: 75%;
-    height: 30px;
-    border-radius: 15px;
-    padding-left: 18px;
-    padding-right: 18px;
+  &.fafn-size-xsmall {
+    @include button.common-size(75%, 30px, 15px, 18px);
   }
 
-  &.font-size-small {
-    font-size: 90%;
-    height: 36px;
-    border-radius: 18px;
-    padding-left: 22px;
-    padding-right: 22px;
+  &.fafn-size-small {
+    @include button.common-size(90%, 36px, 18px, 22px);
   }
 
-  &.font-size-medium {
-    font-size: 110%;
-    height: 44px;
-    border-radius: 22px;
-    padding-left: 26px;
-    padding-right: 26px;
+  &.fafn-size-medium {
+    @include button.common-size(110%, 44px, 22px, 26px);
   }
 
-  &.font-size-large {
-    font-size: 125%;
-    height: 50px;
-    border-radius: 25px;
-    padding-left: 30px;
-    padding-right: 30px;
+  &.fafn-size-large {
+    @include button.common-size(125%, 50px, 25px, 30px);
   }
 
-  &.font-size-xlarge {
-    font-size: 150%;
-    height: 60px;
-    border-radius: 30px;
-    padding-left: 36px;
-    padding-right: 36px;
+  &.fafn-size-xlarge {
+    @include button.common-size(150%, 60px, 30px, 36px);
   }
 }

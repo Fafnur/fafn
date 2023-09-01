@@ -1,39 +1,45 @@
-@mixin add-states() {
-  &:is(&:hover, &.is-hovered) {
-    :is([state-layer], .fafn-state-layer) {
+@mixin add-state-hover() {
+  &:hover,
+  &.fafn-is-hovered {
+    .fafn-state-layer {
       opacity: var(--md-sys-state-hover-state-layer-opacity);
     }
 
     @content;
   }
+}
 
-  &:is(&:focus, &.is-focused) {
-    :is([state-layer], .fafn-state-layer) {
+@mixin add-state-focus() {
+  &:focus,
+  &.fafn-is-focused {
+    .fafn-state-layer {
       opacity: var(--md-sys-state-focus-state-layer-opacity);
     }
 
     @content;
   }
+}
 
-  &:is(&:active, &.is-pressed) {
-    :is([state-layer], .fafn-state-layer) {
+@mixin add-state-active() {
+  &:active,
+  &.fafn-is-pressed {
+    .fafn-state-layer {
       opacity: var(--md-sys-state-pressed-state-layer-opacity);
     }
 
     @content;
   }
+}
 
-  &:is(&.is-dragged) {
-    :is([state-layer], .fafn-state-layer) {
-      opacity: var(--md-sys-state-dragged-state-layer-opacity);
-    }
-
-    @content;
-  }
-
-  &:is([disabled], .is-disabled) {
+@mixin add-state-disabled() {
+  &[disabled],
+  &.fafn-is-disabled {
     cursor: not-allowed;
     pointer-events: none;
+    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+
+    @content;
   }
 }
 

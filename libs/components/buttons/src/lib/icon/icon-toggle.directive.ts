@@ -3,13 +3,13 @@ import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: '[disabled]',
+  selector: '[toggle]',
   standalone: true,
 })
-export class DisabledDirective {
-  @Input() disabled: string | boolean | null | undefined;
+export class IconToggleDirective {
+  @Input() toggle: boolean | undefined | null;
 
-  @HostBinding('class.fafn-is-disabled') get isSmall(): boolean {
-    return coerceBooleanProperty(this.disabled);
+  @HostBinding('class.fafn-toggle') get isToggle(): boolean {
+    return coerceBooleanProperty(this.toggle);
   }
 }

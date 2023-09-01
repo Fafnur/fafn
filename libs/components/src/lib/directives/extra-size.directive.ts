@@ -6,7 +6,7 @@ import { Directive, HostBinding, Input } from '@angular/core';
   standalone: true,
 })
 export class ExtraSizeDirective {
-  @Input() size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | undefined | null = 'medium';
+  @Input() size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | undefined | null;
 
   @HostBinding('class.fafn-size-xsmall') get isXSmall(): boolean {
     return this.size === 'xsmall';

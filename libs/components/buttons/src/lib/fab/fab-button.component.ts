@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
-import { FabColor, IconSize } from '@fafn/components';
+import { ColorDirective, LowerDirective, SizeDirective } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
@@ -10,11 +10,26 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
   styleUrls: ['./fab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-fab',
+  },
+  hostDirectives: [
+    {
+      directive: ColorDirective,
+      inputs: ['color'],
+    },
+    {
+      directive: LowerDirective,
+      inputs: ['lower'],
+    },
+    {
+      directive: SizeDirective,
+      inputs: ['size'],
+    },
+  ],
 })
 export class FabButtonComponent extends ButtonBase {
-  @Input() color: FabColor;
-  @Input() size: IconSize;
-
   constructor(elementRef: ElementRef) {
     super(elementRef);
   }
@@ -26,12 +41,27 @@ export class FabButtonComponent extends ButtonBase {
   styleUrls: ['./fab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-fab',
+  },
+  hostDirectives: [
+    {
+      directive: ColorDirective,
+      inputs: ['color'],
+    },
+    {
+      directive: LowerDirective,
+      inputs: ['lower'],
+    },
+    {
+      directive: SizeDirective,
+      inputs: ['size'],
+    },
+  ],
 })
 export class FabAnchorComponent extends AnchorBase {
-  @Input() color: FabColor;
-  @Input() size: IconSize;
-
-  constructor(elementRef: ElementRef, ngZone: NgZone) {
-    super(elementRef, ngZone);
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 }

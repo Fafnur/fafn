@@ -1,12 +1,15 @@
-import { ChangeDetectionStrategy, Component, ElementRef, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
-import { DisabledDirective, ModeDirective, SizeDirective } from '@fafn/components';
+import { DisabledDirective, SizeDirective } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
-import { IconNoContentDirective } from './icon-no-content.directive';
+import { IconInnerDirective } from './icon-inner.directive';
+import { IconModeDirective } from './icon-mode.directive';
+import { IconSelectedDirective } from './icon-selected.directive';
+import { IconToggleDirective } from './icon-toggle.directive';
 
 @Component({
-  selector: 'button[fafn-icon-button]',
+  selector: 'button[fafn-icon-button],button[fafnIconButton]',
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +24,7 @@ import { IconNoContentDirective } from './icon-no-content.directive';
       inputs: ['disabled'],
     },
     {
-      directive: ModeDirective,
+      directive: IconModeDirective,
       inputs: ['mode'],
     },
     {
@@ -29,8 +32,16 @@ import { IconNoContentDirective } from './icon-no-content.directive';
       inputs: ['size'],
     },
     {
-      directive: IconNoContentDirective,
-      inputs: ['no-content'],
+      directive: IconInnerDirective,
+      inputs: ['inner'],
+    },
+    {
+      directive: IconToggleDirective,
+      inputs: ['toggle'],
+    },
+    {
+      directive: IconSelectedDirective,
+      inputs: ['selected'],
     },
   ],
 })
@@ -41,7 +52,7 @@ export class IconButtonComponent extends ButtonBase {
 }
 
 @Component({
-  selector: 'a[fafn-icon-button]',
+  selector: 'a[fafn-icon-button],a[fafnIconButton]',
   templateUrl: './icon-button.component.html',
   styleUrls: ['./icon-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -56,7 +67,7 @@ export class IconButtonComponent extends ButtonBase {
       inputs: ['disabled'],
     },
     {
-      directive: ModeDirective,
+      directive: IconModeDirective,
       inputs: ['mode'],
     },
     {
@@ -64,13 +75,21 @@ export class IconButtonComponent extends ButtonBase {
       inputs: ['size'],
     },
     {
-      directive: IconNoContentDirective,
-      inputs: ['no-content'],
+      directive: IconInnerDirective,
+      inputs: ['inner'],
+    },
+    {
+      directive: IconToggleDirective,
+      inputs: ['toggle'],
+    },
+    {
+      directive: IconSelectedDirective,
+      inputs: ['selected'],
     },
   ],
 })
 export class IconAnchorComponent extends AnchorBase {
-  constructor(elementRef: ElementRef, ngZone: NgZone) {
-    super(elementRef, ngZone);
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 }

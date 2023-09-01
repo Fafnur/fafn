@@ -1,55 +1,44 @@
-@import '../base/button-base';
+@use '../../../../src/styles/mixins/state-layer' as state-layer;
+@use '../../../../src/styles/mixins/button' as button;
 
 :host {
-  height: 56px;
+  @include button.base(56px);
   border-radius: var(--md-sys-shape-corner-large);
-  box-shadow: var(--md-sys-elevation-1);
+  box-shadow: var(--md-sys-elevation-3);
   padding: 16px;
   min-width: 80px;
 
-  &:where([hovered], &:hover) {
-    box-shadow: var(--md-sys-elevation-2);
+  &.fafn-lower {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
-  &[disabled] {
-    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+  &.fafn-color-primary {
+    @include button.fab-theme(--md-sys-color-primary-container, --md-sys-color-on-primary-container);
   }
 
-  &[color='default'],
-  &:not([color]) {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
+  &.fafn-color-secondary {
+    @include button.fab-theme(--md-sys-color-secondary-container, --md-sys-color-on-secondary-container);
+  }
 
-    [state-layer] {
-      background-color: var(--md-sys-color-on-primary-container);
+  &.fafn-color-tertiary {
+    @include button.fab-theme(--md-sys-color-tertiary-container, --md-sys-color-on-tertiary-container);
+  }
+
+  &.fafn-color-surface {
+    @include button.fab-theme(--md-sys-color-surface-container-high, --md-sys-color-primary);
+
+    &.fafn-lower {
+      background-color: var(--md-sys-color-surface-container-low);
     }
   }
 
-  &[color='surface'] {
-    background-color: var(--md-sys-color-surface-container-low);
-    color: var(--md-sys-color-primary);
+  @include state-layer.add-state-hover() {
+    box-shadow: var(--md-sys-elevation-4);
 
-    [state-layer] {
-      background-color: var(--md-sys-color-primary);
+    &.fafn-lower {
+      box-shadow: var(--md-sys-elevation-2);
     }
   }
-
-  &[color='secondary'] {
-    background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-
-    [state-layer] {
-      background-color: var(--md-sys-color-on-secondary-container);
-    }
-  }
-
-  &[color='tertiary'] {
-    background-color: var(--md-sys-color-tertiary-container);
-    color: var(--md-sys-color-on-tertiary-container);
-
-    [state-layer] {
-      background-color: var(--md-sys-color-on-tertiary-container);
-    }
-  }
+  @include state-layer.add-state-focus();
+  @include state-layer.add-state-active();
 }

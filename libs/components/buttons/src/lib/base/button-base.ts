@@ -4,7 +4,7 @@ import { AfterViewInit, Directive, ElementRef, inject, NgZone, OnDestroy, OnInit
 
 import { CanDisable } from '@fafn/components';
 
-@Directive({})
+@Directive()
 export class ButtonBase implements CanDisable, AfterViewInit, OnDestroy {
   private isDisabled = false;
 
@@ -42,6 +42,8 @@ export class ButtonBase implements CanDisable, AfterViewInit, OnDestroy {
 
 @Directive()
 export class AnchorBase extends ButtonBase implements OnInit, OnDestroy {
+  private readonly ngZone = inject(NgZone);
+
   protected readonly haltDisabledEvents = (event: Event) => {
     if (this.disabled) {
       event.preventDefault();
@@ -49,10 +51,7 @@ export class AnchorBase extends ButtonBase implements OnInit, OnDestroy {
     }
   };
 
-  constructor(
-    elementRef: ElementRef,
-    protected readonly ngZone: NgZone,
-  ) {
+  constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 

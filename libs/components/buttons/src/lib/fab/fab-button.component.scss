@@ -1,68 +1,55 @@
-@import '../base/button-base';
-
+@use '../../../../src/styles/mixins/state-layer' as state-layer;
+@use '../../../../src/styles/mixins/button' as button;
 :host {
-  height: 56px;
+  @include button.base(56px);
   width: 56px;
   border-radius: var(--md-sys-shape-corner-large);
-  box-shadow: var(--md-sys-elevation-1);
+  box-shadow: var(--md-sys-elevation-3);
   padding: 16px;
 
-  &[size='small'] {
-    border-radius: var(--md-sys-shape-corner-medium);
-    width: 40px;
-    height: 40px;
-    padding: 8px;
+  &.fafn-lower {
+    box-shadow: var(--md-sys-elevation-1);
   }
 
-  &[size='large'] {
-    border-radius: var(--md-sys-shape-corner-extra-large);
-    width: 96px;
-    height: 96px;
+  &.fafn-color-primary {
+    @include button.fab-theme(--md-sys-color-primary-container, --md-sys-color-on-primary-container);
   }
 
-  &:where([hovered], &:hover) {
-    box-shadow: var(--md-sys-elevation-2);
+  &.fafn-color-secondary {
+    @include button.fab-theme(--md-sys-color-secondary-container, --md-sys-color-on-secondary-container);
   }
 
-  &[disabled] {
-    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
-    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+  &.fafn-color-tertiary {
+    @include button.fab-theme(--md-sys-color-tertiary-container, --md-sys-color-on-tertiary-container);
   }
 
-  &[color='default'],
-  &:not([color]) {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
+  &.fafn-color-surface {
+    @include button.fab-theme(--md-sys-color-surface-container-high, --md-sys-color-primary);
 
-    [state-layer] {
-      background-color: var(--md-sys-color-on-primary-container);
+    &.fafn-lower {
+      background-color: var(--md-sys-color-surface-container-low);
     }
   }
 
-  &[color='surface'] {
-    background-color: var(--md-sys-color-surface-container-low);
-    color: var(--md-sys-color-primary);
+  @include state-layer.add-state-hover() {
+    box-shadow: var(--md-sys-elevation-4);
 
-    [state-layer] {
-      background-color: var(--md-sys-color-primary);
+    &.fafn-lower {
+      box-shadow: var(--md-sys-elevation-2);
     }
   }
+  @include state-layer.add-state-focus();
+  @include state-layer.add-state-active();
 
-  &[color='secondary'] {
-    background-color: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-
-    [state-layer] {
-      background-color: var(--md-sys-color-on-secondary-container);
-    }
+  &.fafn-size-small {
+    @include button.fab-size(--md-sys-shape-corner-medium, 40px, 8px);
   }
 
-  &[color='tertiary'] {
-    background-color: var(--md-sys-color-tertiary-container);
-    color: var(--md-sys-color-on-tertiary-container);
+  &.fafn-size-medium {
+    @include button.fab-size(--md-sys-shape-corner-large, 56px, 16px);
+  }
 
-    [state-layer] {
-      background-color: var(--md-sys-color-on-tertiary-container);
-    }
+  &.fafn-size-large {
+    @include button.fab-size(--md-sys-shape-corner-extra-large, 96px, 16px);
   }
 }

@@ -6,7 +6,7 @@ import { Directive, HostBinding, Input } from '@angular/core';
   standalone: true,
 })
 export class ModeDirective {
-  @Input() mode: 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text' | undefined = 'text';
+  @Input() mode: 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text' | undefined | null = 'text';
 
   @HostBinding('class.fafn-mode-elevated') get isElevated(): boolean {
     return this.mode === 'elevated';

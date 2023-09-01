@@ -1,0 +1,15 @@
+@mixin create-theme($background, $color) {
+  background-color: var(#{$background});
+  color: var(#{$color});
+
+  :is(&:hover, &.fafn-is-hovered, &:focus, &.fafn-is-focused, &:active, &.fafn-is-pressed) .fafn-state-layer {
+    background-color: var(#{$color});
+  }
+}
+
+@mixin create-size($radius, $size, $padding) {
+  border-radius: var(#{$radius});
+  width: $size;
+  height: $size;
+  padding: $padding;
+}
