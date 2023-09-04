@@ -5,14 +5,12 @@
   margin-top: 8px;
   margin-bottom: 8px;
 
-  &[inset],
-  &[fafnInset] {
+  &.fafn-inset {
     margin-left: 16px;
     margin-right: 0;
   }
 
-  &[middle-inset],
-  &[fafnMiddleInset] {
+  &.fafn-middle-inset {
     margin-left: 16px;
     margin-right: 16px;
   }

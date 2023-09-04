@@ -1,16 +1,15 @@
-@use '../../../src/styles/mixins/device' as device;
 @use '../../../src/styles/mixins/typography' as typography;
 
 :host {
-  @include device.media-handset() {
-    @include typography.headline-small();
+  &.fafn-size-small {
+    @include typography.body-small();
   }
 
-  @include device.media-tablet() {
-    @include typography.headline-medium();
+  &.fafn-size-medium {
+    @include typography.body-medium();
   }
 
-  @include device.media-web() {
-    @include typography.headline-large();
+  &.fafn-size-large {
+    @include typography.body-large();
   }
 }

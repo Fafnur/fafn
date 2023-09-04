@@ -1,30 +1,52 @@
-@mixin add-states() {
-  &:where([hovered], &:hover, &.is-hovered) [state-layer] {
-    opacity: var(--md-sys-state-hover-state-layer-opacity);
-  }
+@mixin add-state-hover() {
+  &:hover,
+  &.fafn-is-hovered {
+    .fafn-state-layer {
+      opacity: var(--md-sys-state-hover-state-layer-opacity);
+    }
 
-  &:where([focused], &:focus, &.is-focused) [state-layer] {
-    opacity: var(--md-sys-state-focus-state-layer-opacity);
+    @content;
   }
+}
 
-  &:where([pressed], &:active, &.is-pressed) [state-layer] {
-    opacity: var(--md-sys-state-pressed-state-layer-opacity);
+@mixin add-state-focus() {
+  &:focus,
+  &.fafn-is-focused {
+    .fafn-state-layer {
+      opacity: var(--md-sys-state-focus-state-layer-opacity);
+    }
+
+    @content;
   }
+}
 
-  &:where([dragged], &.is-dragged) [state-layer] {
-    opacity: var(--md-sys-state-dragged-state-layer-opacity);
+@mixin add-state-active() {
+  &:active,
+  &.fafn-is-pressed {
+    .fafn-state-layer {
+      opacity: var(--md-sys-state-pressed-state-layer-opacity);
+    }
+
+    @content;
   }
+}
 
-  &[disabled] {
+@mixin add-state-disabled() {
+  &[disabled],
+  &.fafn-is-disabled {
     cursor: not-allowed;
     pointer-events: none;
+    background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+
+    @content;
   }
 }
 
 @mixin add-state-layer() {
   position: relative;
 
-  [state-layer] {
+  .fafn-state-layer {
     position: absolute;
     width: 100%;
     height: 100%;

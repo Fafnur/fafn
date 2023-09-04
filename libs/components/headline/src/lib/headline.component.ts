@@ -1,10 +1,27 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+
+import { SizeDirective } from '@fafn/components';
 
 @Component({
-  selector: 'fafn-headline,[fafnHeadline]',
+  selector: 'fafn-headline',
   template: '<ng-content></ng-content>',
   styleUrls: ['./headline.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-headline',
+  },
+  hostDirectives: [
+    {
+      directive: SizeDirective,
+      inputs: ['size'],
+    },
+  ],
 })
-export class HeadlineComponent {}
+export class HeadlineComponent {
+  constructor() {
+    // override default value
+    inject(SizeDirective).size = 'large';
+  }
+}

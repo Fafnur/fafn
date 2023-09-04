@@ -1,0 +1,107 @@
+@use './state-layer' as state-layer;
+@use './typography' as typography;
+
+@mixin base($height: 40px) {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  height: $height;
+  border-radius: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border: none;
+  z-index: 0;
+  gap: 8px;
+  white-space: nowrap;
+  user-select: none;
+  background-color: transparent;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  .fafn-label {
+    position: relative;
+    z-index: 2;
+    @include typography.label-large();
+  }
+
+  @include state-layer.add-state-layer();
+}
+
+@mixin common-theme-state-layer($color) {
+  :is(&:hover, &.fafn-is-hovered, &:focus, &.fafn-is-focused, &:active, &.fafn-is-pressed) .fafn-state-layer {
+    background-color: var(#{$color});
+  }
+}
+
+@mixin common-theme($background, $color) {
+  @if $background {
+    background-color: var(#{$background});
+  }
+  color: var(#{$color});
+
+  @include common-theme-state-layer($color);
+}
+
+@mixin common-size($size, $height, $radius, $paddingLeft, $paddingRight: $paddingLeft) {
+  font-size: $size;
+  height: $height;
+  border-radius: $radius;
+  padding-left: $paddingLeft;
+  padding-right: $paddingRight;
+}
+
+@mixin fab-theme($background, $color) {
+  background-color: var(#{$background});
+  color: var(#{$color});
+
+  :is(&:hover, &.fafn-is-hovered, &:focus, &.fafn-is-focused, &:active, &.fafn-is-pressed) .fafn-state-layer {
+    background-color: var(#{$color});
+  }
+}
+
+@mixin fab-size($radius, $size, $padding) {
+  border-radius: var(#{$radius});
+  width: $size;
+  height: $size;
+  padding: $padding;
+}
+
+@mixin icon-size($size, $sizeIcon) {
+  height: $size;
+  width: $size;
+
+  &.fafn-inner {
+    height: $sizeIcon;
+    width: $sizeIcon;
+  }
+
+  .fafn-content {
+    height: $sizeIcon;
+    width: $sizeIcon;
+  }
+}
+
+@mixin icon-theme($background, $backgroundInvert, $icon, $iconInvert) {
+  background-color: var(#{$background});
+
+  @include common-theme-state-layer($icon);
+
+  &.fafn-toggle:not(.fafn-selected) {
+    background-color: var(#{$backgroundInvert});
+
+    @include common-theme-state-layer($iconInvert);
+  }
+
+  .fafn-content {
+    fill: var(#{$icon});
+    color: var(#{$icon});
+  }
+  &.fafn-toggle:not(.fafn-selected) .fafn-content {
+    fill: var(#{$iconInvert});
+    color: var(#{$iconInvert});
+  }
+}

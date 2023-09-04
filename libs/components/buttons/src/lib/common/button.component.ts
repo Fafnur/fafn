@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
-import { ButtonMode, ButtonSize } from '@fafn/components';
+import { DisabledDirective, ExtraSizeDirective, ModeDirective } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
@@ -10,11 +10,26 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-button',
+  },
+  hostDirectives: [
+    {
+      directive: ModeDirective,
+      inputs: ['mode'],
+    },
+    {
+      directive: ExtraSizeDirective,
+      inputs: ['size'],
+    },
+    {
+      directive: DisabledDirective,
+      inputs: ['disabled'],
+    },
+  ],
 })
 export class ButtonComponent extends ButtonBase {
-  @Input() size: ButtonSize;
-  @Input() mode: ButtonMode;
-
   constructor(elementRef: ElementRef) {
     super(elementRef);
   }
@@ -26,12 +41,27 @@ export class ButtonComponent extends ButtonBase {
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-button',
+  },
+  hostDirectives: [
+    {
+      directive: ModeDirective,
+      inputs: ['mode'],
+    },
+    {
+      directive: ExtraSizeDirective,
+      inputs: ['size'],
+    },
+    {
+      directive: DisabledDirective,
+      inputs: ['disabled'],
+    },
+  ],
 })
 export class AnchorComponent extends AnchorBase {
-  @Input() size: ButtonSize;
-  @Input() mode: ButtonMode;
-
-  constructor(elementRef: ElementRef, ngZone: NgZone) {
-    super(elementRef, ngZone);
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 }

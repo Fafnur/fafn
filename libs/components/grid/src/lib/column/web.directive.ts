@@ -1,14 +1,24 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+
+import { ColumnComponent } from './column.component';
+import { ColumnDirective } from './column.directive';
 
 @Directive({
-  selector: 'fafn-column[web],[fafnColumn][fafnWeb],fafn-column[web-offset],[fafnColumn][fafnWebOffset]',
+  // eslint-disable-next-line @angular-eslint/directive-selector
+  selector: 'fafn-column[web],fafn-column[web-offset]',
   standalone: true,
 })
-export class WebDirective {
-  @Input() web?: string | number;
-  @Input() fafnWeb?: string | number;
+export class WebDirective extends ColumnDirective {
+  @Input() set web(size: string | number | undefined | null) {
+    this.updateSize(size);
+  }
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input('web-offset') webOffset?: string | number;
-  @Input() fafnWebOffset?: string | number;
+  @Input('web-offset') set webOffset(offset: string | number | undefined | null) {
+    this.updateOffset(offset);
+  }
+
+  constructor(renderer: Renderer2, elementRef: ElementRef<ColumnComponent>) {
+    super(renderer, elementRef, 'web');
+  }
 }

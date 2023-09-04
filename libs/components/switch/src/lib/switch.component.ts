@@ -7,9 +7,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FafnIcon } from '@fafn/components/icon';
 
 @Component({
-  selector:
-    // eslint-disable-next-line max-len
-    'fafn-switch[formControl],[fafnSwitch][formControl],fafn-switch[formControlName],[fafnSwitch][formControlName],fafn-switch[ngModel],[fafnSwitch][ngModel]',
+  selector: 'fafn-switch[formControl],fafn-switch[formControlName],fafn-switch[ngModel]',
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -46,13 +44,17 @@ import { FafnIcon } from '@fafn/components/icon';
   ],
   standalone: true,
   imports: [FafnIcon, NgIf, NgClass],
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-switch',
+  },
 })
 export class SwitchComponent implements ControlValueAccessor {
-  @Input() icons: 'on' | 'off' | 'on-off' | undefined = undefined;
+  @Input() icons: 'on' | 'off' | 'on-off' | undefined;
 
   @ViewChild('input', { static: true }) input!: ElementRef<HTMLInputElement>;
 
-  icon: string | undefined = undefined;
+  icon: string | undefined;
 
   private onTouched!: () => void;
   private onChange!: (value: boolean | null) => void;

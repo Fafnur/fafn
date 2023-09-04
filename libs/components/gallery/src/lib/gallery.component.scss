@@ -1,43 +1,34 @@
-@use 'grid' as mixins;
+@use '../../../src/styles/mixins/device' as device;
 
-@keyframes fadeInOpacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+//@keyframes fadeInOpacity {
+//  0% {
+//    opacity: 0;
+//  }
+//  100% {
+//    opacity: 1;
+//  }
+//}
 
 :host {
   display: block;
   position: relative;
   height: 20rem;
 
-  @include mixins.media-web() {
-    height: 25rem;
-  }
-
-  fafn-gallery-navs,
-  [fafnGalleryNavs] {
+  .fafn-gallery-navs {
     opacity: 0;
   }
 
-  &:hover fafn-gallery-navs,
-  &:hover [fafnGalleryNavs] {
+  &:hover .fafn-gallery-navs {
     opacity: 1;
   }
 
-  @include mixins.media-handset() {
-    height: 20rem;
+  @include device.media-web() {
+    height: 25rem;
   }
 }
 
-fafn-gallery-slide,
-fafn-gallery-dots,
-fafn-gallery-navs,
-[fafnGallerySlide],
-[fafnGalleryDots],
-[fafnGalleryNavs] {
+.fafn-gallery-slide,
+.fafn-gallery-dots,
+.fafn-gallery-navs {
   z-index: 1;
 }

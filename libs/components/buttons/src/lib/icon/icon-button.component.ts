@@ -1,8 +1,12 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
-import { ButtonMode, IconSize } from '@fafn/components';
+import { DisabledDirective, SizeDirective } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
+import { IconInnerDirective } from './icon-inner.directive';
+import { IconModeDirective } from './icon-mode.directive';
+import { IconSelectedDirective } from './icon-selected.directive';
+import { IconToggleDirective } from './icon-toggle.directive';
 
 @Component({
   selector: 'button[fafn-icon-button],button[fafnIconButton]',
@@ -10,11 +14,38 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
   styleUrls: ['./icon-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-icon-button',
+  },
+  hostDirectives: [
+    {
+      directive: DisabledDirective,
+      inputs: ['disabled'],
+    },
+    {
+      directive: IconModeDirective,
+      inputs: ['mode'],
+    },
+    {
+      directive: SizeDirective,
+      inputs: ['size'],
+    },
+    {
+      directive: IconInnerDirective,
+      inputs: ['inner'],
+    },
+    {
+      directive: IconToggleDirective,
+      inputs: ['toggle'],
+    },
+    {
+      directive: IconSelectedDirective,
+      inputs: ['selected'],
+    },
+  ],
 })
 export class IconButtonComponent extends ButtonBase {
-  @Input() size: IconSize;
-  @Input() mode: ButtonMode;
-
   constructor(elementRef: ElementRef) {
     super(elementRef);
   }
@@ -26,12 +57,39 @@ export class IconButtonComponent extends ButtonBase {
   styleUrls: ['./icon-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-icon-button',
+  },
+  hostDirectives: [
+    {
+      directive: DisabledDirective,
+      inputs: ['disabled'],
+    },
+    {
+      directive: IconModeDirective,
+      inputs: ['mode'],
+    },
+    {
+      directive: SizeDirective,
+      inputs: ['size'],
+    },
+    {
+      directive: IconInnerDirective,
+      inputs: ['inner'],
+    },
+    {
+      directive: IconToggleDirective,
+      inputs: ['toggle'],
+    },
+    {
+      directive: IconSelectedDirective,
+      inputs: ['selected'],
+    },
+  ],
 })
 export class IconAnchorComponent extends AnchorBase {
-  @Input() size: IconSize;
-  @Input() mode: ButtonMode;
-
-  constructor(elementRef: ElementRef, ngZone: NgZone) {
-    super(elementRef, ngZone);
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 }

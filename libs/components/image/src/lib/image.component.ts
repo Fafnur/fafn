@@ -6,5 +6,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./image.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-image',
+  },
 })
 export class ImageComponent {}

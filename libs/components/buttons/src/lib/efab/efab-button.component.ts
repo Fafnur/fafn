@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef } from '@angular/core';
 
-import { FabColor } from '@fafn/components';
+import { ColorDirective, LowerDirective } from '@fafn/components';
 
 import { AnchorBase, ButtonBase } from '../base/button-base';
 
@@ -10,26 +10,50 @@ import { AnchorBase, ButtonBase } from '../base/button-base';
   styleUrls: ['./efab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-efab',
+  },
+  hostDirectives: [
+    {
+      directive: ColorDirective,
+      inputs: ['color'],
+    },
+    {
+      directive: LowerDirective,
+      inputs: ['lower'],
+    },
+  ],
 })
 export class EFabButtonComponent extends ButtonBase {
-  @Input() color: FabColor;
-
   constructor(elementRef: ElementRef) {
     super(elementRef);
   }
 }
 
 @Component({
-  selector: 'a[fafn-efab],a[fafnEfab]',
+  selector: 'a[fafn-efab],button[fafnEfab]',
   templateUrl: './efab-button.component.html',
   styleUrls: ['./efab-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-efab',
+  },
+  hostDirectives: [
+    {
+      directive: ColorDirective,
+      inputs: ['color'],
+    },
+    {
+      directive: LowerDirective,
+      inputs: ['lower'],
+    },
+  ],
 })
 export class EFabAnchorComponent extends AnchorBase {
-  @Input() color: FabColor;
-
-  constructor(elementRef: ElementRef, ngZone: NgZone) {
-    super(elementRef, ngZone);
+  constructor(elementRef: ElementRef) {
+    super(elementRef);
   }
 }

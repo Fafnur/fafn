@@ -8,12 +8,16 @@ import { GallerySlideTitleComponent } from '../gallery-slide-title/gallery-slide
 import { BackgroundImagePipe } from './background-image.pipe';
 
 @Component({
-  selector: 'fafn-gallery-slide,[fafnGallerySlide]',
+  selector: 'fafn-gallery-slide',
   templateUrl: './gallery-slide.component.html',
   styleUrls: ['./gallery-slide.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgStyle, BackgroundImagePipe, GallerySlideTitleComponent, GallerySlideImageComponent],
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-gallery-slide',
+  },
 })
 export class GallerySlideComponent {
   @Input() slide!: GallerySlide;

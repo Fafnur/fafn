@@ -1,28 +1,10 @@
-@use 'sass:math' as math;
-
 :host {
-  $gutter: calc(-1 * var(--fafn-gutter, 1rem));
-
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: $gutter;
-  margin-right: $gutter;
 
-  & ::ng-deep > * {
-    padding: 0 var(--fafn-gutter, 1rem);
-  }
-
-  &[no-gutter],
-  &[fafnNoGutter] {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  &[no-gutter],
-  &[fafnNoGutter] {
-    ::ng-deep > * {
-      padding: 0;
-    }
+  &:not(.fafn-no-gutter) {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
   }
 }
