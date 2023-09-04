@@ -2,6 +2,7 @@
   display: inline-block;
   width: 24px;
   height: 24px;
+  line-height: 1;
   user-select: none;
 
   &:not(.fafn-with-colors) {
@@ -13,7 +14,6 @@
     font-weight: normal;
     font-style: normal;
     font-size: 24px;
-    line-height: 1;
     letter-spacing: normal;
     text-transform: none;
     white-space: nowrap;

@@ -18,6 +18,7 @@
   white-space: nowrap;
   user-select: none;
   background-color: transparent;
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -78,7 +79,7 @@
     width: $sizeIcon;
   }
 
-  .fafn-icon {
+  .fafn-content {
     height: $sizeIcon;
     width: $sizeIcon;
   }
@@ -86,14 +87,21 @@
 
 @mixin icon-theme($background, $backgroundInvert, $icon, $iconInvert) {
   background-color: var(#{$background});
+
+  @include common-theme-state-layer($icon);
+
   &.fafn-toggle:not(.fafn-selected) {
     background-color: var(#{$backgroundInvert});
+
+    @include common-theme-state-layer($iconInvert);
   }
 
-  .fafn-icon {
+  .fafn-content {
     fill: var(#{$icon});
+    color: var(#{$icon});
   }
-  &.fafn-toggle:not(.fafn-selected) .fafn-icon {
+  &.fafn-toggle:not(.fafn-selected) .fafn-content {
     fill: var(#{$iconInvert});
+    color: var(#{$iconInvert});
   }
 }

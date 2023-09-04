@@ -34,7 +34,7 @@
   }
 
   &.fafn-mode-text {
-    @include button.common-theme-state-layer(--md-sys-color-primary);
+    @include button.common-theme(false, --md-sys-color-primary);
 
     &[disabled],
     &.fafn-is-disabled {

@@ -4,13 +4,17 @@
 :host {
   @include button.base(48px);
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   padding: 4px;
   border-radius: var(--md-sys-shape-corner-full);
 
   &.fafn-inner {
     padding: 0;
+  }
+
+  .fafn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   //:host-context(fafn-control) {
@@ -43,63 +47,32 @@
 
   &.fafn-mode-filled-tonal {
     @include button.icon-theme(
-      --md-sys-color-on-secondary-container,
-      --md-sys-color-on-surface-variant,
       --md-sys-color-secondary-container,
-      --md-sys-color-surface-container-highest
+      --md-sys-color-surface-container-highest,
+      --md-sys-color-on-secondary-container,
+      --md-sys-color-on-surface-variant
     );
   }
 
   &.fafn-mode-outlined {
     border-style: solid;
     border-width: 1px;
+    border-color: var(--md-sys-color-outline);
+
+    .fafn-content {
+      color: var(--md-sys-color-on-surface-variant);
+      fill: var(--md-sys-color-on-surface-variant);
+    }
+
+    @include button.common-theme-state-layer(--md-sys-color-on-surface-variant);
 
     &.fafn-selected {
-      border-color: var(--md-sys-color-inverse-surface);
-    }
-    .fafn-icon {
-      color: var(--md-sys-color-on-surface-variant);
-    }
-    &.fafn-selected .fafn-icon {
-      color: var(--md-sys-color-inverse-on-surface);
-    }
-
-    &:hover,
-    &.fafn-is-hovered {
-      .fafn-state-layer {
-        background-color: var(--md-sys-color-on-surface-variant);
-      }
-
-      &.fafn-selected .fafn-state-layer {
-        background-color: var(--md-sys-color-inverse-on-surface);
-      }
-
-      .fafn-icon {
-        color: var(--md-sys-color-on-surface-variant);
-      }
-
-      &.fafn-selected .fafn-icon {
+      .fafn-content {
         color: var(--md-sys-color-inverse-on-surface);
-      }
-    }
-
-    &:focus,
-    &.fafn-is-focused {
-      .fafn-state-layer {
-        background-color: var(--md-sys-color-surface-variant);
+        fill: var(--md-sys-color-inverse-on-surface);
       }
 
-      &.fafn-selected .fafn-state-layer {
-        background-color: var(--md-sys-color-inverse-on-surface);
-      }
-
-      .fafn-icon {
-        color: var(--md-sys-color-on-surface-variant);
-      }
-
-      &.fafn-selected .fafn-icon {
-        color: var(--md-sys-color-inverse-on-surface);
-      }
+      @include button.common-theme-state-layer(--md-sys-color-inverse-surface);
     }
 
     &[disabled],
@@ -110,11 +83,20 @@
   }
 
   &.fafn-mode-standard {
-    .fafn-icon {
+    .fafn-content {
+      color: var(--md-sys-color-on-surface-variant);
       fill: var(--md-sys-color-on-surface-variant);
     }
-    &.fafn-selected .fafn-icon {
-      fill: var(--md-sys-color-primary);
+
+    @include button.common-theme-state-layer(--md-sys-color-on-surface-variant);
+
+    &.fafn-selected {
+      .fafn-content {
+        color: var(--md-sys-color-primary);
+        fill: var(--md-sys-color-primary);
+      }
+
+      @include button.common-theme-state-layer(--md-sys-color-primary);
     }
 
     &[disabled],
@@ -145,8 +127,9 @@
     pointer-events: none;
     background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
 
-    .fafn-icon {
-      fill: rgba(var(--md-sys-color-on-surface-rgba), 0.12);
+    .fafn-content {
+      color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
+      fill: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
     }
   }
 }
