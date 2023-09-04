@@ -1,16 +1,14 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[input-prefix],[fafnInputPrefix]',
   standalone: true,
 })
-export class InputPrefixDirective implements OnInit {
-  constructor(
-    private readonly element: ElementRef<HTMLElement>,
-    private readonly renderer: Renderer2,
-  ) {}
+export class InputPrefixDirective {
+  @Input('input-prefix') inputPrefix: boolean | string | undefined | null;
 
-  ngOnInit(): void {
-    this.renderer.setStyle(this.element.nativeElement, 'marginLeft', '12px');
+  @HostBinding('class.fafn-input-prefix') get isPrefix(): boolean {
+    return coerceBooleanProperty(this.inputPrefix);
   }
 }

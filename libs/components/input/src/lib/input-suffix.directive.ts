@@ -1,16 +1,14 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[input-suffix],[fafnInputSuffix]',
   standalone: true,
 })
-export class InputSuffixDirective implements OnInit {
-  constructor(
-    private readonly element: ElementRef<HTMLElement>,
-    private readonly renderer: Renderer2,
-  ) {}
+export class InputSuffixDirective {
+  @Input('input-suffix') inputSuffix: boolean | string | undefined | null;
 
-  ngOnInit(): void {
-    this.renderer.setStyle(this.element.nativeElement, 'marginRight', '12px');
+  @HostBinding('class.fafn-input-suffix') get isSuffix(): boolean {
+    return coerceBooleanProperty(this.inputSuffix);
   }
 }

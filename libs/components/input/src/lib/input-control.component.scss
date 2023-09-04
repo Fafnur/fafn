@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
 
-  &.is-disabled {
+  &.fafn-is-disabled {
     cursor: not-allowed;
     pointer-events: none;
     color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
@@ -44,7 +44,7 @@
 
   &.is-pressed,
   &.is-value {
-    ::ng-deep {
+    ::ng-deep input {
       opacity: 1;
     }
   }
@@ -86,7 +86,14 @@
   //  opacity: var(--md-sys-state-dragged-state-layer-opacity);
   //}
 
-  :host-context(fafn-control.is-disabled, fafn-control[disabled]) {
+  :host-context(fafn-control.fafn-is-disabled, fafn-control[disabled]) {
     background-color: rgba(var(--md-sys-color-on-surface-rgba), 0.04);
   }
+}
+
+.fafn-input-prefix {
+  margin-left: 12px;
+}
+.fafn-input-suffix {
+  margin-right: 12px;
 }
