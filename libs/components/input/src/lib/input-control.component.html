@@ -1,8 +1,10 @@
-<div class="fafn-input-container">
+<div class="fafn-container">
   <ng-content select="[input-prefix],[fafnInputPrefix]"></ng-content>
-  <div class="fafn-input-box">
+  <div class="fafn-box">
     <ng-content select="label[fafnLabel],fafn-label"></ng-content>
-    <ng-content select="input[fafnInput],fafn-input"></ng-content>
+    <div class="fafn-input">
+      <ng-content select="input[fafnInput],fafn-input"></ng-content>
+    </div>
   </div>
   <ng-content select="[input-suffix],[fafnInputSuffix]"></ng-content>
 </div>

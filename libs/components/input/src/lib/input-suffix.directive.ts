@@ -1,14 +1,11 @@
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Directive } from '@angular/core';
 
 @Directive({
   selector: '[input-suffix],[fafnInputSuffix]',
   standalone: true,
+  // eslint-disable-next-line @angular-eslint/no-host-metadata-property
+  host: {
+    class: 'fafn-input-suffix',
+  },
 })
-export class InputSuffixDirective {
-  @Input('input-suffix') inputSuffix: boolean | string | undefined | null;
-
-  @HostBinding('class.fafn-input-suffix') get isSuffix(): boolean {
-    return coerceBooleanProperty(this.inputSuffix);
-  }
-}
+export class InputSuffixDirective {}
