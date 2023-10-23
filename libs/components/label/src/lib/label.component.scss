@@ -1,7 +1,7 @@
 @use '../../../src/styles/mixins/typography' as typography;
 
 :host {
-  :host-context(fafn-control) {
+  :host-context(.fafn-input-control) {
     position: absolute;
     z-index: 0;
     margin: auto;
@@ -13,12 +13,12 @@
     @include typography.body-large();
   }
 
-  :host-context(fafn-control:is(.is-pressed, .is-value)) {
+  :host-context(.fafn-input-control.is-pressed, .fafn-input-control.is-value) {
     transform: translateY(8px);
     @include typography.body-small();
   }
 
-  :host-context(fafn-control.is-disabled) {
+  :host-context(.fafn-input-control.fafn-is-disabled) {
     color: rgba(var(--md-sys-color-on-surface-rgba), 0.38);
   }
 }
