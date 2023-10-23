@@ -4,8 +4,7 @@
     "defaultBase": "develop"
   },
   "cli": {
-    "packageManager": "yarn",
-    "defaultCollection": "@nx/angular"
+    "packageManager": "yarn"
   },
   "targetDefaults": {
     "build": {
@@ -43,26 +42,20 @@
       "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "none"
+      "e2eTestRunner": "none",
+      "projectNameAndRootFormat": "derived"
     },
     "@nx/angular:library": {
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "projectNameAndRootFormat": "derived"
     },
     "@nx/angular:component": {
       "style": "scss",
       "changeDetection": "OnPush",
       "standalone": true
     },
-    "@schematics/angular:component": {
-      "style": "scss",
-      "changeDetection": "OnPush",
-      "standalone": true
-    },
     "@nx/angular:pipe": {
-      "standalone": true
-    },
-    "@schematics/angular:pipe": {
       "standalone": true
     }
   },
