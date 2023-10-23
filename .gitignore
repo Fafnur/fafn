@@ -54,3 +54,5 @@ junit.xml
 /apps/**/dynamic-routes.txt
 /apps/**/sitemap.xml
 
+
+.nx/cache
