@@ -1,10 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+import { EnvironmentProviders, importProvidersFrom, Injectable, Provider } from '@angular/core';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
 
-/**
- * Hammer config for application
- * @publicApi
- */
 @Injectable()
 export class HammerConfig extends HammerGestureConfig {
   override overrides = {
@@ -14,7 +10,12 @@ export class HammerConfig extends HammerGestureConfig {
   };
 }
 
-export const HAMMER_GESTURE_CONFIG_PROVIDER = {
-  provide: HAMMER_GESTURE_CONFIG,
-  useClass: HammerConfig,
-};
+export function provideHammer(): (Provider | EnvironmentProviders)[] {
+  return [
+    importProvidersFrom(HammerModule),
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig,
+    },
+  ];
+}

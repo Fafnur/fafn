@@ -10,7 +10,7 @@ export const rule = ESLintUtils.RuleCreator(() => __filename)({
     type: 'suggestion',
     docs: {
       description: 'Classes decorated with @Component must have prefix "Fafn" (or custom) in their name.',
-      recommended: 'error',
+      recommended: 'recommended',
     },
     schema: [
       {

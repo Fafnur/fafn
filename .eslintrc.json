@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort", "import", "jsdoc", "@nx"],
+  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort", "import", "@angular-eslint/eslint-plugin-template", "@nx", "jsdoc"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

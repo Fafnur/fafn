@@ -59,8 +59,11 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const prefers = this.document.defaultView?.matchMedia('(prefers-color-scheme: dark)').matches;
-    this.isDark = this.localStorageSync.getItem('themePreference') ?? prefers ?? false;
+    const prefers =
+      typeof this.document.defaultView?.matchMedia === 'function'
+        ? this.document.defaultView?.matchMedia('(prefers-color-scheme: dark)')?.matches
+        : false;
+    this.isDark = this.localStorageSync.getItem('themePreference') ?? prefers;
     this.document.documentElement.setAttribute('data-theme', this.isDark ? 'dark' : 'light');
     this.control = new FormControl<boolean>(this.isDark, { nonNullable: true });
 
