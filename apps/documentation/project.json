@@ -5,20 +5,39 @@
   "prefix": "fafn",
   "sourceRoot": "apps/documentation/src",
   "tags": [],
+  "i18n": {
+    "sourceLocale": "en-US",
+    "locales": {
+      "ru": {
+        "translation": "apps/documentation/src/i18n/messages.xlf",
+        "baseHref": ""
+      }
+    }
+  },
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/documentation",
         "index": "apps/documentation/src/index.html",
-        "main": "apps/documentation/src/main.ts",
+        "browser": "apps/documentation/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/documentation/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
         "assets": ["apps/documentation/src/favicon.ico", "apps/documentation/src/assets"],
         "styles": ["apps/documentation/src/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["node_modules", "./"]
+        },
         "scripts": [],
-        "allowedCommonJsDependencies": ["realistic-structured-clone"]
+        "allowedCommonJsDependencies": ["realistic-structured-clone", "hammerjs"],
+        "localize": ["ru"],
+        "server": "apps/documentation/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/web/server.ts"
+        }
       },
       "configurations": {
         "production": {
@@ -38,15 +57,13 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "sourceMap": true
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "sourceMap": true
         }
       },
       "defaultConfiguration": "production"
@@ -55,10 +72,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "documentation:build:production"
+          "buildTarget": "documentation:build:production"
         },
         "development": {
-          "browserTarget": "documentation:build:development"
+          "buildTarget": "documentation:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -66,7 +83,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "documentation:build"
+        "buildTarget": "documentation:build"
       }
     },
     "lint": {
@@ -80,14 +97,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/documentation/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/documentation/jest.config.ts"
       }
     },
     "serve-static": {

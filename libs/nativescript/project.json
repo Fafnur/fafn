@@ -10,8 +10,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/nativescript/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": true
+        "project": "libs/nativescript/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -27,14 +26,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/nativescript/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "libs/nativescript/jest.config.ts"
       }
     },
     "lint": {
