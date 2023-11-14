@@ -36,7 +36,7 @@
         "server": "apps/documentation/src/main.server.ts",
         "prerender": true,
         "ssr": {
-          "entry": "apps/web/server.ts"
+          "entry": "apps/documentation/server.ts"
         }
       },
       "configurations": {
